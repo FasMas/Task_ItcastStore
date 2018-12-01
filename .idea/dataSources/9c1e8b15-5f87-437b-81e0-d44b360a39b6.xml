@@ -1168,7 +1168,7 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="282" name="prduct_id">
+    <column id="292" parent="282" name="product_id">
       <Position>2</Position>
       <Comment>商品ID，关联products表中的主键</Comment>
       <DataType>varchar(100)|0s</DataType>
@@ -1183,7 +1183,7 @@
     </column>
     <key id="294" parent="282" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>prduct_id</ColNames>
+      <ColNames>product_id</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="295" parent="283" name="id">
@@ -1255,7 +1255,7 @@
       <DataType>double|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="306" parent="284" name="catagory">
+    <column id="306" parent="284" name="category">
       <Position>4</Position>
       <Comment>商品分类</Comment>
       <DataType>varchar(40)|0s</DataType>

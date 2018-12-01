@@ -6,6 +6,37 @@
 
 - [ ] 项目结构图
 
+* 网上书城前台网站
+	* 用户操作
+		* 用户注册
+		* 用户登录
+		* 用户信息修改
+		* 用户购买流程
+		* 订单查询
+	* 图书浏览
+		* 按类别浏览图书
+		* 按图片名称搜索图书
+		* 本周热卖［可选］
+		* 图书公告栏［拓展］
+		* 首页轮播图［拓展］
+&emsp;
+* 网上书城后台管理系统
+	* 商品管理
+		* 添加商品
+		* 编辑商品
+		* 删除商品
+		* 查询商品
+	* 销售榜单
+		* 下载销售榜单［可选］
+	* 公告管理
+		* 添加公告［拓展］
+		* 编辑公告［拓展］
+		* 删除公告［拓展］
+		* 查询公告［拓展］
+	* 订单管理
+		* 删除订单
+		* 查询订单
+
 ## 项目预览
 
 &emsp;
@@ -23,7 +54,7 @@
 # create database itcaststore;
 # use itcaststore;
 
-CREATE TABLE users
+create TABLE users
 (
     id int(11) PRIMARY KEY NOT NULL COMMENT '系统自动编号、自增' AUTO_INCREMENT,
     userName varchar(20) NOT NULL COMMENT '用户名称',
@@ -39,19 +70,19 @@ CREATE TABLE users
 );
 ALTER TABLE users COMMENT = '用户表';
 
-CREATE TABLE products
+create TABLE products
 (
     id varchar(100) PRIMARY KEY NOT NULL COMMENT '商品ID',
     name varchar(40) COMMENT '商品名称',
     price double COMMENT '商品价格',
-    catagory varchar(40) COMMENT '商品分类',
+    category varchar(40) COMMENT '商品分类',
     pnum int(11) COMMENT '商品库存量',
     imgUrl varchar(100) COMMENT '商品图片地址',
     description varchar(255) COMMENT '商品描述'
 );
 ALTER TABLE products COMMENT = '产品表';
 
-CREATE TABLE orders
+create TABLE orders
 (
     id varchar(100) NOT NULL COMMENT '订单ID',
     money double COMMENT '订单价格',
@@ -64,7 +95,7 @@ CREATE TABLE orders
 );
 ALTER TABLE orders COMMENT = '订单表';
 
-CREATE TABLE orderItems
+create TABLE orderItems
 (
     order_id varchar(100) NOT NULL COMMENT '订单ID，关联orders表中的主键',
     prduct_id varchar(100) PRIMARY KEY NOT NULL COMMENT '商品ID，关联products表中的主键',
@@ -72,7 +103,7 @@ CREATE TABLE orderItems
 );
 ALTER TABLE orderItems COMMENT = '订单条目表';
 
-CREATE TABLE notice
+create TABLE notice
 (
     n_id int PRIMARY KEY NOT NULL COMMENT '消息ID',
     title varchar(10) COMMENT '公告标题',
@@ -80,4 +111,55 @@ CREATE TABLE notice
     n_time varchar(18) COMMENT '公告的创建时间'
 );
 ALTER TABLE notice COMMENT = '公告栏信息';
+
 ```
+
+# 项目结构
+
+## 前台
+
+### 用户注册功能
+
+* web/servlet.client/RegisterServlet.java
+* service/UserService.java
+* utils/MailUtils.java
+&emsp;
+* client/register.jsp
++ client/register_success.jsp
+
+### 用户登录功能
+
+* web/servlet/client/LoginServlet.java
+* service/UserService.java
+* dao/UserDao.java
+&emsp;
+* client/login.jsp
+
+### 购物车模块
+
+* web/servlet/client/AddCartServlet.java
+* web/servlet/client/ChangeCartServlet.java
+&emsp;
+* client/cart.jsp
+
+### 订单相关模块
+
+* web/servlet/client/CreateOrderServlet.java
+* web/servlet/client/ShowProductByPage.java
+&emsp;
+* client/order.jsp
+* menu_search.jsp
+
+### 图书搜索功能
+
+* web/servlet/client/MenuSearchServlet.java
+&emsp;
+* menu_search.jsp
+* product_search_list.jsp
+
+### 公告板和本周热卖功能
+
+* web/servlet/client/ShowIndexServlet.java
+* dao/???Dao.java
+&emsp;
+* index.jsp

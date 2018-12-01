@@ -8,7 +8,20 @@
           <element id="module-output" name="Task_ItcastStore" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="JavaWeb" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/annotations-16.0.2.jar" />
+          <element id="library" level="application" name="com.mchange:c3p0:0.9.5.2" />
+          <element id="library" level="application" name="javax.mail:javax.mail-api:1.6.2" />
+          <element id="library" level="application" name="commons-io:commons-io:2.6" />
+          <element id="library" level="application" name="commons-beanutils:commons-beanutils:1.9.3" />
+          <element id="library" level="application" name="commons-dbutils:commons-dbutils:1.7" />
+          <element id="library" level="application" name="commons-fileupload:commons-fileupload:Latest" />
+          <element id="library" level="application" name="mysql:mysql-connector-java:8.0.13" />
+          <element id="library" level="application" name="javax.servlet.jsp.jstl:jstl:1.2" />
+          <element id="library" level="application" name="org.apache.taglibs:taglibs-standard-impl:1.2.5" />
+          <element id="library" level="application" name="org.jetbrains:annotations:16.0.2" />
+          <element id="library" level="application" name="org.apache.taglibs:taglibs-standard-spec:1.2.5" />
+          <element id="library" level="application" name="org.apache.taglibs:taglibs-standard-jstlel:1.2.5" />
+          <element id="library" level="application" name="org.apache.taglibs:taglibs-standard-compat:1.2.5" />
         </element>
       </element>
     </root>
