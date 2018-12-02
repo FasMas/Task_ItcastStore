@@ -93,7 +93,7 @@ DROP TABLE IF EXISTS `user`;
 
 create TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(20) NOT NULL,
+  `userName` varchar(20) NOT NULL,
   `PASSWORD` varchar(20) NOT NULL,
   `gender` varchar(2) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
@@ -108,7 +108,7 @@ create TABLE `user` (
 
 /*Data for the table `user` */
 
-insert  into `user`(`id`,`username`,`PASSWORD`,`gender`,`email`,`telephone`,`introduce`,`activeCode`,`state`,`type`,`registTime`) values (1,'admin','123456','男','huan9yun@163.com','13041019968','我是超级管理员，我可以登录后台管理系统','49338fdc-d8c9-46fa-8391-0fac7bf09707',1,'超级用户','2015-03-19 16:16:40'),(2,'madan','123456','女','huan9yun@163.com','13269219270','我是一个课程设计师','c1cc1229-f0ac-41b4-920c-dfef9f8a96a3',1,'普通用户','2015-03-19 18:12:36'),(3,'huangyun','123456','男','huan9yun@163.com','13041019968','大家好，我是黄云','d0827d1d-dc0d-4cdc-8710-678ce917880e',1,'普通用户','2015-03-20 17:36:38'),(4,'hanyongmeng','123456','男','itcast_hym@163.com','15207545526','课程设计师','da483412-1e34-43cf-aef2-4925748c811d',1,'普通用户','2016-01-21 15:19:32'),(5,'tianjiao','123456','男','hanyongmeng@126.cn','','','f8173f4f-debe-4d32-8117-b228d555d822',0,'普通用户','2016-02-18 15:32:01');
+insert  into `user`(`id`,`userName`,`PASSWORD`,`gender`,`email`,`telephone`,`introduce`,`activeCode`,`state`,`type`,`registTime`) values (1,'admin','123456','男','huan9yun@163.com','13041019968','我是超级管理员，我可以登录后台管理系统','49338fdc-d8c9-46fa-8391-0fac7bf09707',1,'超级用户','2015-03-19 16:16:40'),(2,'madan','123456','女','huan9yun@163.com','13269219270','我是一个课程设计师','c1cc1229-f0ac-41b4-920c-dfef9f8a96a3',1,'普通用户','2015-03-19 18:12:36'),(3,'huangyun','123456','男','huan9yun@163.com','13041019968','大家好，我是黄云','d0827d1d-dc0d-4cdc-8710-678ce917880e',1,'普通用户','2015-03-20 17:36:38'),(4,'hanyongmeng','123456','男','itcast_hym@163.com','15207545526','课程设计师','da483412-1e34-43cf-aef2-4925748c811d',1,'普通用户','2016-01-21 15:19:32'),(5,'tianjiao','123456','男','hanyongmeng@126.cn','','','f8173f4f-debe-4d32-8117-b228d555d822',0,'普通用户','2016-02-18 15:32:01');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

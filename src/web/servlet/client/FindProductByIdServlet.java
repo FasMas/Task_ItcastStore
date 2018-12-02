@@ -42,6 +42,7 @@ public class FindProductByIdServlet extends HttpServlet {
 			}
 		} catch(FindProductByIdException e) {
 			e.printStackTrace();
+			response.getWriter().println("警告：查找商品信息！");
 		}
 	}
 }

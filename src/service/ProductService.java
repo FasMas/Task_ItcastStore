@@ -22,7 +22,7 @@ public class ProductService {
 			dao.addProduct(product);
 		} catch(SQLException e) {
 			e.printStackTrace();
-			throw new AddProductException("警告：添加商品失败！");
+			throw new AddProductException("警告：添加商品信息！");
 		}
 	}
 
@@ -34,7 +34,7 @@ public class ProductService {
 			return dao.findAllProducts();
 		} catch(SQLException e) {
 			e.printStackTrace();
-			throw new ListProductException("警告：查询商品失败！");
+			throw new ListProductException("警告：查询商品信息！");
 		}
 	}
 
@@ -70,7 +70,7 @@ public class ProductService {
 			return dao.findProductById(id);
 		} catch(SQLException e) {
 			e.printStackTrace();
-			throw new FindProductByIdException("警告：查询商品失败！");
+			throw new FindProductByIdException("警告：查询商品信息！");
 		}
 	}
 
@@ -119,7 +119,7 @@ public class ProductService {
 			return dao.getWeekHotProducts();
 		} catch(SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException("警告：前台获取本周热销商品失败！");
+			throw new RuntimeException("警告：前台获取本周热销商品信息！");
 		}
 	}
 
@@ -155,7 +155,7 @@ public class ProductService {
 		try {
 			dao.deleteProductById(id);
 		} catch(SQLException e) {
-			throw new RuntimeException("警告：删除商品失败！");
+			throw new RuntimeException("警告：删除商品信息！");
 		}
 	}
 }

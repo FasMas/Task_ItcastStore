@@ -21,7 +21,7 @@
 			<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">订单编号：</td>
 			<td class="ta_01" bgColor="#ffffff">${order.id}</td>
 			<td align="center" bgColor="#f5fafe" class="ta_01">所属用户：</td>
-			<td class="ta_01" bgColor="#ffffff">${order.user.username }</td>
+			<td class="ta_01" bgColor="#ffffff">${order.user.userName }</td>
 		</tr>
 		<tr>
 			<td align="center" bgColor="#f5fafe" class="ta_01">收件人：</td>

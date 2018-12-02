@@ -45,11 +45,11 @@
 	<!--</servlet-mapping>-->
 
 	<!--<servlet>-->
-		<!--<servlet-name>ListProductServlet</servlet-name>-->
-		<!--<servlet-class>task_itcaststore.web.servlet.manager.ListProductServlet</servlet-class>-->
+		<!--<servlet-name>ListProductsServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.ListProductsServlett</servlet-class>-->
 	<!--</servlet>-->
 	<!--<servlet-mapping>-->
-		<!--<servlet-name>ListProductServlet</servlet-name>-->
+		<!--<servlet-name>ListProductsServlet</servlet-name>-->
 		<!--<url-pattern>/listProduct</url-pattern>-->
 	<!--</servlet-mapping>-->
 
@@ -208,7 +208,7 @@
 
 	<!--<servlet>-->
 		<!--<servlet-name>FindOrdersByConditionServlet</servlet-name>-->
-		<!--<servlet-class>task_itcaststore.web.servlet.manager.FindOrderByManyConditionServlet</servlet-class>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.FindOrdersByManyConditionServlet</servlet-class>-->
 	<!--</servlet>-->
 	<!--<servlet-mapping>-->
 		<!--<servlet-name>FindOrdersByConditionServlet</servlet-name>-->
@@ -262,79 +262,79 @@
 
 	<!--servlet /manager-->
 
-	<servlet>
-		<servlet-name>ListNoticeServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.manager.ListNoticeServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ListNoticeServlet</servlet-name>
-		<url-pattern>/manager/listNotice</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>ListNoticeServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.ListNoticesServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>ListNoticeServlet</servlet-name>-->
+		<!--<url-pattern>/manager/listNotice</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-	<servlet-name>AddNoticeServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.manager.AddNoticeServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>AddNoticeServlet</servlet-name>
-		<url-pattern>/manager/addNotice</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+	<!--<servlet-name>AddNoticeServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.AddNoticeServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>AddNoticeServlet</servlet-name>-->
+		<!--<url-pattern>/manager/addNotice</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>UpdateNoticeServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.manager.UpdateNoticeServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>UpdateNoticeServlet</servlet-name>
-		<url-pattern>/manager/updateNotice</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>UpdateNoticeServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.UpdateNoticeServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>UpdateNoticeServlet</servlet-name>-->
+		<!--<url-pattern>/manager/updateNotice</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>FindByIdNoticeServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.manager.FindByIdNoticeServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>FindByIdNoticeServlet</servlet-name>
-		<url-pattern>/manager/findByIdNotice</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>FindByIdNoticeServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.FindNoticeByIdServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>FindByIdNoticeServlet</servlet-name>-->
+		<!--<url-pattern>/manager/findByIdNotice</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>EditNoticeServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.manager.EditNoticeServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>EditNoticeServlet</servlet-name>
-		<url-pattern>/manager/editNotice</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>EditNoticeServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.EditNoticeServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>EditNoticeServlet</servlet-name>-->
+		<!--<url-pattern>/manager/editNotice</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>DeleteNoticeServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.manager.DelNoticeServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>DeleteNoticeServlet</servlet-name>
-		<url-pattern>/manager/deleteNotice</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>DeleteNoticeServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.DelNoticeServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>DeleteNoticeServlet</servlet-name>-->
+		<!--<url-pattern>/manager/deleteNotice</url-pattern>-->
+	<!--</servlet-mapping>-->
 
 	<!-- servlet view -->
 
-	<servlet>
-		<servlet-name>MenuSearchServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.MenuSearchServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>MenuSearchServlet</servlet-name>
-		<url-pattern>/menuSearch</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>MenuSearchServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.MenuSearchServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>MenuSearchServlet</servlet-name>-->
+		<!--<url-pattern>/menuSearch</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>ShowIndexServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.ShowIndexServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ShowIndexServlet</servlet-name>
-		<url-pattern>/showIndex</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>ShowIndexServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.ShowIndexServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>ShowIndexServlet</servlet-name>-->
+		<!--<url-pattern>/showIndex</url-pattern>-->
+	<!--</servlet-mapping>-->
 
 	<!-- welcome page -->
 

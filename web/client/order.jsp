@@ -28,7 +28,7 @@
 								<table width="100%" border="0" cellspacing="0">
 										<tr>
 											<td><img src="images/buy2.gif" width="635" height="38" />
-												<p>你好，${user.username}！欢迎您来到网上书城结算中心</p>
+												<p>你好，${user.userName}！欢迎您来到网上书城结算中心</p>
 											</td>
 										</tr>
 										<tr>
@@ -73,7 +73,7 @@
 													&nbsp;&nbsp;&nbsp;&nbsp;
 													<span id="receiverAddressMsg"></span>
 													<br/>
-												        收货人：&nbsp;&nbsp;&nbsp;&nbsp;<input id="receiverName" name="receiverName" type="text" value="${user.username}" style="width:150px" onkeyup="checkReceiverName();" />
+												        收货人：&nbsp;&nbsp;&nbsp;&nbsp;<input id="receiverName" name="receiverName" type="text" value="${user.userName}" style="width:150px" onkeyup="checkReceiverName();" />
 												    <span id="receiverNameMsg"></span>
 												    &nbsp;&nbsp;&nbsp;&nbsp;
 													<br/>

@@ -14,7 +14,7 @@ public class NoticeService {
 	/**
 	 * 后台系统，查询所有公告。
 	 */
-	public List<Notice> getAllNotices() {
+	public List<Notice> findAllNotices() {
 		try {
 			return dao.getAllNotices();
 		} catch (Exception e) {

@@ -33,8 +33,8 @@ public class ShowIndexServlet extends HttpServlet {
 
 		//查询本周热销的两条商品，传递到index.jsp页面进行展示
 		ProductService pService = new ProductService();
-		List<Object[]> pList = pService.getWeekHotProducts();
-		request.setAttribute("pList", pList);
+		List<Object[]> productList = pService.getWeekHotProducts();
+		request.setAttribute("productList", productList);
 
 		//请求转发
 		request.getRequestDispatcher("/client/index.jsp").forward(request, response);

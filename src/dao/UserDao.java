@@ -15,7 +15,7 @@ public class UserDao {
 	public void addUser(@NotNull User user) throws SQLException {
 		String sql = "insert into users(userName,password,gender,email,telephone,introduce,activeCode) values(?,?,?,?,?,?,?)";
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-		int row = runner.update(sql, user.getUsername(), user.getPassword(),
+		int row = runner.update(sql, user.getUserName(), user.getPassword(),
 				user.getGender(), user.getEmail(), user.getTelephone(),
 				user.getIntroduce(), user.getActiveCode());
 		if (row == 0) {

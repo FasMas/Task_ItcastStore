@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *	后台修改公告的Servlet
+ *	后台编辑公告的Servlet
  */
 @WebServlet(name = "EditNoticeServlet",urlPatterns = {"/manager/editNotice"})
 public class EditNoticeServlet extends HttpServlet {
@@ -22,24 +22,23 @@ public class EditNoticeServlet extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		NoticeService nService = new NoticeService();
-		Notice bean = new Notice();
+		NoticeService service = new NoticeService();
+		Notice notice = new Notice();
+
 		//获取表单参数
-		int n_id = Integer.parseInt(request.getParameter("id"));
-		String title = request.getParameter("title");
-		String details = request.getParameter("details");
+		int n_id = Integer.parseInt(request.getParameter("id").trim());
+		String title = request.getParameter("title").trim();
+		String details = request.getParameter("details").trim();
 
 		//将当前时间设为添加公告的时间
-		String t = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-
-		bean.setN_id(n_id);
-		bean.setTitle(title);
-		bean.setDetails(details);
-		bean.setN_time(t);
-
+		String time = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+		notice.setN_id(n_id);
+		notice.setTitle(title);
+		notice.setDetails(details);
+		notice.setN_time(time);
 		//调用dao层方法
-		nService.updateNotice(bean);
+		service.updateNotice(notice);
 
-		request.getRequestDispatcher("/manager/ListNoticeServlet").forward(request, response);
+		response.sendRedirect(getServletContext().getContextPath()+"/manager/listNotice");
 	}
 }

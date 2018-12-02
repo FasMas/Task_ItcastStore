@@ -10,23 +10,27 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 查找所有订单的Servlet
+ * 多条件查询订单的Servlet
  */
-@WebServlet(name = "FindOrdersServlet",urlPatterns = {"/manager/findOrders"})
-public class FindOrdersServlet extends HttpServlet {
+@WebServlet(name = "FindOrdersByConditionServlet",urlPatterns = {"/manager/findOrdersByCondition"})
+public class FindOrdersByConditionServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 创建Service层对象
+		//创建Service层对象
 		OrderService service = new OrderService();
-		// 调用Service层对象的findAllOrder()方法查询订单列表
-		List<Order> orderList = service.findAllOrders();
+		//获取订单编号和收件人名称
+		String id = request.getParameter("id").trim();
+		String receiverName = request.getParameter("receiverName").trim();
 
-		//将查询到的订单信息添加到request作用域
+		//调用Service层OrderService类的findOrderByManyCondition()方法查询数据
+		List<Order> orderList = service.findOrdersByCondition(id, receiverName);
+
+		//将查询结果添加到request作用域中
 		request.setAttribute("orders", orderList);
-		// 将请求转发到list.jsp页面
+		//请求转发到list.jsp页面，并将request请求和response响应也转发到该页面中
 		request.getRequestDispatcher("/admin/orders/list.jsp").forward(request, response);
 	}
 }

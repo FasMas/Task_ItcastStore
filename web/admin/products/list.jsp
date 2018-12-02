@@ -70,9 +70,9 @@
 								</td>
 								<td height="22" align="center" bgColor="#f5fafe" class="ta_01">价格区间(元)：</td>
 								<td class="ta_01" bgColor="#ffffff">
-									<input type="text" name="minprice" size="10" value="" />
+									<input type="text" name="minPrice" size="10" value="" />
 									-
-									<input type="text" name="maxprice" size="10" value="" />
+									<input type="text" name="maxPrice" size="10" value="" />
 								</td>
 							</tr>
 							<tr>

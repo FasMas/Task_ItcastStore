@@ -37,7 +37,7 @@
 																<tr>
 																	<td
 																		style="text-align:right; padding-top:5px; width:25%">用户名：</td>
-																	<td style="text-align:left"><input name="username"
+																	<td style="text-align:left"><input name="userName"
 																		type="text" class="textinput" />
 																	</td>
 																</tr>

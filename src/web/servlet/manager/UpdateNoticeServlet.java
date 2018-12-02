@@ -4,40 +4,38 @@ import task_itcaststore.domain.Notice;
 import task_itcaststore.service.NoticeService;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *
- *	后台修改公告的servlet
+ *	后台修改公告的Servlet
  */
-public class UpdateNoticeServlet extends HttpServlet{
-
+@WebServlet(name = "UpdateNoticeServlet",urlPatterns = {"/manager/updateNotice"})
+public class UpdateNoticeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.doPost(request, response);
 	}
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		NoticeService nService = new NoticeService();
-		Notice bean = new Notice();
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		NoticeService service = new NoticeService();
+		Notice notice = new Notice();
 		//获取表单参数
-		String title = request.getParameter("title");
-		String details = request.getParameter("details");
+		String title = request.getParameter("title").trim();
+		String details = request.getParameter("details").trim();
 
 		//将当前时间设为添加公告的时间
 		String t = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-		bean.setTitle(title);
-		bean.setDetails(details);
-		bean.setN_time(t);
+		notice.setTitle(title);
+		notice.setDetails(details);
+		notice.setN_time(t);
 		//调用dao层方法
-		nService.addNotice(bean);
+		service.addNotice(notice);
 
-		request.getRequestDispatcher("/manager/ListNoticeServlet").forward(request, response);
+		response.sendRedirect(getServletContext().getContextPath()+"/manager/listNotice");
 	}
 }

@@ -1,34 +1,40 @@
 package task_itcaststore.web.servlet.manager;
-import java.io.IOException;
-import java.util.List;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
 import task_itcaststore.domain.Product;
 import task_itcaststore.service.ProductService;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import java.io.IOException;
+import java.util.List;
+
+/**
+ * 多条件查询产品的Servlet
+ */
+@WebServlet(name = "FindProductsByConditionServlet",urlPatterns = {"/manager/findProductsByCondition"})
 public class FindProductsByConditionServlet extends HttpServlet {
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		//1.获取表单数据
-		String id = request.getParameter("id"); // 商品id
-		String name = request.getParameter("name"); // 商品名称
-		String category = request.getParameter("category"); // 商品类别
-		String minprice = request.getParameter("minprice"); // 最小价格
-		String maxprice = request.getParameter("maxprice"); // 最大价格
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 2.创建ProductService对象
 		ProductService service = new ProductService();
+		//1.获取表单数据
+		String id = request.getParameter("id").trim();
+		String name = request.getParameter("name").trim();
+		String category = request.getParameter("category");
+		String minPrice = request.getParameter("minPrice").trim();
+		String maxPrice = request.getParameter("maxPrice").trim();
+
 		// 3.调用service层用于条件查询的方法
-		List<Product> ps = service.findProductsByCondition(id, name,
-				category, minprice, maxprice);
+		List<Product> productList = service.findProductsByCondition(id, name,
+				category, minPrice, maxPrice);
+
 		// 4.将条件查询的结果放进request域中
-		request.setAttribute("ps", ps);
+		request.setAttribute("products", productList);
 		// 5.请求重定向到商品管理首页list.jsp页面
-		request.getRequestDispatcher("/admin/products/list.jsp").forward(
-				request, response);
+		request.getRequestDispatcher("/admin/products/list.jsp").forward(request, response);
 	}
 }

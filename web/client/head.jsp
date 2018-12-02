@@ -34,7 +34,7 @@ function confirm_logout() {
 				}else{
 				%>
 				| <a href="${pageContext.request.contextPath}/logout" onclick="return confirm_logout()">用户退出</a>
-				<br><br><br>欢迎您： ${user.username}
+				<br><br><br>欢迎您： ${user.userName}
 				<%
 				}
 				%>

@@ -13,7 +13,7 @@ public class User implements Serializable {
 	/** 用户编号 */
 	private int id;
 	/** 用户姓名 */
-	private String username;
+	private String userName;
 	/** 用户密码 */
 	private String password;
 	/** 用户性别 */
@@ -42,12 +42,12 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getPassword() {
@@ -125,6 +125,6 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + getId() + ", username=" + getUsername() + ", password=" + getPassword() + ", gender=" + getGender() + ", email=" + getEmail() + ", telephone=" + getTelephone() + ", introduce=" + getIntroduce() + ", type=" + getType() + "]";
+		return "User [id=" + getId() + ", userName=" + getUserName() + ", password=" + getPassword() + ", gender=" + getGender() + ", email=" + getEmail() + ", telephone=" + getTelephone() + ", introduce=" + getIntroduce() + ", type=" + getType() + "]";
 	}
 }

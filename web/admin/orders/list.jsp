@@ -93,7 +93,7 @@
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="15%">${order.receiverAddress }</td>
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="10%">${order.receiverPhone }</td>
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center">${order.money}</td>
-									<td width="8%" align="center">${order.user.username}</td>
+									<td width="8%" align="center">${order.user.userName}</td>
 									<td width="10%" align="center">${order.payState==0?"未支付":"已支付"}</td>
 									<td align="center" style="HEIGHT: 22px">
 										<a href="${pageContext.request.contextPath}/findOrderById?id=${order.id}&type=admin">

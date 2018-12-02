@@ -37,6 +37,7 @@ public class AddProductServlet extends HttpServlet {
 		Map<String, String> map = new HashMap<>();
 		map.put("id", IdUtils.getUUID());
 
+		//TODO 重构
 		DiskFileItemFactory dfif = new DiskFileItemFactory();
 		// 设置临时文件存储位置
 		dfif.setRepository(new File(this.getServletContext().getRealPath("/temp")));
@@ -85,7 +86,7 @@ public class AddProductServlet extends HttpServlet {
 			}
 		} catch(FileUploadException e) {
 			e.printStackTrace();
-			response.getWriter().println("警告：添加商品失败！");
+			response.getWriter().println("警告：添加商品信息！");
 		}
 
 		// 将数据封装到产品对象中
@@ -93,7 +94,7 @@ public class AddProductServlet extends HttpServlet {
 			BeanUtils.populate(product, map);
 		} catch(IllegalAccessException | InvocationTargetException e) {
 			e.printStackTrace();
-			response.getWriter().println("警告：添加商品失败！");
+			response.getWriter().println("警告：添加商品信息！");
 		}
 
 		//添加产品并重定向地址
@@ -105,7 +106,7 @@ public class AddProductServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/listProduct");
 		} catch(AddProductException e) {
 			e.printStackTrace();
-			response.getWriter().println("警告：添加商品失败！");
+			response.getWriter().println("警告：添加商品信息！");
 		}
 	}
 }

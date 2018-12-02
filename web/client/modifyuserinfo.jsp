@@ -57,7 +57,7 @@
 									</tr>
 									<tr>
 										<td style="text-align:right">会员名：</td>
-										<td style="padding-left:20px">${user.username }</td>
+										<td style="padding-left:20px">${user.userName }</td>
 										<td>&nbsp;</td>
 									</tr>
 									<tr>

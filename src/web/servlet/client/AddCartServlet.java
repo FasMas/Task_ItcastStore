@@ -45,7 +45,7 @@ public class AddCartServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/client/cart.jsp");
 		} catch(FindProductByIdException e) {
 			e.printStackTrace();
-			response.getWriter().println("警告：向购物车中添加商品失败！");
+			response.getWriter().println("警告：向购物车中添加商品信息！");
 		}
 	}
 }

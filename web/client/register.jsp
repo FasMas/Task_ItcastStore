@@ -39,7 +39,7 @@
 							</tr>
 							<tr>
 								<td style="text-align: right">用户名：</td>
-								<td><input type="text" class="textinput"  id="username" name="username" onkeyup="checkUsername();"/>
+								<td><input type="text" class="textinput"  id="userName" name="userName" onkeyup="checkUsername();"/>
 								</td>
 								<td colspan="2"><span id="usernameMsg"></span><font color="#999999">字母数字下划线1到10位, 不能是数字开头</font></td>
 							</tr>

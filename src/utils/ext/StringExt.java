@@ -19,14 +19,14 @@ public class StringExt {
 	 * 判断字符串是否为Null、为空。
 	 */
 	public static boolean isEmpty(String str) {
-		return str == null || str.equals("");
+		return str == null || "".equals(str);
 	}
 
 	/**
 	 * 判断字符串是否为Null、为空、为空格。
 	 */
 	public static boolean isSpace(String str) {
-		return str == null || str.trim().equals("");
+		return str == null || "".equals(str.trim());
 	}
 
 
