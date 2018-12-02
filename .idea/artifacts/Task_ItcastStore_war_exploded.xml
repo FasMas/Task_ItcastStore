@@ -18,7 +18,6 @@
           <element id="library" level="application" name="mysql:mysql-connector-java:8.0.13" />
           <element id="library" level="application" name="javax.servlet.jsp.jstl:jstl:1.2" />
           <element id="library" level="application" name="org.apache.taglibs:taglibs-standard-impl:1.2.5" />
-          <element id="library" level="application" name="org.jetbrains:annotations:16.0.2" />
           <element id="library" level="application" name="org.apache.taglibs:taglibs-standard-spec:1.2.5" />
           <element id="library" level="application" name="org.apache.taglibs:taglibs-standard-jstlel:1.2.5" />
           <element id="library" level="application" name="org.apache.taglibs:taglibs-standard-compat:1.2.5" />

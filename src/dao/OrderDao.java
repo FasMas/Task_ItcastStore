@@ -50,7 +50,7 @@ public class OrderDao {
 	/**
 	 * 查找用户所属订单。
 	 */
-	public List<Order> findOrderByUser(@NotNull final User user) throws SQLException {
+	public List<Order> findOrdersByUser(@NotNull final User user) throws SQLException {
 		String sql = "select * from orders where user_id=?";
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
 		return runner.query(sql, rs -> {
@@ -91,7 +91,7 @@ public class OrderDao {
 	/**
 	 * 多条件查询。
 	 */
-	public List<Order> findOrderByCondition(@Nullable String id, @Nullable String receiverName) throws SQLException {
+	public List<Order> findOrdersByCondition(@Nullable String id, @Nullable String receiverName) throws SQLException {
 		//1.创建集合对象，用于存储参数
 		List<Object> paramList = new ArrayList<>();
 		//2.定义查询sql
@@ -169,7 +169,7 @@ public class OrderDao {
 		user.setIntroduce(rs.getString("user.introduce"));
 		user.setPassword(rs.getString("user.password"));
 		user.setRegistTime(rs.getDate("user.registTime"));
-		user.setRole(rs.getString("user.role"));
+		user.setType(rs.getString("user.role"));
 		user.setState(rs.getInt("user.state"));
 		user.setTelephone(rs.getString("user.telephone"));
 		user.setUsername(rs.getString("user.username"));

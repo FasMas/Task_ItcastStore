@@ -3,6 +3,9 @@ package task_itcaststore.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 用户的实体类
+ */
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -23,8 +26,8 @@ public class User implements Serializable {
 	private String introduce;
 	/** 激活码 */
 	private String activeCode;
-	/** 用户角色 */
-	private String role;
+	/** 用户类型 */
+	private String type;
 	/** 用户激活状态 */
 	private int state;
 	/** 注册时间 */
@@ -95,12 +98,12 @@ public class User implements Serializable {
 		this.activeCode = activeCode;
 	}
 
-	public String getRole() {
-		return role;
+	public String getType() {
+		return type;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public void setType(String type){
+		this.type = type;
 	}
 
 	public int getState() {
@@ -122,6 +125,6 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + getId() + ", username=" + getUsername() + ", password=" + getPassword() + ", gender=" + getGender() + ", email=" + getEmail() + ", telephone=" + getTelephone() + ", introduce=" + getIntroduce() + ", role=" + getRole() + "]";
+		return "User [id=" + getId() + ", username=" + getUsername() + ", password=" + getPassword() + ", gender=" + getGender() + ", email=" + getEmail() + ", telephone=" + getTelephone() + ", introduce=" + getIntroduce() + ", type=" + getType() + "]";
 	}
 }

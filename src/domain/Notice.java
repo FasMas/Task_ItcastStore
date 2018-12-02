@@ -1,5 +1,8 @@
 package task_itcaststore.domain;
 
+/**
+ * 通知的实体类
+ */
 public class Notice {
 	private int n_id;
 	private String title;

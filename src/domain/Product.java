@@ -2,6 +2,9 @@ package task_itcaststore.domain;
 
 import java.io.Serializable;
 
+/**
+ * 商品的实体类
+ */
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 1L;

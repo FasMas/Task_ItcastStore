@@ -120,7 +120,7 @@
 								<td width="8%" align="center">删除</td>
 							</tr>
                             <!--  循环输出所有商品 -->
-							<c:forEach items="${ps}" var="p">
+							<c:forEach items="${productList}" var="p">
 								<tr onmouseover="this.style.backgroundColor = 'white'"
 									onmouseout="this.style.backgroundColor = '#F5FAFE';">
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">${p.id }</td>

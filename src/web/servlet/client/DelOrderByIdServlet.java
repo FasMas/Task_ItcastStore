@@ -1,41 +1,41 @@
 package task_itcaststore.web.servlet.client;
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
+import task_itcaststore.domain.enums.EUserType;
 import task_itcaststore.service.OrderService;
+import task_itcaststore.utils.ext.StringExt;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import java.io.IOException;
 /**
  * 删除订单
- * @author admin
- *
  */
+@WebServlet(name = "DelOrderByIdServlet",urlPatterns = {"/delOrderById_Admin"})
 public class DelOrderByIdServlet extends HttpServlet {
 	private static final long serialVersionUID = -742965707205621644L;
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 订单id
-		String id = request.getParameter("id");
+		String id = request.getParameter("id").trim();
 		// 已支付的订单带有type值为client的参数
-		String type = request.getParameter("type");
+		String type = request.getParameter("type").trim();
+
 		OrderService service = new OrderService();
-		if (type != null && type.trim().length() > 0) {
-			service.delOrderById(id);
-			if ("admin".equals(type)) {
-				request.getRequestDispatcher("/findOrders").forward(request, response);
-				return;
-			}
-		} else {
-			// 调用service层方法删除相应订单
-			service.delOrderByIdWithClient(id);
+
+		if(StringExt.equalsE(type, EUserType.Admin)){
+			//如果是超级用户
+			service.delOrderById_Admin(id);
+			request.getRequestDispatcher("/findOrders").forward(request, response);
+		}else{
+			//如果是普通用户
+			service.delOrderById_Client(id);
+			response.sendRedirect(request.getContextPath() + "/client/delOrderSuccess.jsp");
+			//request.getRequestDispatcher("/findOrdersByUser").forward(request, response);
 		}
-		//response.sendRedirect(request.getContextPath() + "/client/delOrderSuccess.jsp");
-		request.getRequestDispatcher("/findOrderByUser").forward(request, response);
-		return;
 	}
 }

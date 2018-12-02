@@ -1,12 +1,12 @@
 package task_itcaststore.web.servlet.manager;
-import java.io.IOException;
-import java.util.List;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
 import task_itcaststore.domain.Order;
 import task_itcaststore.service.OrderService;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+import java.io.IOException;
+import java.util.List;
 //查找所有订单
 public class FindOrdersServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -18,7 +18,7 @@ public class FindOrdersServlet extends HttpServlet {
 		// 创建Service层对象
 		OrderService service = new OrderService();
 		// 调用Service层对象的findAllOrder()方法查询订单列表
-		List<Order> orders = service.findAllOrder();
+		List<Order> orders = service.findAllOrders();
 		//将查询到的订单信息添加到request作用域
 		request.setAttribute("orders", orders);
 		// 将请求转发到list.jsp页面

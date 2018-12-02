@@ -4,7 +4,7 @@
 <head>
 <title>电子书城</title>
 <link rel="stylesheet" href="css/main.css" type="text/css" />
-<script type="text/javascript" src="js/my.js">
+<script type="text/javascript" src="js/change_second.js">
 </script>
 </head>
 <body class="main">

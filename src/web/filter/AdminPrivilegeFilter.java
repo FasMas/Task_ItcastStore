@@ -1,45 +1,38 @@
 package task_itcaststore.web.filter;
 
-import java.io.IOException;
+import task_itcaststore.domain.User;
+import task_itcaststore.domain.enums.EUserType;
+import task_itcaststore.utils.ext.StringExt;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-import task_itcaststore.domain.User;
-
+/**
+ * 判断用户权限的过滤器
+ */
+@WebFilter(filterName = "AdminPrivilegeFilter" ,urlPatterns = {"/admin/*"})
 public class AdminPrivilegeFilter implements Filter {
 
-	public void init(FilterConfig filterConfig) {
+	public void init(FilterConfig filterConfig) { }
 
-	}
-
-	public void doFilter(ServletRequest req, ServletResponse resp,
-			FilterChain chain) throws IOException, ServletException {
-		// 1 强制转换
-		HttpServletRequest request = (HttpServletRequest) req;
-		HttpServletResponse response = (HttpServletResponse) resp;
-
-		// 2判断是否具有权限
-		User user = (User) request.getSession().getAttribute("user");
-
-		if (user != null && "超级用户".equals(user.getRole())) {
-			// 3.放行
-			chain.doFilter(request, response);
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		// 强制转换
+		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+		HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+		// 判断是否具有权限
+		User user = (User) httpServletRequest.getSession().getAttribute("user");
+		//如果有权限，则放行
+		if(user != null && StringExt.equalsE(user.getType(), EUserType.Admin)) {
+			chain.doFilter(httpServletRequest, httpServletResponse);
 			return;
 		}
-
-		response.sendRedirect(request.getContextPath() + "/error/privilege.jsp");
-
+		//否则重定向到登录失败页
+		httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/error/privilege.jsp");
 	}
 
-	public void destroy() {
-
-	}
+	public void destroy() { }
 
 }

@@ -24,7 +24,7 @@ public class ListProductServlet extends HttpServlet {
 		ProductService service = new ProductService();
 		try {
 			// 2.调用service层用于查询所有商品的方法
-			List<Product> ps = service.listAll();
+			List<Product> ps = service.findAllProducts();
 			// 3.将查询出的所有商品放进request域中
 			request.setAttribute("ps", ps);
 			// 4.重定向到list.jsp页面

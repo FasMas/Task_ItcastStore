@@ -1,46 +1,42 @@
 package task_itcaststore.web.servlet.client;
 
-import java.io.IOException;
-import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import task_itcaststore.domain.Notice;
 import task_itcaststore.service.NoticeService;
 import task_itcaststore.service.ProductService;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import java.io.IOException;
+import java.util.List;
 /**
  *	前台页面展示的servlet
- *	1、展示最新添加或修改的一条公告
- *  2、展示本周热销商品
+ *	<ol>
+ *	    <li>展示最新添加或修改的一条公告。</li>
+ *  	<li>展示本周热销商品。</li>
+ *  </ol>
  */
-public class ShowIndexServlet extends HttpServlet{
+
+@WebServlet(name = "ShowIndexServlet",urlPatterns = {"/showIndex"})
+public class ShowIndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		this.doPost(req, resp);
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		this.doPost(request, response);
 	}
 
-	public void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//查询最近一条公告，传递到index.jsp页面进行展示
 		NoticeService nService = new NoticeService();
 		Notice notice = nService.getRecentNotice();
-		req.setAttribute("n", notice);
+		request.setAttribute("notice", notice);
 
 		//查询本周热销的两条商品，传递到index.jsp页面进行展示
 		ProductService pService = new ProductService();
-		List<Object[]> pList =  pService.getWeekHotProduct();
-		/*for(Object[] os:pList){
-			for(Object o:os){
-				System.out.println(o);
-			}
-			System.out.println("---------------------");
-		}*/
-		req.setAttribute("pList", pList);
+		List<Object[]> pList = pService.getWeekHotProducts();
+		request.setAttribute("pList", pList);
 
 		//请求转发
-		req.getRequestDispatcher("/client/index.jsp").forward(req, resp);
+		request.getRequestDispatcher("/client/index.jsp").forward(request, response);
 	}
 }

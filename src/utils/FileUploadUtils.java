@@ -2,34 +2,38 @@ package task_itcaststore.utils;
 
 import java.util.UUID;
 
+/**
+ * 文件上传的工具类
+ * @noinspection unused, WeakerAccess
+ */
 public class FileUploadUtils {
+
 	/**
-	 * 截取真实文件名
-	 *
-	 * @param fileName
-	 * @return
+	 * 得到真实的文件名（只有名字，没有路径）。
 	 */
-	public static String subFileName(String fileName) {
+	public static String getFileName(String filePath) {
 		// 查找最后一个 \出现位置
-		int index = fileName.lastIndexOf("\\");
-		if (index == -1) {
-			return fileName;
-		}
-		return fileName.substring(index + 1);
+		int index = filePath.lastIndexOf("\\");
+		if (index == -1)
+			return filePath;
+		return filePath.substring(index + 1);
 	}
 
-	// 获得随机UUID文件名
-	public static String generateRandonFileName(String fileName) {
+	/**
+	 * 生成随机的文件名。
+	 */
+	public static String generateRandomFileName(String fileName) {
+		String uuid = UUID.randomUUID().toString();
 		// 获得扩展名
 		int index = fileName.lastIndexOf(".");
-		if (index != -1) {
-			String ext = fileName.substring(index);
-			return UUID.randomUUID().toString() + ext;
-		}
-		return UUID.randomUUID().toString();
+		if (index != -1)
+			return uuid + fileName.substring(index);
+		return uuid;
 	}
 
-	// 获得hashcode生成二级目录
+	/**
+	 * 生成随机的文件目录（一级+二级）。
+	 */
 	public static String generateRandomDir(String uuidFileName) {
 		int hashCode = uuidFileName.hashCode();
 		// 一级目录

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import task_itcaststore.domain.Product;
 import task_itcaststore.service.ProductService;
-public class FindProductByManyConditionServlet extends HttpServlet {
+public class FindProductsByConditionServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doPost(request, response);
@@ -23,7 +23,7 @@ public class FindProductByManyConditionServlet extends HttpServlet {
 		// 2.创建ProductService对象
 		ProductService service = new ProductService();
 		// 3.调用service层用于条件查询的方法
-		List<Product> ps = service.findProductByManyCondition(id, name,
+		List<Product> ps = service.findProductsByCondition(id, name,
 				category, minprice, maxprice);
 		// 4.将条件查询的结果放进request域中
 		request.setAttribute("ps", ps);

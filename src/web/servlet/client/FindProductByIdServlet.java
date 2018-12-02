@@ -1,41 +1,46 @@
 package task_itcaststore.web.servlet.client;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import task_itcaststore.domain.Product;
+import task_itcaststore.domain.enums.EUserType;
 import task_itcaststore.exception.FindProductByIdException;
 import task_itcaststore.service.ProductService;
+import task_itcaststore.utils.ext.StringExt;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import java.io.IOException;
+
 /**
  * 根据商品id查找指定商品信息的servlet
  */
+@WebServlet(name = "FindProductByIdServlet",urlPatterns = {"/findProductById"})
 public class FindProductByIdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 得到商品的id
-		String id = request.getParameter("id");
-		// 获取type参数值，此处的type用于区别普通用户和超级用户
-		String type = request.getParameter("type");
+		String id = request.getParameter("id").trim();
+		// 获取得到用户类型
+		String type = request.getParameter("type").trim();
+
 		ProductService service = new ProductService();
 		try {
-			// 调用service层方法，通过id查找商品
 			Product p = service.findProductById(id);
-			request.setAttribute("p", p);
-			// 普通用户默认不传递type值，会跳转到info.jsp页面
-			if (type == null) {
-				request.getRequestDispatcher("/client/info.jsp").forward(request,response);
-				return;
+
+			if(StringExt.equalsE(type, EUserType.Admin)) {
+				//如果是超级用户，则调用service层方法，通过id查找商品
+				request.setAttribute("p", p);
+				request.getRequestDispatcher("/admin/products/edit.jsp").forward(request, response);
+			}else{
+				//如果是普通用户，则直接跳转到info.jsp页面
+				request.getRequestDispatcher("/client/info.jsp").forward(request, response);
 			}
-			request.getRequestDispatcher("/admin/products/edit.jsp").forward(request, response);
-			return;
-		} catch (FindProductByIdException e) {
+		} catch(FindProductByIdException e) {
 			e.printStackTrace();
 		}
 	}

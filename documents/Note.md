@@ -65,7 +65,7 @@ create TABLE users
     introduce varchar(100) COMMENT '用户简介',
     activeCode varchar(50) COMMENT '注册激活码',
     state int(11) DEFAULT 0 COMMENT '用户状态，1：激活，0：未激活',
-    role varchar(10) DEFAULT '普通用户' COMMENT '用户角色：普通用户、超级用户',
+    type varchar(10) DEFAULT '普通用户' COMMENT '用户角色：普通用户、超级用户',
     registTime timestamp NOT NULL COMMENT '注册时间'
 );
 ALTER TABLE users COMMENT = '用户表';

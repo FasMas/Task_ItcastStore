@@ -17,7 +17,7 @@ public class OrderItemDao {
 	/**
 	 * 添加订单项。
 	 */
-	public void addOrderItem(@NotNull Order order) throws SQLException {
+	public void addOrderItems(@NotNull Order order) throws SQLException {
 		// 1.生成sql语句
 		String sql = "insert into orderItems values(?,?,?)";
 
@@ -35,7 +35,7 @@ public class OrderItemDao {
 	/**
 	 * 根据订单查找订单项，并将订单项中商品查找到。
 	 */
-	public List<OrderItem> findOrderItem(@NotNull final Order order) throws SQLException {
+	public List<OrderItem> findOrderItemsByOrder(@NotNull final Order order) throws SQLException {
 		String sql = "select * from orderItems,products where products.id=orderItems.product_id and orderItems.order_id=?";
 
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());

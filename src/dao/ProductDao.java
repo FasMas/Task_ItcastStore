@@ -30,7 +30,7 @@ public class ProductDao {
 	/**
 	 * 查找所有商品。
 	 */
-	public List<Product> listAll() throws SQLException {
+	public List<Product> findAllProducts() throws SQLException {
 		String sql = "select * from products";
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
 		return runner.query(sql, new BeanListHandler<>(Product.class));
@@ -39,7 +39,7 @@ public class ProductDao {
 	/**
 	 * 获取数据总条数。
 	 */
-	public int findAllCount(@NotNull String category) throws SQLException {
+	public int getTotalCount(@NotNull String category) throws SQLException {
 		String sql = "select count(*) from products";
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
 		if(!"全部商品".equals(category)) {
@@ -55,7 +55,7 @@ public class ProductDao {
 	/**
 	 * 获取当前页数据。
 	 */
-	public List<Product> findByPage(int currentPage, int currentCount, @NotNull String category) throws SQLException {
+	public List<Product> findProductsByPage(int currentPage, int currentCount, @NotNull String category) throws SQLException {
 		// 要执行的sql语句
 		String sql;
 		// 参数
@@ -81,29 +81,19 @@ public class ProductDao {
 		return runner.query(sql, new BeanHandler<>(Product.class), id);
 	}
 
-	/**
-	 * 生成订单时，同时将商品数量减少。
-	 */
-	public void changeProductNum(@NotNull Order order) throws SQLException {
-		String sql = "update products set pnum=pnum-? where id=?";
-		QueryRunner runner = new QueryRunner();
-		List<OrderItem> items = order.getOrderItems();
-		Object[][] params = new Object[items.size()][2];
 
-		for(int i = 0; i < params.length; i++) {
-			params[i][0] = items.get(i).getBuyNum();
-			params[i][1] = items.get(i).getProduct().getId();
-		}
-
-		runner.batch(DataSourceUtils.getConnection(), sql, params);
-	}
 
 	/**
 	 * 列出销售榜单。
-	 * TODO：SQL语句是否有错？
+	 * TODO SQL语句是否有错？
 	 */
-	public List<Object[]> salesList(@NotNull String year, @NotNull String month) throws SQLException {
-		String sql = "select products.name,sum(orderItems.buyNum) totalSalNum " + "from orders,products,orderItems " + "where orders.id=orderItems.order_id and products.id=orderItems.product_id " + "and orders.payState=1 and date(orderTime) =? and month(orderTime) =? " + "group by products.name " + "order by totalSalNum desc ";
+	public List<Object[]> getSalesList(@NotNull String year, @NotNull String month) throws SQLException {
+		String sql = "select products.name,sum(orderItems.buyNum) totalSalNum " +
+				"from orders,products,orderItems " +
+				"where orders.id=orderItems.order_id and products.id=orderItems.product_id " +
+				"and orders.payState=1 and date(orderTime) =? and month(orderTime) =? " +
+				"group by products.name " +
+				"order by totalSalNum desc ";
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
 		return runner.query(sql, new ArrayListHandler(), year, month);
 	}
@@ -111,7 +101,7 @@ public class ProductDao {
 	/**
 	 * 多条件查询。
 	 */
-	public List<Product> findProductByCondition(@Nullable String id, @Nullable String name, @Nullable String category, @Nullable String minPrice, @Nullable String maxPrice) throws SQLException {
+	public List<Product> findProductsByCondition(@Nullable String id, @Nullable String name, @Nullable String category, @Nullable String minPrice, @Nullable String maxPrice) throws SQLException {
 		String sql = "select * from products where 1=1 ";
 
 		List<Object> paramList = new ArrayList<>();
@@ -183,18 +173,43 @@ public class ProductDao {
 	}
 
 	/**
-	 * 前台，获取本周热销商品。
+	 * 生成订单时，同时将商品数量减少。
 	 */
-	public List<Object[]> getWeekHotProduct() throws SQLException {
-		String sql = "select products.id,products.name, " + "products.imgUrl,sum(orderItems.buyNum) totalSalNum " + "from orderItems,orders,products " + "where orderItems.order_id = orders.id " + "and products.id = orderItems.product_id " + "and orders.payState=1 " + "and orders.orderTime > DATE_SUB(NOW(), INTERVAL 7 DAY) " + "group by products.id,products.name,products.imgUrl " + "order by totalSalNum desc " + "limit 0,2 ";
+	public void updateProductNumWhenAdd(@NotNull Order order) throws SQLException {
+		String sql = "update products set pnum=pnum-? where id=?";
+		QueryRunner runner = new QueryRunner();
+
+		List<OrderItem> itemList = order.getOrderItems();
+		Object[][] params = new Object[itemList.size()][2];
+		for(int i = 0; i < params.length; i++) {
+			params[i][0] = itemList.get(i).getBuyNum();
+			params[i][1] = itemList.get(i).getProduct().getId();
+		}
+		runner.batch(DataSourceUtils.getConnection(), sql, params);
+	}
+
+	/**
+	 * 前台，获取本周热销商品（两个）。
+	 */
+	public List<Object[]> getWeekHotProducts() throws SQLException {
+		String sql = "select products.id,products.name,products.imgUrl,sum(orderItems.buyNum) totalSalNum " +
+				"from orderItems,orders,products " +
+				"where orderItems.order_id = orders.id and products.id = orderItems.product_id " +
+				"and orders.payState=1 and orders.orderTime > DATE_SUB(NOW(), INTERVAL 7 DAY) " +
+				"group by products.id,products.name,products.imgUrl " +
+				"order by totalSalNum desc " +
+				"limit 0,2 ";
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
 		return runner.query(sql, new ArrayListHandler());
 	}
 
+
+
 	/**
 	 * 前台，用于搜索框根据书名来模糊查询相应的图书。
+	 * TODO 在套用模版时更改
 	 */
-	public List<Product> findBookByName(int currentPage, int currentCount, @NotNull String searchField) throws SQLException {
+	public List<Product> findBooksByName(int currentPage, int currentCount, @NotNull String searchField) throws SQLException {
 		//根据名字模糊查询图书
 		String sql = "select * from products where name like '%" + searchField + "%' limit ?,?";
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
@@ -203,8 +218,9 @@ public class ProductDao {
 
 	/**
 	 * 前台搜索框，返回根据书名模糊查询出的图书总数量。
+	 * TODO 在套用模版时更改
 	 */
-	public int findBookByNameReturnTotalCount(@NotNull String searchField) throws SQLException {
+	public int findBooksByNameGetTotalCount(@NotNull String searchField) throws SQLException {
 		String sql = "select count(*) from products where name like '%" + searchField + "%'";
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
 		//查询出满足条件的总数量，为long类型
@@ -215,7 +231,7 @@ public class ProductDao {
 	/**
 	 * 后台系统，根据id删除商品信息。
 	 */
-	public void deleteProduct(@NotNull String id) throws SQLException {
+	public void deleteProductById(@NotNull String id) throws SQLException {
 		String sql = "delete from products where id=?";
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
 		runner.update(sql, id);

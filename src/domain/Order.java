@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 订单的实体类
+ */
 public class Order {
 	/** 订单编号 */
 	private String id;

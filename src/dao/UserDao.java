@@ -34,16 +34,6 @@ public class UserDao {
 	}
 
 	/**
-	 * 根据激活码查找用户，并激活用户
-	 * TODO：和上一个方法有何区别？
-	 */
-	public void activeUser(@NotNull String activeCode) throws SQLException {
-		String sql = "update users set state=? where activeCode=?";
-		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-		runner.update(sql, 1, activeCode);
-	}
-
-	/**
 	 * 根据用户名与密码查找用户。
 	 */
 	public User findUserByUserNameAndPassword(@NotNull String username,@NotNull String password) throws SQLException {
@@ -52,4 +42,12 @@ public class UserDao {
 		return runner.query(sql, new BeanHandler<>(User.class),username,password);
 	}
 
+	/**
+	 * 根据激活码，激活对应的用户。
+	 */
+	public void activeUser(@NotNull String activeCode) throws SQLException {
+		String sql = "update users set state=? where activeCode=?";
+		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+		runner.update(sql, 1, activeCode);
+	}
 }

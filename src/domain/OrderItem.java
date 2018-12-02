@@ -1,5 +1,8 @@
 package task_itcaststore.domain;
 
+/**
+ * 订单物品的实体类
+ */
 public class OrderItem {
 
 	private Order order;

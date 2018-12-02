@@ -27,7 +27,7 @@
 													</tr>
 													<tr>
 														<td style="text-align:center;padding-top:20px;"><font
-															color="#ff0000">${requestScope["register_message"]}</font>
+															color="#ff0000">${requestScope.register_message}</font>
 														</td>
 													</tr>
 													<tr>

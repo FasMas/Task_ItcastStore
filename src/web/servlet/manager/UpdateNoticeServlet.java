@@ -17,18 +17,18 @@ public class UpdateNoticeServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
-	public void doGet(HttpServletRequest req, HttpServletResponse resp)
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		this.doPost(req, resp);
+		this.doPost(request, response);
 	}
 
-	public void doPost(HttpServletRequest req, HttpServletResponse resp)
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		NoticeService nService = new NoticeService();
 		Notice bean = new Notice();
 		//获取表单参数
-		String title = req.getParameter("title");
-		String details = req.getParameter("details");
+		String title = request.getParameter("title");
+		String details = request.getParameter("details");
 
 		//将当前时间设为添加公告的时间
 		String t = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
@@ -38,6 +38,6 @@ public class UpdateNoticeServlet extends HttpServlet{
 		//调用dao层方法
 		nService.addNotice(bean);
 
-		req.getRequestDispatcher("/manager/ListNoticeServlet").forward(req, resp);
+		request.getRequestDispatcher("/manager/ListNoticeServlet").forward(request, response);
 	}
 }

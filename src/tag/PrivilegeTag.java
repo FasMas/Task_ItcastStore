@@ -9,7 +9,8 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 import java.io.IOException;
 
 /**
- * 用户是否登录的标签
+ * 用户是否登录的标签<br/>
+ * 尝试从session得到用户，如果失败，则跳转到登录失败页。
  */
 public class PrivilegeTag extends SimpleTagSupport {
 	@Override

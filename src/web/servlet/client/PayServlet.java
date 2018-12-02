@@ -1,27 +1,30 @@
 package task_itcaststore.web.servlet.client;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+
 /**
- * 付款（模拟支付）
+ * 模拟支付的Servlet
  */
+
+@WebServlet(name = "PayServlet",urlPatterns = {"/pay"})
 public class PayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// 1.将要提交的数据得到
-		// 获得 支付必须基本数据
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//得到模拟支付所需的参数
 		String orderId = request.getParameter("orderId");
 		String money = request.getParameter("money");
-		// 银行
-		String bank = request.getParameter("yh");
-		request.setAttribute("bank", bank);
+		String bank = request.getParameter("bank");
+
 		request.setAttribute("orderId", orderId);
+		request.setAttribute("bank", bank);
 		request.setAttribute("money", money);
 		request.getRequestDispatcher("/client/confirm.jsp").forward(request, response);
 	}

@@ -3,6 +3,7 @@ package task_itcaststore.web.filter;
 import org.jetbrains.annotations.NotNull;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import java.io.IOException;
@@ -14,9 +15,9 @@ import java.util.Map;
  * 编码过滤器<br/>
  * 统一全站编码，防止项目中的请求和响应出现乱码情况。
  */
+@WebFilter(filterName = "EncodingFilter",urlPatterns = {"/*"})
 public class EncodingFilter implements Filter {
-	public void destroy() {
-	}
+	public void init(FilterConfig config) { }
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
 		//处理请求乱码
@@ -26,19 +27,17 @@ public class EncodingFilter implements Filter {
 		chain.doFilter(myRequest, response);
 	}
 
-	public void init(FilterConfig config) {
-
-	}
+	public void destroy() { }
 }
 
 /**
- * 自定义request对象
+ * 自定义的request对象
  */
 class MyRequest extends HttpServletRequestWrapper{
 	private HttpServletRequest request;
 	private boolean hasEncoding;
 
-	public MyRequest(HttpServletRequest request){
+	MyRequest(HttpServletRequest request){
 		super(request);	//必须写
 		this.request = request;
 	}

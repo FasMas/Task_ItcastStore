@@ -1,4 +1,5 @@
 package task_itcaststore.service;
+
 import task_itcaststore.dao.ProductDao;
 import task_itcaststore.domain.PageBean;
 import task_itcaststore.domain.Product;
@@ -6,134 +7,155 @@ import task_itcaststore.exception.*;
 
 import java.sql.SQLException;
 import java.util.List;
+
+/**
+ * 商品的服务类
+ */
 public class ProductService {
 	private ProductDao dao = new ProductDao();
-	// 添加商品
-	public void addProduct(Product p) throws AddProductException {
+
+	/**
+	 * 添加商品。
+	 */
+	public void addProduct(Product product) throws AddProductException {
 		try {
-			dao.addProduct(p);
-		} catch (SQLException e) {
+			dao.addProduct(product);
+		} catch(SQLException e) {
 			e.printStackTrace();
-			throw new AddProductException("添加商品失败");
+			throw new AddProductException("警告：添加商品失败！");
 		}
 	}
-	// 查找所有商品信息
-	public List<Product> listAll() throws ListProductException {
+
+	/**
+	 * 查找所有商品信息。
+	 */
+	public List<Product> findAllProducts() throws ListProductException {
 		try {
-			return dao.listAll();
-		} catch (SQLException e) {
+			return dao.findAllProducts();
+		} catch(SQLException e) {
 			e.printStackTrace();
-			throw new ListProductException("查询商品失败");
+			throw new ListProductException("警告：查询商品失败！");
 		}
 	}
-	// 分页操作
-	public PageBean findProductByPage(int currentPage, int currentCount,
-			String category) {
+
+	/**
+	 * 分页操作。
+	 */
+	public PageBean findProductsByPage(int currentPage, int currentCount, String category) {
 		PageBean bean = new PageBean();
-		// 封装每页显示数据条数
 		bean.setCurrentCount(currentCount);
-		// 封装当前页码
 		bean.setCurrentPage(currentPage);
-		// 封装当前查找类别
 		bean.setCategory(category);
 		try {
 			// 获取总条数
-			int totalCount = dao.findAllCount(category);
+			int totalCount = dao.getTotalCount(category);
 			bean.setTotalCount(totalCount);
 			// 获取总页数
 			int totalPage = (int) Math.ceil(totalCount * 1.0 / currentCount);
 			bean.setTotalPage(totalPage);
 			// 获取当前页数据
-			List<Product> ps = dao.findByPage(currentPage, currentCount,
-					category);
-			bean.setPs(ps);
-		} catch (SQLException e) {
+			List<Product> productList = dao.findProductsByPage(currentPage, currentCount, category);
+			bean.setProductList(productList);
+		} catch(SQLException e) {
 			e.printStackTrace();
 		}
 		return bean;
 	}
-	// 根据id查找商品
+
+	/**
+	 * 根据id查找商品。
+	 */
 	public Product findProductById(String id) throws FindProductByIdException {
 		try {
 			return dao.findProductById(id);
-		} catch (SQLException e) {
+		} catch(SQLException e) {
 			e.printStackTrace();
-			throw new FindProductByIdException("根据ID查找商品失败");
+			throw new FindProductByIdException("警告：查询商品失败！");
 		}
 	}
-	// 下载销售榜单
+
+	/**
+	 * 下载销售榜单。
+	 */
 	public List<Object[]> download(String year, String month) {
 		List<Object[]> salesList = null;
 		try {
-			salesList = dao.salesList(year, month);
-		} catch (SQLException e) {
+			salesList = dao.getSalesList(year, month);
+		} catch(SQLException e) {
 			e.printStackTrace();
 		}
 		return salesList;
 	}
-	// 多条件查询
-	public List<Product> findProductByManyCondition(String id, String name,
-			String category, String minprice, String maxprice) {
+
+	/**
+	 * 多条件查询。
+	 */
+	public List<Product> findProductsByCondition(String id, String name, String category, String minPrice, String maxPrice) {
 		List<Product> ps = null;
 		try {
-			ps = dao.findProductByCondition(id, name, category, minprice,
-					maxprice);
-		} catch (SQLException e) {
+			ps = dao.findProductsByCondition(id, name, category, minPrice, maxPrice);
+		} catch(SQLException e) {
 			e.printStackTrace();
 		}
 		return ps;
 	}
-	// 修改商品信息
+
+	/**
+	 * 修改商品信息。
+	 */
 	public void editProduct(Product p) {
 		try {
 			dao.updateProduct(p);
-		} catch (SQLException e) {
+		} catch(SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	//前台，获取本周热销商品
-	public List<Object[]> getWeekHotProduct() {
+
+	/**
+	 * 前台，获取本周热销商品。
+	 */
+	public List<Object[]> getWeekHotProducts() {
 		try {
-			return dao.getWeekHotProduct();
-		} catch (SQLException e) {
+			return dao.getWeekHotProducts();
+		} catch(SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException("前台获取本周热销商品失败！");
+			throw new RuntimeException("警告：前台获取本周热销商品失败！");
 		}
 	}
-	//前台，用于搜索框根据书名来模糊查询相应的图书
-	public PageBean findBookByName(int currentPage, int currentCount,
-			String searchfield) {
+
+	/**
+	 * 前台，用于搜索框根据书名来模糊查询相应的图书。
+	 */
+	public PageBean findBooksByName(int currentPage, int currentCount, String searchField) {
 		PageBean bean = new PageBean();
-		// 封装每页显示数据条数
 		bean.setCurrentCount(currentCount);
-		// 封装当前页码
 		bean.setCurrentPage(currentPage);
-		// 封装模糊查询的图书名
-		bean.setSearchField(searchfield);
+		bean.setSearchField(searchField);
 		try {
 			// 获取总条数
-			int totalCount = dao.findBookByNameReturnTotalCount(searchfield);
+			int totalCount = dao.findBooksByNameGetTotalCount(searchField);
 			bean.setTotalCount(totalCount);
-
 			// 获取总页数
 			int totalPage = (int) Math.ceil(totalCount * 1.0 / currentCount);
 			bean.setTotalPage(totalPage);
-
 			//满足条件的图书
-			List<Product> ps = dao.findBookByName(currentPage,currentCount,searchfield);
-			bean.setPs(ps);
+			List<Product> ps = dao.findBooksByName(currentPage, currentCount, searchField);
+			bean.setProductList(ps);
 			return bean;
-		} catch (SQLException e) {
+		} catch(SQLException e) {
 			e.printStackTrace();
-			throw new RuntimeException("前台搜索框根据书名查询图书失败！");
+			throw new RuntimeException("警告：前台搜索框根据书名查询图书失败！");
 		}
 	}
-	//后台系统，根据id删除商品信息
+
+	/**
+	 * 后台系统，根据id删除商品信息。
+	 */
 	public void deleteProduct(String id) {
 		try {
-			dao.deleteProduct(id);
-		} catch (SQLException e) {
-			throw new RuntimeException("后台系统根据id删除商品信息失败！");
+			dao.deleteProductById(id);
+		} catch(SQLException e) {
+			throw new RuntimeException("警告：删除商品失败！");
 		}
 	}
 }

@@ -1,28 +1,30 @@
 package task_itcaststore.utils;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * 数据源的工具类
+ * @noinspection unused, WeakerAccess
+ */
 public class DataSourceUtils {
 	/** 从数据库连接池中获取一个连接 */
 	private static DataSource dataSource = new ComboPooledDataSource();
 	/** 本地线程 */
 	private static ThreadLocal<Connection> tl = new ThreadLocal<Connection>();
 
+
 	/**
-	 * 得到数据源
+	 * 得到数据源。
 	 */
 	public static DataSource getDataSource() {
 		return dataSource;
 	}
 
 	/**
-	 * 当DBUtils需要手动控制事务时，调用该方法获得一个连接
-	 * @return
-	 * @throws SQLException
+	 * 当DBUtils需要手动控制事务时，调用该方法获得一个连接。
 	 */
 	public static Connection getConnection() throws SQLException {
 		var con = tl.get();
@@ -34,8 +36,7 @@ public class DataSourceUtils {
 	}
 
 	/**
-	 * 开启事务
-	 * @throws SQLException
+	 * 开启事务。
 	 */
 	public static void startTransaction() throws SQLException {
 		var con = getConnection();
@@ -44,8 +45,7 @@ public class DataSourceUtils {
 	}
 
 	/**
-	 * 结束事务
-	 * @throws SQLException
+	 * 结束事务。
 	 */
 	public static void stopTransaction() throws SQLException {
 		var con = getConnection();
@@ -54,8 +54,7 @@ public class DataSourceUtils {
 	}
 
 	/**
-	 * 从ThreadLocal中释放并关闭Connection，并结束事务
-	 * @throws SQLException
+	 * 从本地线程中释放并关闭连接，且结束事务。
 	 */
 	public static void releaseAndCloseConnection() throws SQLException {
 		Connection con = getConnection();
@@ -67,8 +66,7 @@ public class DataSourceUtils {
 	}
 
 	/**
-	 * 事务回滚
-	 * @throws SQLException
+	 * 事务回滚。
 	 */
 	public static void rollback() throws SQLException {
 		var con = getConnection();

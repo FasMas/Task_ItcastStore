@@ -52,7 +52,7 @@ public class NoticeDao {
 	/**
 	 * 后台系统，根据id删除公告。
 	 */
-	public void deleteNotice(@NotNull String n_id) throws SQLException {
+	public void deleteNoticeById(@NotNull String n_id) throws SQLException {
 		String sql = "delete from notice where n_id = ?";
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
 		runner.update(sql, n_id);

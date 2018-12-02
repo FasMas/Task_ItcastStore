@@ -7,6 +7,6 @@
 </head>
 
 <body>
-	<jsp:forward page="ShowIndexServlet"></jsp:forward>
+	<jsp:forward page="showIndex"/>
 </body>
 </html>

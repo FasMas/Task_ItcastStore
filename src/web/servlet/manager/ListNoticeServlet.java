@@ -21,16 +21,16 @@ public class ListNoticeServlet extends HttpServlet{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public void doGet(HttpServletRequest req, HttpServletResponse resp)
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		this.doPost(req, resp);
+		this.doPost(request, response);
 	}
 
-	public void doPost(HttpServletRequest req, HttpServletResponse resp)
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		NoticeService nService = new NoticeService();
 		List<Notice> notices = nService.getAllNotices();
-		req.setAttribute("notices", notices);
-		req.getRequestDispatcher("/admin/notices/list.jsp").forward(req, resp);
+		request.setAttribute("notices", notices);
+		request.getRequestDispatcher("/admin/notices/list.jsp").forward(request, response);
 	}
 }

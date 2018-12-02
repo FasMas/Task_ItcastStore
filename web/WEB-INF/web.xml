@@ -4,259 +4,263 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-	<!-- 编码过滤器 -->
-	<filter>
-		<filter-name>encodingFilter</filter-name>
-		<filter-class>task_itcaststore.web.filter.EncodingFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>encodingFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+	<!-- filter -->
 
-	<filter>
-		<filter-name>adminPrivilegeFilter</filter-name>
-		<filter-class>task_itcaststore.web.filter.AdminPrivilegeFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>adminPrivilegeFilter</filter-name>
-		<url-pattern>/admin/*</url-pattern>
-	</filter-mapping>
+	<!--<filter>-->
+		<!--<filter-name>EncodingFilter</filter-name>-->
+		<!--<filter-class>task_itcaststore.web.filter.EncodingFilter</filter-class>-->
+	<!--</filter>-->
+	<!--<filter-mapping>-->
+		<!--<filter-name>EncodingFilter</filter-name>-->
+		<!--<url-pattern>/*</url-pattern>-->
+	<!--</filter-mapping>-->
 
+	<!--<filter>-->
+		<!--<filter-name>AdminPrivilegeFilter</filter-name>-->
+		<!--<filter-class>task_itcaststore.web.filter.AdminPrivilegeFilter</filter-class>-->
+	<!--</filter>-->
+	<!--<filter-mapping>-->
+		<!--<filter-name>AdminPrivilegeFilter</filter-name>-->
+		<!--<url-pattern>/admin/*</url-pattern>-->
+	<!--</filter-mapping>-->
 
-	<servlet>
-		<servlet-name>LoginServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.LoginServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>LoginServlet</servlet-name>
-		<url-pattern>/login</url-pattern>
-	</servlet-mapping>
+	<!-- servlet client -->
 
-	<servlet>
-		<servlet-name>AddProductServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.manager.AddProductServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>AddProductServlet</servlet-name>
-		<url-pattern>/addProduct</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>LoginServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.LoginServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>LoginServlet</servlet-name>-->
+		<!--<url-pattern>/login</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>ListProductServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.manager.ListProductServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ListProductServlet</servlet-name>
-		<url-pattern>/listProduct</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>AddProductServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.AddProductServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>AddProductServlet</servlet-name>-->
+		<!--<url-pattern>/addProduct</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>ShowProductByPageServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.ShowProductByPageServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ShowProductByPageServlet</servlet-name>
-		<url-pattern>/showProductByPage</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>ListProductServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.ListProductServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>ListProductServlet</servlet-name>-->
+		<!--<url-pattern>/listProduct</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>FindProductByIdServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.FindProductByIdServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>FindProductByIdServlet</servlet-name>
-		<url-pattern>/findProductById</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>ShowProductsByPageServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.ShowProductsByPageServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>ShowProductsByPageServlet</servlet-name>-->
+		<!--<url-pattern>/showProductsByPage</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>AddCartServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.AddCartServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>AddCartServlet</servlet-name>
-		<url-pattern>/addCart</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>FindProductByIdServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.FindProductByIdServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>FindProductByIdServlet</servlet-name>-->
+		<!--<url-pattern>/findProductById</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>ChangeCartServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.ChangeCartServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ChangeCartServlet</servlet-name>
-		<url-pattern>/changeCart</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>AddCartServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.AddCartServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>AddCartServlet</servlet-name>-->
+		<!--<url-pattern>/addCart</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>LogoutServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.LogoutServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>LogoutServlet</servlet-name>
-		<url-pattern>/logout</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>ChangeCartServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.ChangeCartServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>ChangeCartServlet</servlet-name>-->
+		<!--<url-pattern>/changeCart</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>CreateOrderServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.CreateOrderServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>CreateOrderServlet</servlet-name>
-		<url-pattern>/createOrder</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>LogoutServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.LogoutServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>LogoutServlet</servlet-name>-->
+		<!--<url-pattern>/logout</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>FindOrderByUserServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.FindOrderByUserServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>FindOrderByUserServlet</servlet-name>
-		<url-pattern>/findOrderByUser</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>CreateOrderServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.CreateOrderServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>CreateOrderServlet</servlet-name>-->
+		<!--<url-pattern>/createOrder</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>FindOrderByIdServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.FindOrderByIdServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>FindOrderByIdServlet</servlet-name>
-		<url-pattern>/findOrderById</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>FindOrderByUserServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.FindOrderByUserServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>FindOrderByUserServlet</servlet-name>-->
+		<!--<url-pattern>/findOrderByUser</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>FindOrdersServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.manager.FindOrdersServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>FindOrdersServlet</servlet-name>
-		<url-pattern>/findOrders</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>FindOrderByIdServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.FindOrderByIdServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>FindOrderByIdServlet</servlet-name>-->
+		<!--<url-pattern>/findOrderById</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>OnLinePayServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.OnLinePayServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>OnLinePayServlet</servlet-name>
-		<url-pattern>/onlinepay</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>FindOrdersServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.FindOrdersServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>FindOrdersServlet</servlet-name>-->
+		<!--<url-pattern>/findOrders</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>PayServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.PayServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>PayServlet</servlet-name>
-		<url-pattern>/pay</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>OnlinePayServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.OnlinePayServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>OnlinePayServlet</servlet-name>-->
+		<!--<url-pattern>/onlinePay</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>CallBackServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.CallBackServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>CallBackServlet</servlet-name>
-		<url-pattern>/callback</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>PayServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.PayServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>PayServlet</servlet-name>-->
+		<!--<url-pattern>/pay</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>ChangeOrderStateServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.ChangeOrderStateServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ChangeOrderStateServlet</servlet-name>
-		<url-pattern>/orderState</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>CallbackServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.CallbackServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>CallbackServlet</servlet-name>-->
+		<!--<url-pattern>/callback</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>DownloadServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.manager.DownloadServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>DownloadServlet</servlet-name>
-		<url-pattern>/download</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>ChangeOrderStateServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.ChangeOrderStateServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>ChangeOrderStateServlet</servlet-name>-->
+		<!--<url-pattern>/changeOrderState</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>FindProductByManyConditionServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.manager.FindProductByManyConditionServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>FindProductByManyConditionServlet</servlet-name>
-		<url-pattern>/findProductByManyCondition</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>DownloadServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.DownloadServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>DownloadServlet</servlet-name>-->
+		<!--<url-pattern>/download</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>EditProductServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.manager.EditProductServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>EditProductServlet</servlet-name>
-		<url-pattern>/editProduct</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>FindProductsByConditionServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.FindProductsByConditionServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>FindProductsByConditionServlet</servlet-name>-->
+		<!--<url-pattern>/findProductsByCondition</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>DeleteProductServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.manager.DeleteProductServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>DeleteProductServlet</servlet-name>
-		<url-pattern>/deleteProduct</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>EditProductServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.EditProductServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>EditProductServlet</servlet-name>-->
+		<!--<url-pattern>/editProduct</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>FindOrderByManyConditionServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.manager.FindOrderByManyConditionServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>FindOrderByManyConditionServlet</servlet-name>
-		<url-pattern>/findOrderByManyCondition</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>DelProductServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.DelProductServletervlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>DelProductServlet</servlet-name>-->
+		<!--<url-pattern>/deleteProduct</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>DelOrderByIdServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.DelOrderByIdServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>DelOrderByIdServlet</servlet-name>
-		<url-pattern>/delOrderById</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>FindOrdersByConditionServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.FindOrderByManyConditionServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>FindOrdersByConditionServlet</servlet-name>-->
+		<!--<url-pattern>/findOrdersByCondition</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>imageCode</servlet-name>
-		<servlet-class>task_itcaststore.utils.CheckImageServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>imageCode</servlet-name>
-		<url-pattern>/imageCode</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>DelOrderByIdServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.DelOrderByIdServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>DelOrderByIdServlet</servlet-name>-->
+		<!--<url-pattern>/delOrderById</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>RegisterServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.RegisterServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>RegisterServlet</servlet-name>
-		<url-pattern>/register</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>CheckImageServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.utils.CheckImageServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>CheckImageServlet</servlet-name>-->
+		<!--<url-pattern>/checkImage</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>ActiveUserServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.ActiveUserServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ActiveUserServlet</servlet-name>
-		<url-pattern>/activeUser</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>RegisterServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.RegisterServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>RegisterServlet</servlet-name>-->
+		<!--<url-pattern>/register</url-pattern>-->
+	<!--</servlet-mapping>-->
 
-	<servlet>
-		<servlet-name>MyAccountServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.client.MyAccountServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>MyAccountServlet</servlet-name>
-		<url-pattern>/myAccount</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>ActiveUserServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.ActiveUserServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>ActiveUserServlet</servlet-name>-->
+		<!--<url-pattern>/activeUser</url-pattern>-->
+	<!--</servlet-mapping>-->
+
+	<!--<servlet>-->
+		<!--<servlet-name>MyAccountServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.client.MyAccountServlet</servlet-class>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>MyAccountServlet</servlet-name>-->
+		<!--<url-pattern>/myAccount</url-pattern>-->
+	<!--</servlet-mapping>-->
+
+	<!--servlet /manager-->
 
 	<servlet>
 		<servlet-name>ListNoticeServlet</servlet-name>
@@ -264,7 +268,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ListNoticeServlet</servlet-name>
-		<url-pattern>/manager/ListNoticeServlet</url-pattern>
+		<url-pattern>/manager/listNotice</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -273,7 +277,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>AddNoticeServlet</servlet-name>
-		<url-pattern>/manager/AddNoticeServlet</url-pattern>
+		<url-pattern>/manager/addNotice</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -282,7 +286,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>UpdateNoticeServlet</servlet-name>
-		<url-pattern>/manager/UpdateNoticeServlet</url-pattern>
+		<url-pattern>/manager/updateNotice</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -291,7 +295,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>FindByIdNoticeServlet</servlet-name>
-		<url-pattern>/manager/FindByIdNoticeServlet</url-pattern>
+		<url-pattern>/manager/findByIdNotice</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -300,17 +304,19 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>EditNoticeServlet</servlet-name>
-		<url-pattern>/manager/EditNoticeServlet</url-pattern>
+		<url-pattern>/manager/editNotice</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>DeleteNoticeServlet</servlet-name>
-		<servlet-class>task_itcaststore.web.servlet.manager.DeleteNoticeServlet</servlet-class>
+		<servlet-class>task_itcaststore.web.servlet.manager.DelNoticeServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DeleteNoticeServlet</servlet-name>
-		<url-pattern>/manager/DeleteNoticeServlet</url-pattern>
+		<url-pattern>/manager/deleteNotice</url-pattern>
 	</servlet-mapping>
+
+	<!-- servlet view -->
 
 	<servlet>
 		<servlet-name>MenuSearchServlet</servlet-name>
@@ -318,7 +324,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>MenuSearchServlet</servlet-name>
-		<url-pattern>/MenuSearchServlet</url-pattern>
+		<url-pattern>/menuSearch</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -327,8 +333,10 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ShowIndexServlet</servlet-name>
-		<url-pattern>/ShowIndexServlet</url-pattern>
+		<url-pattern>/showIndex</url-pattern>
 	</servlet-mapping>
+
+	<!-- welcome page -->
 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>

@@ -3,6 +3,9 @@ package task_itcaststore.domain;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * 显示页的实体类
+ */
 public class PageBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -16,7 +19,7 @@ public class PageBean implements Serializable {
 	/** 每页条数 */
 	private int currentCount;
 	/** 每页显示的数据 */
-	private List<Product> ps;
+	private List<Product> productList;
 	/** 类别 */
 	private String category;
 	/** 模糊搜索的图书名 */
@@ -55,12 +58,12 @@ public class PageBean implements Serializable {
 		this.currentCount = currentCount;
 	}
 
-	public List<Product> getPs() {
-		return ps;
+	public List<Product> getProductList() {
+		return productList;
 	}
 
-	public void setPs(List<Product> ps) {
-		this.ps = ps;
+	public void setProductList(List<Product> productList) {
+		this.productList = productList;
 	}
 
 	public String getCategory() {

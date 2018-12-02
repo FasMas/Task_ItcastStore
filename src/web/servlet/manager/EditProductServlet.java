@@ -1,15 +1,4 @@
 package task_itcaststore.web.servlet.manager;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -19,6 +8,12 @@ import org.apache.commons.io.IOUtils;
 import task_itcaststore.domain.Product;
 import task_itcaststore.service.ProductService;
 import task_itcaststore.utils.FileUploadUtils;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+import java.io.*;
+import java.lang.reflect.InvocationTargetException;
+import java.util.*;
 
 /**
  * 后台系统
@@ -64,11 +59,11 @@ public class EditProductServlet extends HttpServlet {
 					// 得到上传文件真实名称
 					String fileName = item.getName();
 					if (fileName != null && fileName.trim().length() > 0) {
-						fileName = FileUploadUtils.subFileName(fileName);
+						fileName = FileUploadUtils.getFileName(fileName);
 
 						// 得到随机名称
 						String randomName = FileUploadUtils
-								.generateRandonFileName(fileName);
+								.generateRandomFileName(fileName);
 
 						// 得到随机目录
 						String randomDir = FileUploadUtils

@@ -554,7 +554,7 @@ dTree.prototype.setCookie = function(cookieName, cookieValue, expires, path, dom
 
 		escape(cookieName) + '=' + escape(cookieValue)
 
-		+ (expires ? '; expires=' + expires.toGMTString() : '')
+		+ (expires ? '; expires=' + expiresponse..toGMTString() : '')
 
 		+ (path ? '; path=' + path : '')
 

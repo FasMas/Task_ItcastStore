@@ -45,7 +45,7 @@
 								<td width="8%" align="center">编辑</td>
 								<td width="8%" align="center">删除</td>
 							</tr>
-							<c:forEach items="${notices}" var="n">
+							<c:forEach items="${notices}" var="notice">
 								<tr onmouseover="this.style.backgroundColor = 'white'" onmouseout="this.style.backgroundColor = '#F5FAFE';">
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 										width="23">${n.n_id }</td>
@@ -57,7 +57,7 @@
 										width="8%">${n.n_time }</td>
 									<td align="center" style="HEIGHT: 22px" width="7%">
 										<a href="${pageContext.request.contextPath}/manager/FindByIdNoticeServlet?id=${n.n_id}">
-											<img src="${pageContext.request.contextPath}/admin/images/i_edit.gif" border="0" style="CURSOR: hand"> 
+											<img src="${pageContext.request.contextPath}/admin/images/i_edit.gif" border="0" style="CURSOR: hand">
 										</a>
 									</td>
 									<td align="center" style="HEIGHT: 22px" width="7%">
