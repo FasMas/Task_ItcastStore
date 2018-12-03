@@ -5,7 +5,7 @@
 <head>
 	<title>bookStore列表</title>
 	<%--导入css --%>
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/client/css/main.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/client/css/main.css" />
 </head>
 <body class="main">
 	<jsp:include page="head.jsp" />

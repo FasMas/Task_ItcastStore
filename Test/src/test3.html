@@ -14,9 +14,24 @@
 		function func() {
 			$("p").text(s);
         }
+
+        function test() {
+			var str2 = $("#test1").val();
+			var str3 = $("#test2").html();
+			var str4 = $("#test2").text();
+			alert(typeof($("#test1")));
+			alert("\t"+str2+"\t"+str3+"\t"+str4);
+			alert(typeof(str2));
+        }
+
 	</script>
 </head>
 <body onload="func()">
 	<p>str</p>
+	<form>
+		<input type="button" id="test1" value="value"/>
+		<span id="test2"><b>text</b></span>
+		<input type="button" value="111" onclick="test()"/>
+	</form>
 </body>
 </html>

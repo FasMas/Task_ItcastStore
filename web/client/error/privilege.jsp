@@ -3,14 +3,14 @@
 <html>
 <head>
 <title>电子书城</title>
-	<link rel="stylesheet" href="../css/main.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="../css/main.css" />
 	<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
 	<script src="../js/changeSecond.js"></script>
 </head>
 
 <body class="main">
 	<div id="div-content">
-		<table width="850px" border="0" cellspacing="0">
+		<table style="width:850px;border:0;border-collapse:collapse;">
 			<tr>
 				<td style="padding:30px; text-align:center">
 					<table style="width:60%;border: 0;border-collapse: collapse; margin-top:70px">
@@ -21,7 +21,7 @@
 							<td style="padding-top:30px">
 								<span style="font-weight:bold; color:#ff0000">权限不足,请登录后操作</span><br/>
 								<a href="${pageContext.request.contextPath}/index.jsp">
-									<span id="second">5</span>秒后自动为您转跳回首页
+									<span id="second">5</span>秒后自动为您跳转到首页
 								</a>
 							</td>
 						</tr>

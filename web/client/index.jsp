@@ -5,7 +5,7 @@
 <head>
 	<title>传智书城</title>
 	<%-- 导入css --%>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/client/css/main.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/client/css/main.css" />
 	<!-- 导入首页轮播图css和js脚本 -->
 	<link type="text/css" href="${pageContext.request.contextPath }/client/css/autoplay.css" rel="stylesheet" />
 	<script src="${pageContext.request.contextPath }/client/js/autoPlay.js"></script>

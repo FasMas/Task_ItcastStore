@@ -2,26 +2,24 @@
  * 表单验证的Js脚本
  */
 
-var usernameObj;
-var passwordObj;
-var emailObj;
-var confirmObj;
-
-var usernameMsg;
-var passwordMsg;
+var userName;
+var email;
+var password;
+var rePassword;
+var userNameMsg;
 var emailMsg;
-var confirmMsg;
+var passwordMsg;
+var rePasswordMsg;
 
 $(function() {
-	emailObj = $("#email");
-	usernameObj = $("#userName");
-	passwordObj = $("#password");
-	confirmObj = $("#confirmMsg");
-
+	userName = $("#userName");
+    email = $("#email");
+	password = $("#password");
+    rePassword = $("#rePassword");
+    userNameMsg = $("#userNameMsg");
     emailMsg = $("#emailMsg");
-    usernameMsg = $("#usernameMsg");
     passwordMsg = $("#passwordMsg");
-    confirmMsg = $("#confirmMsgMsg");
+    rePasswordMsg = $("#rePasswordMsg");
 });
 
 /**
@@ -29,41 +27,29 @@ $(function() {
  * @returns {boolean}
  */
 function checkForm() {
-	var bEmail = checkEmail();
-	var bUsername = checkUsername();
-	var bPassword = checkPassword();
-	var bConfirm = checkConfirm();
-	return bUsername && bPassword && bConfirm && bEmail ;
+	return checkEmail() && checkUserName() && checkPassword() && checkRePassword();
 }
 
 /**
  * 验证用户名。
  * @returns {boolean}
  */
-function checkUsername() {		//验证用户名
-	var regex = /^[a-zA-Z_]\w{0,9}$/;	//字母数字下划线1到10位, 不能是数字开头
-	var value = usernameObj.value;//获取usernameObj中的文本
-	var msg = "";						//最后的提示消息, 默认为空
-	if (!value)							//如果用户名没填, 填了就是一个字符串可以当作true, 没填的话不论null或者""都是false
-		msg = "用户名必须填写：";			//改变提示消息
-	else if (!regex.test(value))		//如果用户名不能匹配正则表达式规则
-		msg = "用户名不合法：";			//改变提示消息
-	usernameMsg.innerHTML = msg;		//将提示消息放入SPAN
-	usernameObj.parentNode.parentNode.style.color = msg == "" ? "black" : "red";	//根据消息结果改变tr的颜色
-	return msg == "";					//如果提示消息为空则代表没出错, 返回true
-}
+function checkUserName() {
+    //字母数字下划线1到10位, 不能是数字开头
+    var regex = /^[a-zA-Z_]\w{0,9}$/;
+    var value = userName.val();
+    var msg = "";
 
-function checkPassword() {		//验证密码
-	var regex = /^.{6,16}$/;			//任意字符, 6到16位
-	var value = passwordObj.value;
-	var msg = "";
-	if (!value)
-		msg = "密码必须填写：";
-	else if (!regex.test(value))
-		msg = "密码不合法：";
-	passwordMsg.innerHTML = msg;
-	passwordObj.parentNode.parentNode.style.color = msg == "" ? "black" : "red";
-	return msg == "";
+    if(!value) {
+        msg = "用户名必须填写：";
+    } else if(!regex.test(value)) {
+        msg = "用户名不合法：";
+    }
+    //将提示消息放入SPAN
+    userNameMsg.text(msg);
+    //根据消息结果改变tr的颜色，并返回验证结果
+    userName.parent().parent().css("color", msg === "" ? "black" : "red");
+    return msg==="";
 }
 
 /**
@@ -72,29 +58,88 @@ function checkPassword() {		//验证密码
  */
 function checkEmail() {
     var regex = /^[\w-]+@([\w-]+\.)+[a-zA-Z]{2,4}$/;
-    var value =emailObj.value;
+    var value = email.value;
     var msg = "";
-    if (!value)
+
+    if(!value) {
         msg = "邮箱必须填写：";
-    else if (!regex.test(value))
+    } else if(!regex.test(value)) {
         msg = "邮箱格式不合法：";
-    emailMsg.innerHTML = msg;
-    emailObj.parentNode.parentNode.style.color = msg == "" ? "black" : "red";
-    return msg == "";
-}
-
-function checkConfirm() {		//验证确认密码
-	var passwordValue = passwordObj.value;
-	var confirmValue = confirmObj.value;
-	var msg = "";
-
-    if(!confirmValue){
-	    msg = "确认密码必须填写";
-	}
-	else	if (passwordValue != confirmValue){
-		msg = "密码必须保持一致";
     }
-	confirmMsg.innerHTML = msg;
-	confirmObj.parentNode.parentNode.style.color = msg == "" ? "black" : "red";
-	return msg == "";
+    //将提示消息放入SPAN
+    emailMsg.text(msg);
+    //根据消息结果改变tr的颜色，并返回验证结果
+    email.parent().parent().css("color", msg === "" ? "black" : "red");
+    return msg==="";
 }
+
+/**
+ * 验证密码。
+ * @returns {boolean}
+ */
+function checkPassword() {
+    //任意字符, 6到16位
+    var regex = /^.{6,16}$/;
+    var value = password.val();
+    var msg = "";
+
+    if(!value) {
+        msg = "密码必须填写：";
+    } else if(!regex.test(value)) {
+        msg = "密码不合法：";
+    }
+    //将提示消息放入SPAN
+    passwordMsg.text(msg);
+    //根据消息结果改变tr的颜色，并返回验证结果
+    password.parent().parent().css("color", msg === "" ? "black" : "red");
+    return msg==="";
+}
+
+/**
+ * 验证确认密码
+ * @returns {boolean}
+ */
+function checkRePassword() {
+    var value = password.val();
+    var reValue = rePassword.val();
+    var msg = "";
+
+    if(!reValue) {
+        msg = "确认密码必须填写";
+    } else if(value !== reValue) {
+        msg = "密码必须保持一致";
+    }
+    //将提示消息放入SPAN
+    rePassword.text(msg);
+    //根据消息结果改变tr的颜色，并返回验证结果
+    rePassword.parent().parent().css("color", msg === "" ? "black" : "red");
+    return msg==="";
+}
+
+/**
+ * 根据正则验证参数
+ * @param elem
+ * @param regex {RegExp}
+ * @param nullMsg {string}
+ * @param illegalMsg {string}
+ * @param tColor {string}
+ * @param fColor {string}
+ */
+function checkByRegex(elem,regex,nullMsg,illegalMsg,tColor,fColor) {
+    tColor = tColor || "black";
+
+    var value = elem.val();
+    var msg = "";
+
+    if(!value) {
+        msg = nullMsg;
+    } else if(!regex.test(value)) {
+        msg = illegalMsg;
+    }
+    //将提示消息放入SPAN
+    elem.text(msg);
+    //根据消息结果改变tr的颜色，并返回验证结果
+    elem.parent().parent().css("color", msg === "" ? "black" : "red");
+    return msg === "";
+}
+

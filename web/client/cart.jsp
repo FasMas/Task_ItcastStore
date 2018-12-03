@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>电子书城</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/client/css/main.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/client/css/main.css" />
 <script>
     //当商品数量发生变化时触发该方法
 	function changeProductNum(count, totalCount, id) {

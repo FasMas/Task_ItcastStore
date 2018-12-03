@@ -3,7 +3,7 @@
 <html>
 <head>
 	<title>电子书城</title>
-	<link rel="stylesheet" href="css/main.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
 	<script src="js/changeSecond.js"></script>
 </head>
 <body class="main">

@@ -1,11 +1,10 @@
-<%@ page import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page  pageEncoding="UTF-8"%>
 
 <html>
 <head>
-
 <title>传智书城注册页面</title>
 <%--导入css和js --%>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/client/css/main.css" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/client/css/main.css"/>
 <script src="${pageContext.request.contextPath}/client/js/checkForm.js"></script>
 <script type="text/javascript">
 	function changeImage() {
@@ -40,7 +39,7 @@
 							</tr>
 							<tr>
 								<td style="text-align: right">用户名：</td>
-								<td><input type="text" class="textInput" id="userName" name="userName" onkeyup="checkUsername();"/>
+								<td><input type="text" class="textInput" id="userName" name="userName" onkeyup="checkUserName();"/>
 								</td>
 								<td colspan="2"><span id="usernameMsg"></span><span style="color: #999999; ">字母数字下划线1到10位, 不能是数字开头</span></td>
 							</tr>
@@ -52,7 +51,7 @@
 							<tr>
 								<td style="text-align: right">重复密码：</td>
 								<td>
-								<input type="password" class="textInput" id="repassword" name="repassword" onkeyup="checkConfirm();"/>
+								<input type="password" class="textInput" id="repassword" name="repassword" onkeyup="checkRePassword();"/>
 								</td>
 								<td><span id="confirmMsg"></span>&nbsp;</td>
 							</tr>
