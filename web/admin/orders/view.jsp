@@ -1,5 +1,5 @@
-<%@ page pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <HTML>
 <HEAD>
 	<meta http-equiv="Content-Language" content="zh-cn">
@@ -54,7 +54,7 @@
 						<td width="7%" align="center">商品类别</td>
 						<td width="31%" align="center">商品描述</td>
 					</tr>
-					<c:forEach items="${order.orderItems}" var="item" varStatus="vs">
+					<c:forEach var="item" items="${order.orderItems}" varStatus="vs">
 						<tr style="FONT-WEIGHT: bold; FONT-SIZE: 12pt; HEIGHT: 25px; BACKGROUND-COLOR: #eeeeee">
 							<td align="center" width="7%">${vs.count }</td>
 							<td width="8%" align="center">
@@ -78,7 +78,7 @@
 		</TR>
 		<TR>
 			<td class="ta_01" style="WIDTH: 100%" align="right" bgColor="#f5fafe" colSpan="4">
-				<span style="font-family: 宋体; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span style="font-family: 宋体; ">&emsp;&nbsp;&nbsp;&nbsp;</span>
 				<input class="button_ok" type="button" onclick="history.go(-1)" value="返回" />
 				<span id="Label1"></span>
 			</td>

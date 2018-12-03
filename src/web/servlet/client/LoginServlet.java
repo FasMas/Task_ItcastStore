@@ -25,13 +25,13 @@ public class LoginServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1.获取登录页面输入的用户名与密码
-		String username = request.getParameter("username").trim();
+		String userName = request.getParameter("userName").trim();
 		String password = request.getParameter("password").trim();
 
 		//2.调用service完成登录操作。
 		UserService service = new UserService();
 		try {
-			User user = service.login(username, password);
+			User user = service.login(userName, password);
 			//3.登录成功，将用户存储到session中.
 			request.getSession().setAttribute("user", user);
 

@@ -1,12 +1,12 @@
-<%@ page pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <HTML>
 <HEAD>
 	<meta http-equiv="Content-Language" content="zh-cn">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet" type="text/css" />
 	<script language="javascript" src="${pageContext.request.contextPath}/admin/js/public.js"></script>
-	<script type="text/javascript">
+	<script>
 	    //添加商品
 		function addProduct() {
 			window.location.href = "${pageContext.request.contextPath}/admin/products/add.jsp";
@@ -23,7 +23,7 @@
 	</script>
 </HEAD>
 <body>
-	<br>
+<br/>
 	<form id="Form1" name="Form1"
 		action="${pageContext.request.contextPath}/manager/findProductsByConditions"
 		method="post">
@@ -81,13 +81,13 @@
 									<span style="font-family: 宋体; color: red; "> &nbsp;</span>
 								</td>
 								<td align="right" bgColor="#ffffff" class="ta_01">
-									<br><br>
+									<br/><br/>
 								</td>
 								<td align="right" bgColor="#ffffff" class="ta_01">
 									<button type="submit" id="search" name="search" value="&#26597;&#35810;" class="button_view">
 										&#26597;&#35810;
 									</button>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&emsp;&nbsp;
 									<input type="reset" name="reset" value="&#37325;&#32622;" class="button_view" />
 								</td>
 							</tr>
@@ -120,7 +120,7 @@
 								<td width="8%" align="center">删除</td>
 							</tr>
                             <!--  循环输出所有商品 -->
-							<c:forEach items="${productList}" var="p">
+							<c:forEach var="p" items="${productList}">
 								<tr onmouseover="this.style.backgroundColor = 'white'"
 									onmouseout="this.style.backgroundColor = '#F5FAFE';">
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="200">${product.id }</td>

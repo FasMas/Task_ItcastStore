@@ -1,4 +1,4 @@
-<%@ page pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <html>
 <head>
 	<meta http-equiv="Content-Language" content="zh-cn">
@@ -18,7 +18,7 @@ BODY {SCROLLBAR-FACE-COLOR: #cccccc; SCROLLBAR-HIGHLIGHT-COLOR: #ffffFF; SCROLLB
 		</tr>
 		<tr>
 			<td width="65%" height="84" align="center" valign="top" >
-				<br>
+				<br/>
 				<span class="size:48;">登录成功！</span>
 			</td>
 		</tr>

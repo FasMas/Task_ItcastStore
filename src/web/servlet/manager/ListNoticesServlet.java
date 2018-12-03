@@ -24,7 +24,7 @@ public class ListNoticesServlet extends HttpServlet{
 		NoticeService service = new NoticeService();
 		List<Notice> noticeList = service.findAllNotices();
 
-		request.setAttribute("notices", noticeList);
+		request.setAttribute("noticeList", noticeList);
 		request.getRequestDispatcher("/admin/notices/list.jsp").forward(request, response);
 	}
 }

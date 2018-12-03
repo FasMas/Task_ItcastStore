@@ -1,9 +1,9 @@
-<%@ page pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
 <html>
 <head>
 <title>电子书城</title>
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/client/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/client/css/main.css"/>
 	<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/client/js/changeSecond.js"></script>
 </head>
@@ -19,9 +19,9 @@
 								<img src="../images/error.jpg" width="128" height="128" />
 							</td>
 							<td style="padding-top:30px"><span
-								style="font-weight:bold; color:#ff0000">权限不足,请登录后操作</span><br>
-								<br>
-								<a href="${pageContext.request.contextPath }/index.jsp">
+									style="font-weight:bold; color:#ff0000">权限不足,请登录后操作</span><br/>
+								<br/>
+								<a href="${pageContext.request.contextPath}/index.jsp">
 									<span id="second">5</span>秒后自动为您转跳回首页
 								</a>
 							</td>

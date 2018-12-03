@@ -29,7 +29,7 @@ public class FindOrdersByConditionsServlet extends HttpServlet {
 		List<Order> orderList = service.findOrdersByConditions(id, receiverName);
 
 		//将查询结果添加到request作用域中
-		request.setAttribute("orders", orderList);
+		request.setAttribute("orderList", orderList);
 		//请求转发到list.jsp页面，并将request请求和response响应也转发到该页面中
 		request.getRequestDispatcher("/admin/orders/list.jsp").forward(request, response);
 	}

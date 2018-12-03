@@ -45,6 +45,6 @@ public class ShowProductsByPageServlet extends HttpServlet {
 		PageBean pageBean = service.findProductsByPage(currentPage, currentCount, category);
 		//将数据存储到request范围，跳转到product_list.jsp页面展示
 		request.setAttribute("pageBean", pageBean);
-		request.getRequestDispatcher("/client/product_list.jsp").forward(request, response);
+		request.getRequestDispatcher("/client/productList.jsp").forward(request, response);
 	}
 }

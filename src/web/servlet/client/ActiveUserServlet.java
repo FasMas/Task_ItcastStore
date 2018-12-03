@@ -25,7 +25,7 @@ public class ActiveUserServlet extends HttpServlet {
 			UserService service = new UserService();
 			service.activeUser(activeCode);
 			//2.调用service中激活用户操作
-			response.sendRedirect(request.getContextPath() + "/client/active_success.jsp");
+			response.sendRedirect(request.getContextPath() + "/client/activeUserSuccess.jsp");
 		} catch(ActiveUserException e) {
 			e.printStackTrace();
 			response.getWriter().println("警告：用户激活失败！");

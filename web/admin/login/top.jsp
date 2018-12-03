@@ -1,4 +1,4 @@
-<%@ page pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <html>
 <head>
 <meta http-equiv="Content-Language" content="zh-cn">
@@ -34,7 +34,7 @@ TH {
 <link href="${pageContext.request.contextPath}/admin/css/style.css"
 	rel="stylesheet" type="text/css">
 
-<script type="text/javascript">
+	<script>
 	function exitSys() {
 		var flag = window.confirm("确认退出系统吗?");
 		if (flag) {
@@ -59,7 +59,7 @@ TH {
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td width="85%" align="left">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&emsp;&nbsp;&nbsp;
 							<span style="color: #000000; ">
 								<script language="JavaScript">
 									tmpDate = new Date();

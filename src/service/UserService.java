@@ -71,10 +71,10 @@ public class UserService {
 	/**
 	 * 用户登录。
 	 */
-	public User login(String username, String password) throws LoginException {
+	public User login(String userName, String password) throws LoginException {
 		try {
 			//根据登录时表单输入的用户名和密码，查找用户
-			User user = dao.findUserByUserNameAndPassword(username, password);
+			User user = dao.findUserByUserNameAndPassword(userName, password);
 			//如果找到，还需要确定用户是否为激活用户
 			if(user == null) {
 				throw new LoginException("警告：用户名或密码错误！");

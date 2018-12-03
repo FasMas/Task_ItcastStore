@@ -24,8 +24,8 @@ public class FindOrderByUserServlet extends HttpServlet {
 
 		//调用service中的方法,根据用户信息查找订单
 		OrderService service = new OrderService();
-		List<Order> orders = service.findOrdersByUser(user);
-		request.setAttribute("orders", orders);
+		List<Order> orderList = service.findOrdersByUser(user);
+		request.setAttribute("orderList", orderList);
 		request.getRequestDispatcher("/client/orderList.jsp").forward(request, response);
 	}
 }

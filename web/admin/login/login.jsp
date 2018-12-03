@@ -1,5 +1,5 @@
-<%@ page pageEncoding="UTF-8"%>
-<script type="text/javascript">
+<%@ page contentType="text/html; charset=UTF-8" %>
+<script>
 function ini(){
    document.form1.logonName.focus();
 }

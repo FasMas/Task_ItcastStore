@@ -1,67 +1,54 @@
 /**
  * 订单验证的Js脚本
  */
+document.writeln("<script src='../../utils/js/myUtils.js'></script>");
 
-var receiverName;
-var receiverAddress;
-var receiverPhone;
-var receiverNameMsg;
-var receiverAddressMsg;
-var receiverPhoneMsg;
-
-$(function() {
-    receiverName = $("#receiverName");
-    receiverAddress = $("#receiverAddress");
-    receiverPhone = $("#receiverPhone");
-    receiverNameMsg = $("#receiverNameMsg");
-    receiverAddressMsg = $("#receiverAddressMsg");
-    receiverPhoneMsg = $("#receiverPhoneMsg");
-});
 
 /**
  * 验证整个表单。如果验证成功，则提交。
  */
 function checkOnSubmit() {
-	if(checkReceiverName() && checkReceiverAddress() && checkReceiverPhone()){
-		$("#orderForm").submit();
-	}else{
-	   return "";
-	}
+    if(checkReceiverName() && checkReceiverAddress() && checkReceiverPhone()) {
+        $("#orderForm").submit();
+    } else {
+        return "";
+    }
 }
 
 /**
- * 验证收货地址
+ * 验证收货地址。
  * @returns {boolean}
  */
 function checkReceiverAddress() {
-	var value =receiverAddress.value;
-	var msg = "";
-	if (!value)
-		msg = "收获地址必须填写";
-	receiverAddressMsg.innerHTML = msg;
-	receiverAddress.parentNode.parentNode.style.color = msg == "" ? "black" : "red";
-	return msg == "";
+    var elem = $("#receiverAddress");
+    var elemMsg = $("#receiverAddressMsg");
+    var nullMsg = "收货地址必须填写！";
+
+    return checkByNull(elem, elemMsg, nullMsg);
 }
 
-function checkReceiverName() {		//验证收货人
-	var value =receiverName.value;
-	var msg = "";
-	if (!value)
-		msg = "收获人必须填写";
-	receiverNameMsg.innerHTML = msg;
-	receiverName.parentNode.parentNode.style.color = msg == "" ? "black" : "red";
-	return msg == "";
+/**
+ * 验证收货人。
+ * @returns {boolean}
+ */
+function checkReceiverName() {
+    var elem = $("#receiverName");
+    var elemMsg = $("#receiverNameMsg");
+    var nullMsg = "收货人必须填写！";
+
+    return checkByNull(elem, elemMsg, nullMsg);
 }
 
-function checkReceiverPhone() {		//验证联系方式
-	var regex =/^1[358]\d{9}$/;	//以13、15、18开头的手机号
-	var value =receiverPhone.value;
-	var msg = "";
-	if (!value)
-		msg = "联系方式必须填写";
-	else if (!regex.test(value))
-		msg = "手机号码不合法：";
-	receiverPhoneMsg.innerHTML = msg;
-	receiverPhone.parentNode.parentNode.style.color = msg == "" ? "black" : "red";
-	return msg == "";
+/**
+ * 验证联系方式。
+ * @returns {boolean}
+ */
+function checkReceiverPhone() {
+    var elem = $("#receiverPhone");
+    var elemMsg = $("#receiverPhoneMsg");
+    var regex = /^1[358]\d{9}$/;	//以13、15、18开头的手机号
+    var nullMsg = "联系方式必须填写！";
+    var illegalMsg = "联系方式格式不正确！";
+
+    return checkByRegex(elem, elemMsg, regex, nullMsg, illegalMsg);
 }

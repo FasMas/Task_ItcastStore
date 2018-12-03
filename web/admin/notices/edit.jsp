@@ -1,5 +1,5 @@
-<%@ page pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <HTML>
 <HEAD>
 	<meta http-equiv="Content-Language" content="zh-cn">
@@ -42,9 +42,9 @@
 			<tr>
 				<td class="ta_01" style="WIDTH: 100%" align="center" bgColor="#f5fafe" colSpan="4">
 					<input type="submit" class="button_ok" value="确定">
-					<span style="font-family: 宋体; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<span style="font-family: 宋体; ">&emsp;&nbsp;&nbsp;&nbsp;</span>
 					<input type="reset" value="重置" class="button_cancel">
-					<span style="font-family: 宋体; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<span style="font-family: 宋体; ">&emsp;&nbsp;&nbsp;&nbsp;</span>
 					<input class="button_ok" type="button" onclick="history.go(-1)" value="返回" />
 					<span id="Label1"> </span>
 				</td>

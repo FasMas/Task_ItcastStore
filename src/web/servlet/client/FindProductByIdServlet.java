@@ -30,11 +30,11 @@ public class FindProductByIdServlet extends HttpServlet {
 
 		ProductService service = new ProductService();
 		try {
-			Product p = service.findProductById(id);
+			Product product = service.findProductById(id);
 
 			if(StringExt.equalsE(type, EUserType.Admin)) {
 				//如果是超级用户，则调用service层方法，通过id查找商品
-				request.setAttribute("p", p);
+				request.setAttribute("product", product);
 				request.getRequestDispatcher("/admin/products/edit.jsp").forward(request, response);
 			}else{
 				//如果是普通用户，则直接跳转到info.jsp页面

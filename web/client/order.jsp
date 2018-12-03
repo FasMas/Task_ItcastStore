@@ -1,6 +1,6 @@
-<%@ page import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="p" uri="http://www.itcast.cn/tag"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="p" uri="http://www.itcast.cn/tag" %>
 
 <html>
 <head>
@@ -11,15 +11,15 @@
 <body class="main">
 	<p:user/>
 	<jsp:include page="head.jsp" />
-	<jsp:include page="menu_search.jsp" />
+	<jsp:include page="menuSearch.jsp"/>
 	<div id="div-page-content">
 		<table width="100%" border="0" cellspacing="0">
 			<tr>
 				<td><div style="text-align:right; margin:5px 10px 5px 0">
-						<a href="${pageContext.request.contextPath }/index.jsp">首页</a>
-						   &nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;
+					<a href="${pageContext.request.contextPath}/index.jsp">首页</a>
+					&emsp;&gt;&nbsp;&nbsp;&nbsp;
 						<a href="${pageContext.request.contextPath}/client/cart.jsp">&nbsp;购物车</a>
-						   &nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;订单
+					&emsp;&gt;&emsp;订单
 					</div>
 					<form id="orderForm" action="${pageContext.request.contextPath}/createOrder" method="post">
 						<table cellspacing="0" class="info-content">
@@ -43,8 +43,8 @@
 														<td width="10%">小计</td>
 													</tr>
 												</table>
-												<c:set value="0" var="totalPrice"/>
-												<c:forEach items="${cart}" var="entry" varStatus="vs">
+												<c:set var="totalPrice" value="0"/>
+												<c:forEach var="entry" items="${cart}" varStatus="vs">
 													<table width="100%" border="0" cellspacing="0">
 														<tr>
 															<td width="10%">${vs.count}</td>
@@ -70,16 +70,18 @@
 												</table>
 												<p>
 													收货地址：<input id="receiverAddress" name="receiverAddress" type="text" value=""style="width:350px" onkeyup="checkReceiverAddress();" />
-													&nbsp;&nbsp;&nbsp;&nbsp;
+													&emsp;
 													<span id="receiverAddressMsg"></span>
 													<br/>
-												        收货人：&nbsp;&nbsp;&nbsp;&nbsp;<input id="receiverName" name="receiverName" type="text" value="${user.userName}" style="width:150px" onkeyup="checkReceiverName();" />
+													收货人：&emsp;<input id="receiverName" name="receiverName" type="text"
+																	 value="${user.userName}" style="width:150px"
+																	 onkeyup="checkReceiverName();"/>
 												    <span id="receiverNameMsg"></span>
-												    &nbsp;&nbsp;&nbsp;&nbsp;
+													&emsp;
 													<br/>
 													联系方式：<input type="text" id="receiverPhone" name="receiverPhone" value="${user.telephone}" style="width:150px" onkeyup="checkReceiverPhone();" />
 													<span id="receiverPhoneMsg"></span>
-													&nbsp;&nbsp;&nbsp;&nbsp;
+													&emsp;
 												</p>
 												<hr />
 												<p style="text-align:right">

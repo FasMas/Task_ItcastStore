@@ -25,7 +25,7 @@ public class FindOrdersServlet extends HttpServlet {
 		List<Order> orderList = service.findAllOrders();
 
 		//将查询到的订单信息添加到request作用域
-		request.setAttribute("orders", orderList);
+		request.setAttribute("orderList", orderList);
 		//将请求转发到list.jsp页面
 		request.getRequestDispatcher("/admin/orders/list.jsp").forward(request, response);
 	}

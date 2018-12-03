@@ -172,6 +172,6 @@ public class OrderDao {
 		user.setType(rs.getString("user.role"));
 		user.setState(rs.getInt("user.state"));
 		user.setTelephone(rs.getString("user.telephone"));
-		user.setUserName(rs.getString("user.username"));
+		user.setUserName(rs.getString("user.userName"));
 	}
 }

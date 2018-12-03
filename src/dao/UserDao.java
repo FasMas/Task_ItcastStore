@@ -36,10 +36,10 @@ public class UserDao {
 	/**
 	 * 根据用户名与密码查找用户。
 	 */
-	public User findUserByUserNameAndPassword(@NotNull String username,@NotNull String password) throws SQLException {
+	public User findUserByUserNameAndPassword(@NotNull String userName, @NotNull String password) throws SQLException {
 		String sql="select * from users where userName=? and password=?";
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-		return runner.query(sql, new BeanHandler<>(User.class),username,password);
+		return runner.query(sql, new BeanHandler<>(User.class), userName, password);
 	}
 
 	/**

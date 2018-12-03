@@ -33,7 +33,7 @@ public class FindProductsByConditionsServlet extends HttpServlet {
 				category, minPrice, maxPrice);
 
 		//4.将条件查询的结果放进request域中
-		request.setAttribute("products", productList);
+		request.setAttribute("productList", productList);
 		//5.请求重定向到商品管理首页list.jsp页面
 		request.getRequestDispatcher("/admin/products/list.jsp").forward(request, response);
 	}

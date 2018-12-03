@@ -1,14 +1,14 @@
 <%--@elvariable id="orders" type="java.util.List<task_itcaststore.domain.Order>"--%>
 
-<%@ page import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="p" uri="http://www.itcast.cn/tag"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="p" uri="http://www.itcast.cn/tag" %>
 
 <html>
 <head>
 	<title>电子书城</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/client/css/main.css" />
-	<script type="text/javascript">
+	<script>
 	//删除订单
 	function o_del() {
 	    var msg = "您确定要删除该订单吗？";
@@ -24,7 +24,7 @@
 	<!-- 使用了自定义标签 -->
 	<p:user/>
 	<jsp:include page="head.jsp" />
-	<jsp:include page="menu_search.jsp" />
+	<jsp:include page="menuSearch.jsp"/>
 	<div id="div-page-content">
 		<table width="100%" border="0" cellspacing="0">
 			<tr>
@@ -35,22 +35,25 @@
 						</tr>
 						<tr>
 							<td class="list-td">
-								<img src="${pageContext.request.contextPath }/client/images/icon1.png" width="15" height="10" />
-								&nbsp;&nbsp;&nbsp;&nbsp;
-								<a href="${pageContext.request.contextPath }/client/modifyuserinfo.jsp">用户信息修改</a>
+								<img src="${pageContext.request.contextPath}/client/images/icon1.png" width="15"
+									 height="10"/>
+								&emsp;
+								<a href="${pageContext.request.contextPath}/client/modifyUserInfo.jsp">用户信息修改</a>
 							</td>
 						</tr>
 						<tr>
 							<td class="list-td">
-								<img src="${pageContext.request.contextPath }/client/images/icon2.png" width="15" height="10" />
-								&nbsp;&nbsp;&nbsp;&nbsp;
+								<img src="${pageContext.request.contextPath}/client/images/icon2.png" width="15"
+									 height="10"/>
+								&emsp;
 								<a href="${pageContext.request.contextPath}/findOrderByUser">订单查询</a>
 							</td>
 						</tr>
 						<tr>
 							<td class="list-td">
-								<img src="${pageContext.request.contextPath }/client/images/icon3.png" width="15" height="10" />
-								&nbsp;&nbsp;&nbsp;&nbsp;
+								<img src="${pageContext.request.contextPath}/client/images/icon3.png" width="15"
+									 height="10"/>
+								&emsp;
 								<a href="${pageContext.request.contextPath}/logout">用户退出</a>
 							</td>
 						</tr>
@@ -58,10 +61,10 @@
 				</td>
 				<td>
 					<div style="text-align:right; margin:5px 10px 5px 0">
-						<a href="${pageContext.request.contextPath }/index.jsp">首页</a>
-						&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;
-						<a href="${pageContext.request.contextPath }/client/myAccount.jsp">&nbsp;我的帐户</a>
-						&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="${pageContext.request.contextPath}/index.jsp">首页</a>
+						&emsp;&gt;&nbsp;&nbsp;&nbsp;
+						<a href="${pageContext.request.contextPath}/client/myAccount.jsp">&nbsp;我的帐户</a>
+						&emsp;&gt;&emsp;
 						订单查询
 					</div>
 					<table cellspacing="0" class="info-content">
@@ -78,7 +81,7 @@
 										<td bgcolor="#A3B6E6" class="table-open-td01">状态</td>
 										<td bgcolor="#A3E2E6" class="table-open-td01">操作</td>
 									</tr>
-									<c:forEach items="${orders}" var="order">
+									<c:forEach var="order" items="${orders}">
 										<tr>
 											<td class="table-open-td02">${order.id}</td>
 											<td class="table-open-td02">${order.receiverName }</td>

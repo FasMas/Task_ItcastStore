@@ -117,7 +117,7 @@ h1 {
 	font-weight: bold;
 }
 
-#div_search {
+#div-search {
 	width: 100%;
 	background-color: #f59f1d;
 	text-align: center;
@@ -172,6 +172,7 @@ h1 {
 }
 
 .info-content {
+	border-collapse:collapse;
 	background-color: #FCFDEF;
 	border: 1px solid #CCCCCC;
 	margin-left: 5px;
@@ -400,6 +401,7 @@ h1 {
 	border: 1px solid #CCCCCC;
 	width: 100%;
 	background-color: #E1FFE1;
+	border-spacing:1px;
 }
 
 .table-open {

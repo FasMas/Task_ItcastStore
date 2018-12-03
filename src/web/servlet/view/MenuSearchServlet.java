@@ -45,6 +45,6 @@ public class MenuSearchServlet extends HttpServlet {
 		PageBean page = service.findBooksByName(currentPage, currentCount, searchField);
 		//将数据存储到request范围，跳转到product_search_list.jsp页面展示
 		request.setAttribute("page", page);
-		request.getRequestDispatcher("/client/product_search_list.jsp").forward(request, response);
+		request.getRequestDispatcher("/client/productSearchList.jsp").forward(request, response);
 	}
 }

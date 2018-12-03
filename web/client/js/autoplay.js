@@ -4,8 +4,10 @@ var $ = function (id) {return typeof id === "string" ? document.getElementById(i
 //获取tagName
 var $$ = function (tagName, oParent) {return (oParent || document).getElementsByTagName(tagName);};
 //自动播放对象
-var AutoPlay = function (id) {this.initialize(id);};
-AutoPlay.prototype = {
+var Autoplay = function(id) {
+    this.initialize(id);
+};
+Autoplay.prototype = {
 	initialize: function (id)
 	{
 		var oThis = this;
@@ -83,5 +85,5 @@ AutoPlay.prototype = {
 };
 window.onload = function ()
 {
-	new AutoPlay("box_autoplay");
+    new Autoplay("box_autoplay");
 };

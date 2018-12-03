@@ -1,12 +1,12 @@
-<%@ page pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <HTML>
 <HEAD>
 	<meta http-equiv="Content-Language" content="zh-cn">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet" type="text/css" />
 	<script language="javascript" src="${pageContext.request.contextPath}/admin/js/public.js"></script>
-	<script type="text/javascript">
+	<script>
 	//删除订单
 	function o_del() {
 		var msg = "您确定要删除该订单吗？";
@@ -19,7 +19,7 @@
 	</script>
 </HEAD>
 <body>
-	<br>
+<br/>
 	<form id="Form1" name="Form1" action="${pageContext.request.contextPath}/manager/findOrdersByConditions" method="post">
 		<table cellSpacing="1" cellPadding="0" width="100%" align="center" bgColor="#f5fafe" border="0">
 			<TBODY>
@@ -49,12 +49,12 @@
 									<span style="font-family: 宋体; color: red; "> &nbsp;</span>
 								</td>
 								<td align="right" bgColor="#ffffff" class="ta_01">
-									<br><br>
+									<br/><br/>
 								</td>
 								<td align="right" bgColor="#ffffff" class="ta_01">
 									<button type="submit" id="search" name="search" value="&#26597;&#35810;" class="button_view">
 										&#26597;&#35810;
-									</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									</button> &emsp;&nbsp;
 									<input type="reset" name="reset" value="&#37325;&#32622;" class="button_view" />
 								</td>
 							</tr>
@@ -85,7 +85,7 @@
 								<td width="7%" align="center">查看</td>
 								<td width="7%" align="center">删除</td>
 							</tr>
-							<c:forEach items="${orders}" var="order">
+							<c:forEach var="order" items="${orders}">
 								<tr onmouseover="this.style.backgroundColor = 'white'"
 									onmouseout="this.style.backgroundColor = '#F5FAFE';">
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center" width="20%">${order.id}</td>
