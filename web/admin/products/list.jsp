@@ -1,37 +1,33 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<HTML>
-<HEAD>
-	<meta http-equiv="Content-Language" content="zh-cn">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet" type="text/css" />
-	<script language="javascript" src="${pageContext.request.contextPath}/admin/js/public.js"></script>
+<jsp:useBean id="product" scope="request" type="task_itcaststore.domain.Product"/>
+<jsp:useBean id="productList" scope="request" type="java.util.List<task_itcaststore.domain.Product>"/>
+
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/admin/css/style.css"/>
+	<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/utils/js/myUtils.js"></script>
+	<script src="${pageContext.request.contextPath}/admin/js/public.js"></script>
 	<script>
-	    //添加商品
+        /**
+         * 添加商品。
+         */
 		function addProduct() {
 			window.location.href = "${pageContext.request.contextPath}/admin/products/add.jsp";
 		}
-		//删除商品
-		function p_del() {
-			var msg = "您确定要删除该商品吗？";
-			if (confirm(msg)==true){
-			return true;
-			}else{
-			return false;
-			}
-		}
 	</script>
-</HEAD>
+</head>
+
 <body>
-<br/>
-	<form id="Form1" name="Form1"
-		action="${pageContext.request.contextPath}/manager/findProductsByConditions"
-		method="post">
+<form id="form1" name="form1"
+	  action="${pageContext.request.contextPath}/manager/findProductsByConditions"
+	  method="post">
 		<table cellSpacing="1" cellPadding="0" width="100%" align="center" bgColor="#f5fafe" border="0">
 			<TBODY>
 				<tr>
 					<td class="ta_01" align="center" bgColor="#afd1f3">
-						<strong>查 询 条 件</strong>
+						<strong>查询 条 件</strong>
 					</td>
 				</tr>
 				<tr>
@@ -40,7 +36,7 @@
 							<tr>
 								<td height="22" align="center" bgColor="#f5fafe" class="ta_01">商品编号</td>
 								<td class="ta_01" bgColor="#ffffff">
-									<input type="text" name="id" size="15" value="" id="Form1_id" class="bg" />
+									<input type="text" name="id" size="15" value="" id="form1_id" class="bg"/>
 								</td>
 								<td height="22" align="center" bgColor="#f5fafe" class="ta_01">类别：</td>
 								<td class="ta_01" bgColor="#ffffff">
@@ -66,7 +62,7 @@
 							<tr>
 								<td height="22" align="center" bgColor="#f5fafe" class="ta_01">商品名称：</td>
 								<td class="ta_01" bgColor="#ffffff">
-									<input type="text" name="name" size="15" value="" id="Form1_userName" class="bg" />
+									<input type="text" name="name" size="15" value="" id="form1_userName" class="bg"/>
 								</td>
 								<td height="22" align="center" bgColor="#f5fafe" class="ta_01">价格区间(元)：</td>
 								<td class="ta_01" bgColor="#ffffff">
@@ -78,7 +74,7 @@
 							<tr>
 								<td width="100" height="22" align="center" bgColor="#f5fafe" class="ta_01"></td>
 								<td class="ta_01" bgColor="#ffffff">
-									<span style="font-family: 宋体; color: red; "> &nbsp;</span>
+									<span style="font-family:'宋体',sans-serif; color: red; "> &nbsp;</span>
 								</td>
 								<td align="right" bgColor="#ffffff" class="ta_01">
 									<br/><br/>
@@ -96,7 +92,7 @@
 				</tr>
 				<tr>
 					<td class="ta_01" align="center" bgColor="#afd1f3"><strong>商 品 列 表</strong>
-					</TD>
+					</td>
 				</tr>
 				<tr>
 					<td class="ta_01" align="right">
@@ -148,4 +144,4 @@
 		</table>
 	</form>
 </body>
-</HTML>
+</html>

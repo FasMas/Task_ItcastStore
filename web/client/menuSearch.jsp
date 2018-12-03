@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 
-<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
 <script>
     /**
      * my_click和my_blur均是用于前台页面搜索框的函数

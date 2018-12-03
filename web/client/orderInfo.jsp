@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="p" uri="http://www.itcast.cn/tag" %>
+<jsp:useBean id="order" scope="request" type="task_itcaststore.domain.Order"/>
 
 <html>
 <head>
@@ -11,6 +12,7 @@
 	<p:user/>
 	<jsp:include page="head.jsp" />
 	<jsp:include page="menuSearch.jsp"/>
+
 	<div id="div-page-content">
 		<table width="100%" border="0" cellspacing="0">
 			<tr>

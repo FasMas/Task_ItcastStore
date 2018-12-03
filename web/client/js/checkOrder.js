@@ -7,11 +7,11 @@ document.writeln("<script src='../../utils/js/myUtils.js'></script>");
 /**
  * 验证整个表单。如果验证成功，则提交。
  */
-function checkOnSubmit() {
+function checkOrder() {
     if(checkReceiverName() && checkReceiverAddress() && checkReceiverPhone()) {
         $("#orderForm").submit();
     } else {
-        return "";
+        return false;
     }
 }
 

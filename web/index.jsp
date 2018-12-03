@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>itcastStore首页</title>
+	<title>传智商城首页</title>
 </head>
 
 <body>

@@ -93,3 +93,12 @@ function checkByRepeat(reElem, reElemMsg, elem, nullMsg, illegalMsg, trueStyle, 
     reElemMsg.parent().parent().css(msg === "" ? trueStyle : falseStyle);
     return msg === "";
 }
+
+/**
+ * 弹出确认窗口。
+ * @param msg {string} 确认信息
+ * @returns {boolean}
+ */
+function confirmWarn(msg) {
+    return confirm(msg) === true;
+}

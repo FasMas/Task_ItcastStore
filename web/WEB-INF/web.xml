@@ -194,7 +194,7 @@
 	<!--</servlet>-->
 	<!--<servlet-mapping>-->
 		<!--<servlet-name>EditProductServlet</servlet-name>-->
-		<!--<url-pattern>/editProduct</url-pattern>-->
+	<!--<url-pattern>/updateProduct</url-pattern>-->
 	<!--</servlet-mapping>-->
 
 	<!--<servlet>-->

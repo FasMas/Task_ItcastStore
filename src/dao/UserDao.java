@@ -50,4 +50,12 @@ public class UserDao {
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
 		runner.update(sql, 1, activeCode);
 	}
+
+	/**
+	 * 编辑用户信息。
+	 */
+	public void updateUser(@NotNull User user) {
+		//TODO
+
+	}
 }

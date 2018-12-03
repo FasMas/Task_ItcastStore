@@ -74,7 +74,7 @@ var support = {};
 var isFunction = function isFunction( obj ) {
 
       //Support: Chrome <=57, Firefox <=52
-      //In some browsers, typeof returns "function" for HTML <object> elements
+      //In some browsers, typeof returns "function" for html <object> elements
       //(i.e., `typeof document.createElement( "object" ) === "function"`).
       //We don't want to classify *any* DOM node as a function.
       return typeof obj === "function" && typeof obj.nodeType !== "number";
@@ -525,7 +525,7 @@ var i,
 	setDocument,
 	document,
 	docElem,
-	documentIsHTML,
+	documentIshtml,
 	rbuggyQSA,
 	rbuggyMatches,
 	matches,
@@ -570,13 +570,13 @@ var i,
 
 	//Regular expressions
 
-	//http://www.w3.org/TR/css3-selectors/#whitespace
+	//http://www.w3.org/tr/css3-selectors/#whitespace
 	whitespace = "[\\x20\\t\\r\\n\\f]",
 
-	//http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier
+	//http://www.w3.org/tr/CSS21/syndata.html#value-def-identifier
 	identifier = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+",
 
-	//Attribute selectors: http://www.w3.org/TR/selectors/#attribute-selectors
+	//Attribute selectors: http://www.w3.org/tr/selectors/#attribute-selectors
 	attributes = "\\[" + whitespace + "*(" + identifier + ")(?:" + whitespace +
 		//Operator (capture 2)
 		"*([*^$|!~]?=)" + whitespace +
@@ -610,7 +610,7 @@ var i,
 		"ID": new RegExp( "^#(" + identifier + ")" ),
 		"CLASS": new RegExp( "^\\.(" + identifier + ")" ),
 		"TAG": new RegExp( "^(" + identifier + "|[*])" ),
-		"ATTR": new RegExp( "^" + attributes ),
+		"ATtr": new RegExp( "^" + attributes ),
 		"PSEUDO": new RegExp( "^" + pseudos ),
 		"CHILD": new RegExp( "^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" + whitespace +
 			"*(even|odd|(([+-]|)(\\d*)n|)" + whitespace + "*(?:([+-]|)" + whitespace +
@@ -633,7 +633,7 @@ var i,
 	rsibling = /[+~]/,
 
 	//CSS escapes
-	//http://www.w3.org/TR/CSS21/syndata.html#escaped-characters
+	//http://www.w3.org/tr/CSS21/syndata.html#escaped-characters
 	runescape = new RegExp( "\\\\([\\da-f]{1,6}" + whitespace + "?|(" + whitespace + ")|.)", "ig" ),
 	funescape = function( _, escaped, escapedWhitespace ) {
 		var high = "0x" + escaped - 0x10000;
@@ -728,7 +728,7 @@ function Sizzle( selector, context, results, seed ) {
 		return results;
 	}
 
-	//Try to shortcut find operations (as opposed to filters) in HTML documents
+	//Try to shortcut find operations (as opposed to filters) in html documents
 	if ( !seed ) {
 
 		if ( ( context ? context.ownerDocument || context : preferredDoc ) !== document ) {
@@ -736,7 +736,7 @@ function Sizzle( selector, context, results, seed ) {
 		}
 		context = context || document;
 
-		if ( documentIsHTML ) {
+		if ( documentIshtml ) {
 
 			//If the selector is sufficiently simple, try using a "get*By*" DOM method
 			//(excepting DocumentFragment context, where the methods don't exist)
@@ -1052,13 +1052,13 @@ support = Sizzle.support = {};
 /**
  * Detects XML nodes
  * @param {Element|Object} elem An element or a document
- * @returns {Boolean} True iff elem is a non-HTML XML node
+ * @returns {Boolean} True iff elem is a non-html XML node
  */
 isXML = Sizzle.isXML = function( elem ) {
 	//documentElement is verified for cases where it doesn't yet exist
 	//(such as loading iframes in IE - #4833)
 	var documentElement = elem && (elem.ownerDocument || elem).documentElement;
-	return documentElement ? documentElement.nodeName !== "HTML" : false;
+	return documentElement ? documentElement.nodeName !== "html" : false;
 };
 
 /**
@@ -1078,7 +1078,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	//Update global variables
 	document = doc;
 	docElem = document.documentElement;
-	documentIsHTML = !isXML( document );
+	documentIshtml = !isXML( document );
 
 	//Support: IE 9-11, Edge
 	//Accessing iframe documents after unload throws "permission denied" errors (jQuery #13936)
@@ -1136,7 +1136,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			};
 		};
 		Expr.find["ID"] = function( id, context ) {
-			if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
+			if ( typeof context.getElementById !== "undefined" && documentIshtml ) {
 				var elem = context.getElementById( id );
 				return elem ? [ elem ] : [];
 			}
@@ -1154,7 +1154,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		//Support: IE 6 - 7 only
 		//getElementById is not reliable as a find shortcut
 		Expr.find["ID"] = function( id, context ) {
-			if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
+			if ( typeof context.getElementById !== "undefined" && documentIshtml ) {
 				var node, i, elems,
 					elem = context.getElementById( id );
 
@@ -1216,7 +1216,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	//Class
 	Expr.find["CLASS"] = support.getElementsByClassName && function( className, context ) {
-		if ( typeof context.getElementsByClassName !== "undefined" && documentIsHTML ) {
+		if ( typeof context.getElementsByClassName !== "undefined" && documentIshtml ) {
 			return context.getElementsByClassName( className );
 		}
 	};
@@ -1245,9 +1245,9 @@ setDocument = Sizzle.setDocument = function( node ) {
 			//setting a boolean content attribute,
 			//since its presence should be enough
 			//https://bugs.jquery.com/ticket/12359
-			docElem.appendChild( el ).innerHTML = "<a id='" + expando + "'></a>" +
-				"<select id='" + expando + "-\r\\' msallowcapture=''>" +
-				"<option selected=''></option></select>";
+			docElem.appendChild( el ).innerhtml = "<a id="" + expando + ""></a>" +
+				"<select id="" + expando + "-\r\\" msallowcapture="">" +
+				"<option selected=""></option></select>";
 
 			//Support: IE8, Opera 11-12.16
 			//Nothing should be selected when empty strings follow ^= or $= or *=
@@ -1269,7 +1269,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			}
 
 			//Webkit/Opera - :checked should return selected option elements
-			//http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked
+			//http://www.w3.org/tr/2011/REC-css3-selectors-20110929/#checked
 			//IE8 throws error here and will not see later tests
 			if ( !el.querySelectorAll(":checked").length ) {
 				rbuggyQSA.push(":checked");
@@ -1284,11 +1284,11 @@ setDocument = Sizzle.setDocument = function( node ) {
 		});
 
 		assert(function( el ) {
-			el.innerHTML = "<a href='' disabled='disabled'></a>" +
+			el.innerhtml = "<a href='' disabled='disabled'></a>" +
 				"<select disabled='disabled'><option/></select>";
 
 			//Support: Windows 8 Native Apps
-			//The type and name attributes are restricted during .innerHTML assignment
+			//The type and name attributes are restricted during .innerhtml assignment
 			var input = document.createElement("input");
 			input.setAttribute( "type", "hidden" );
 			el.appendChild( input ).setAttribute( "name", "D" );
@@ -1483,7 +1483,7 @@ Sizzle.matchesSelector = function( elem, expr ) {
 	//Make sure that attribute selectors are quoted
 	expr = expr.replace( rattributeQuotes, "='$1']" );
 
-	if ( support.matchesSelector && documentIsHTML &&
+	if ( support.matchesSelector && documentIshtml &&
 		!compilerCache[ expr + " " ] &&
 		( !rbuggyMatches || !rbuggyMatches.test( expr ) ) &&
 		( !rbuggyQSA     || !rbuggyQSA.test( expr ) ) ) {
@@ -1521,12 +1521,12 @@ Sizzle.attr = function( elem, name ) {
 	var fn = Expr.attrHandle[ name.toLowerCase() ],
 		//Don't get fooled by Object.prototype properties (jQuery #13807)
 		val = fn && hasOwn.call( Expr.attrHandle, name.toLowerCase() ) ?
-			fn( elem, name, !documentIsHTML ) :
+			fn( elem, name, !documentIshtml ) :
 			undefined;
 
 	return val !== undefined ?
 		val :
-		support.attributes || !documentIsHTML ?
+		support.attributes || !documentIshtml ?
 			elem.getAttribute( name ) :
 			(val = elem.getAttributeNode(name)) && val.specified ?
 				val.value :
@@ -1630,7 +1630,7 @@ Expr = Sizzle.selectors = {
 	},
 
 	preFilter: {
-		"ATTR": function( match ) {
+		"ATtr": function( match ) {
 			match[1] = match[1].replace( runescape, funescape );
 
 			//Move the given value to match[3] whether quoted or unquoted
@@ -1725,7 +1725,7 @@ Expr = Sizzle.selectors = {
 				});
 		},
 
-		"ATTR": function( name, operator, check ) {
+		"ATtr": function( name, operator, check ) {
 			return function( elem ) {
 				var result = Sizzle.attr( elem, name );
 
@@ -1880,7 +1880,7 @@ Expr = Sizzle.selectors = {
 
 		"PSEUDO": function( pseudo, argument ) {
 			//pseudo-class names are case-insensitive
-			//http://www.w3.org/TR/selectors/#pseudo-classes
+			//http://www.w3.org/tr/selectors/#pseudo-classes
 			//Prioritize by case sensitivity in case custom pseudos are added with uppercase letters
 			//Remember that setFilters inherits from pseudos
 			var args,
@@ -1967,7 +1967,7 @@ Expr = Sizzle.selectors = {
 		//or beginning with the identifier C immediately followed by "-".
 		//The matching of C against the element's language value is performed case-insensitively.
 		//The identifier C does not have to be a valid language name."
-		//http://www.w3.org/TR/selectors/#lang-pseudo
+		//http://www.w3.org/tr/selectors/#lang-pseudo
 		"lang": markFunction( function( lang ) {
 			//lang value must be a valid identifier
 			if ( !ridentifier.test(lang || "") ) {
@@ -1977,7 +1977,7 @@ Expr = Sizzle.selectors = {
 			return function( elem ) {
 				var elemLang;
 				do {
-					if ( (elemLang = documentIsHTML ?
+					if ( (elemLang = documentIshtml ?
 						elem.lang :
 						elem.getAttribute("xml:lang") || elem.getAttribute("lang")) ) {
 
@@ -2009,7 +2009,7 @@ Expr = Sizzle.selectors = {
 
 		"checked": function( elem ) {
 			//In CSS3, :checked should return both checked and selected elements
-			//http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked
+			//http://www.w3.org/tr/2011/REC-css3-selectors-20110929/#checked
 			var nodeName = elem.nodeName.toLowerCase();
 			return (nodeName === "input" && !!elem.checked) || (nodeName === "option" && !!elem.selected);
 		},
@@ -2026,7 +2026,7 @@ Expr = Sizzle.selectors = {
 
 		//Contents
 		"empty": function( elem ) {
-			//http://www.w3.org/TR/selectors/#empty-pseudo
+			//http://www.w3.org/tr/selectors/#empty-pseudo
 			//:empty is negated by element (1) or content nodes (text: 3; cdata: 4; entity ref: 5),
 			//  but not by others (comment: 8; processing instruction: 7; etc.)
 			//nodeType < 6 works because attributes (2) do not appear as children
@@ -2062,7 +2062,7 @@ Expr = Sizzle.selectors = {
 				elem.type === "text" &&
 
 				//Support: IE<8
-				//New HTML5 attribute values (e.g., "search") appear with elem.type === "text"
+				//New html5 attribute values (e.g., "search") appear with elem.type === "text"
 				( (attr = elem.getAttribute("type")) == null || attr.toLowerCase() === "text" );
 		},
 
@@ -2492,7 +2492,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 					j = 0;
 					if ( !context && elem.ownerDocument !== document ) {
 						setDocument( elem );
-						xml = !documentIsHTML;
+						xml = !documentIshtml;
 					}
 					while ( (matcher = elementMatchers[j++]) ) {
 						if ( matcher( elem, context || document, xml) ) {
@@ -2628,7 +2628,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 		//Reduce context if the leading compound selector is an ID
 		tokens = match[0] = match[0].slice( 0 );
 		if ( tokens.length > 2 && (token = tokens[0]).type === "ID" &&
-				context.nodeType === 9 && documentIsHTML && Expr.relative[ tokens[1].type ] ) {
+				context.nodeType === 9 && documentIshtml && Expr.relative[ tokens[1].type ] ) {
 
 			context = ( Expr.find["ID"]( token.matches[0].replace(runescape, funescape), context ) || [] )[0];
 			if ( !context ) {
@@ -2677,7 +2677,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 	( compiled || compile( selector, match ) )(
 		seed,
 		context,
-		!documentIsHTML,
+		!documentIshtml,
 		results,
 		!context || rsibling.test( selector ) && testContext( context.parentNode ) || context
 	);
@@ -2707,7 +2707,7 @@ support.sortDetached = assert(function( el ) {
 //Prevent attribute/property "interpolation"
 //https://msdn.microsoft.com/en-us/library/ms536429%28VS.85%29.aspx
 if ( !assert(function( el ) {
-	el.innerHTML = "<a href='#'></a>";
+	el.innerhtml = "<a href='#'></a>";
 	return el.firstChild.getAttribute("href") === "#" ;
 }) ) {
 	addHandle( "type|href|height|width", function( elem, name, isXML ) {
@@ -2720,7 +2720,7 @@ if ( !assert(function( el ) {
 //Support: IE<9
 //Use defaultValue in place of getAttribute("value")
 if ( !support.attributes || !assert(function( el ) {
-	el.innerHTML = "<input/>";
+	el.innerhtml = "<input/>";
 	el.firstChild.setAttribute( "value", "" );
 	return el.firstChild.getAttribute( "value" ) === "";
 }) ) {
@@ -2902,9 +2902,9 @@ jQuery.fn.extend( {
 //A central reference to the root jQuery(document)
 var rootjQuery,
 
-	//A simple way to check for HTML strings
+	//A simple way to check for html strings
 	//Prioritize #id over <tag> to avoid XSS via location.hash (#9521)
-	//Strict HTML recognition (#11290: must start with <)
+	//Strict html recognition (#11290: must start with <)
 	//Shortcut simple #id case for speed
 	rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/,
 
@@ -2920,13 +2920,13 @@ var rootjQuery,
 		//so migrate can support jQuery.sub (gh-2101)
 		root = root || rootjQuery;
 
-		//Handle HTML strings
+		//Handle html strings
 		if ( typeof selector === "string" ) {
 			if ( selector[ 0 ] === "<" &&
 				selector[ selector.length - 1 ] === ">" &&
 				selector.length >= 3 ) {
 
-				//Assume that strings that start and end with <> are HTML and skip the regex check
+				//Assume that strings that start and end with <> are html and skip the regex check
 				match = [ null, selector, null ];
 
 			} else {
@@ -2941,8 +2941,8 @@ var rootjQuery,
 					context = context instanceof jQuery ? context[ 0 ] : context;
 
 					//Option to run scripts is true for back-compat
-					//Intentionally let the error be thrown if parseHTML is not present
-					jQuery.merge( this, jQuery.parseHTML(
+					//Intentionally let the error be thrown if parsehtml is not present
+					jQuery.merge( this, jQuery.parsehtml(
 						match[ 1 ],
 						context && context.nodeType ? context.ownerDocument || context : document,
 						true
@@ -4199,7 +4199,7 @@ function dataAttr( elem, key, data ) {
 	var name;
 
 	//If nothing was found internally, try to fetch any
-	//data from the HTML5 data-* attribute
+	//data from the html5 data-* attribute
 	if ( data === undefined && elem.nodeType === 1 ) {
 		name = "data-" + key.replace( rmultiDash, "-$&" ).toLowerCase();
 		data = elem.getAttribute( name );
@@ -4299,7 +4299,7 @@ jQuery.fn.extend( {
 				}
 
 				//Attempt to "discover" the data in
-				//HTML5 custom data-* attrs
+				//html5 custom data-* attrs
 				data = dataAttr( elem, key );
 				if ( data !== undefined ) {
 					return data;
@@ -4675,13 +4675,13 @@ var rscriptType = ( /^$|^module$|\/(?:java|ecma)script/i );
 
 
 
-//We have to close these tags to support XHTML (#13200)
+//We have to close these tags to support Xhtml (#13200)
 var wrapMap = {
 
 	//Support: IE <=9 only
 	option: [ 1, "<select multiple='multiple'>", "</select>" ],
 
-	//XHTML parsers do not magically insert elements in the
+	//Xhtml parsers do not magically insert elements in the
 	//same way that tag soup parsers do. So we cannot shorten
 	//this by omitting <tbody> or other required elements.
 	thead: [ 1, "<table>", "</table>" ],
@@ -4770,7 +4770,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 				//Deserialize a standard representation
 				tag = ( rtagName.exec( elem ) || [ "", "" ] )[ 1 ].toLowerCase();
 				wrap = wrapMap[ tag ] || wrapMap._default;
-				tmp.innerHTML = wrap[ 1 ] + jQuery.htmlPrefilter( elem ) + wrap[ 2 ];
+				tmp.innerhtml = wrap[ 1 ] + jQuery.htmlPrefilter( elem ) + wrap[ 2 ];
 
 				//Descend through wrappers to the right content
 				j = wrap[ 0 ];
@@ -4851,7 +4851,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 
 	//Support: IE <=11 only
 	//Make sure textarea (and checkbox) defaultValue is properly cloned
-	div.innerHTML = "<textarea>x</textarea>";
+	div.innerhtml = "<textarea>x</textarea>";
 	support.noCloneChecked = !!div.cloneNode( true ).lastChild.defaultValue;
 } )();
 var documentElement = document.documentElement;
@@ -5215,7 +5215,7 @@ jQuery.event = {
 
 			//Support: Firefox <=42
 			//Suppress spec-violating clicks indicating a non-primary pointer button (trac-3861)
-			//https://www.w3.org/TR/DOM-Level-3-Events/#event-type-click
+			//https://www.w3.org/tr/DOM-Level-3-Events/#event-type-click
 			//Support: IE 11 only
 			//...but not arrow key "clicks" of radio inputs, which can have `button` -1 (gh-2343)
 			!( event.type === "click" && event.button >= 1 ) ) {
@@ -5405,7 +5405,7 @@ jQuery.Event = function( src, props ) {
 };
 
 //jQuery.Event is based on DOM3 Events as specified by the ECMAScript Language Binding
-//https://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/ecma-script-binding.html
+//https://www.w3.org/tr/2003/WD-DOM-Level-3-Events-20030331/ecma-script-binding.html
 jQuery.Event.prototype = {
 	constructor: jQuery.Event,
 	isDefaultPrevented: returnFalse,
@@ -5962,10 +5962,10 @@ jQuery.fn.extend( {
 				l = this.length;
 
 			if ( value === undefined && elem.nodeType === 1 ) {
-				return elem.innerHTML;
+				return elem.innerhtml;
 			}
 
-			//See if we can take a shortcut and just use innerHTML
+			//See if we can take a shortcut and just use innerhtml
 			if ( typeof value === "string" && !rnoInnerhtml.test( value ) &&
 				!wrapMap[ ( rtagName.exec( value ) || [ "", "" ] )[ 1 ].toLowerCase() ] ) {
 
@@ -5978,13 +5978,13 @@ jQuery.fn.extend( {
 						//Remove element nodes and prevent memory leaks
 						if ( elem.nodeType === 1 ) {
 							jQuery.cleanData( getAll( elem, false ) );
-							elem.innerHTML = value;
+							elem.innerhtml = value;
 						}
 					}
 
 					elem = 0;
 
-				//If using innerHTML throws an exception, use the fallback method
+				//If using innerhtml throws an exception, use the fallback method
 				} catch ( e ) {}
 			}
 
@@ -7593,7 +7593,7 @@ jQuery.extend( {
 		var name,
 			i = 0,
 
-			//Attribute names can contain non-HTML whitespace characters
+			//Attribute names can contain non-html whitespace characters
 			//https://html.spec.whatwg.org/multipage/syntax.html#attributes-2
 			attrNames = value && value.match( rnothtmlwhite );
 
@@ -7779,7 +7779,7 @@ jQuery.each( [
 
 
 
-	//Strip and collapse whitespace according to HTML spec
+	//Strip and collapse whitespace according to html spec
 	//https://infra.spec.whatwg.org/#strip-and-collapse-ascii-whitespace
 	function stripAndCollapse( value ) {
 		var tokens = value.match( rnothtmlwhite ) || [];
@@ -8342,7 +8342,7 @@ jQuery.fn.extend( {
 //
 //Support: Chrome <=48 - 49, Safari <=9.0 - 9.1
 //focus(in | out) events fire after focus & blur events,
-//which is spec violation - http://www.w3.org/TR/DOM-Level-3-Events/#events-focusevent-event-order
+//which is spec violation - http://www.w3.org/tr/DOM-Level-3-Events/#events-focusevent-event-order
 //Related ticket - https://bugs.chromium.org/p/chromium/issues/detail?id=449857
 if ( !support.focusin ) {
 	jQuery.each( { focus: "focusin", blur: "focusout" }, function( orig, fix ) {
@@ -8534,7 +8534,7 @@ var
 
 	//#7653, #8125, #8152: local protocol detection
 	rlocalProtocol = /^(?:about|app|app-storage|.+-extension|file|res|widget):$/,
-	rnoContent = /^(?:GET|HEAD)$/,
+	rnoContent = /^(?:GET|head)$/,
 	rprotocol = /^\/\//,
 
 	/* Prefilters
@@ -9270,7 +9270,7 @@ jQuery.extend( {
 				}
 
 				//if no content
-				if ( status === 204 || s.type === "HEAD" ) {
+				if ( status === 204 || s.type === "head" ) {
 					statusText = "nocontent";
 
 				//if not modified
@@ -9786,13 +9786,13 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 
 
 //Support: Safari 8 only
-//In Safari 8 documents created via document.implementation.createHTMLDocument
+//In Safari 8 documents created via document.implementation.createhtmlDocument
 //collapse sibling forms: the second one becomes a child of the first one.
 //Because of that, this security measure has to be disabled in Safari 8.
 //https://bugs.webkit.org/show_bug.cgi?id=137337
-support.createHTMLDocument = ( function() {
-	var body = document.implementation.createHTMLDocument( "" ).body;
-	body.innerHTML = "<form></form><form></form>";
+support.createhtmlDocument = ( function() {
+	var body = document.implementation.createhtmlDocument( "" ).body;
+	body.innerhtml = "<form></form><form></form>";
 	return body.childNodes.length === 2;
 } )();
 
@@ -9801,7 +9801,7 @@ support.createHTMLDocument = ( function() {
 //context (optional): If specified, the fragment will be created in this context,
 //defaults to document
 //keepScripts (optional): If true, will include scripts passed in the html string
-jQuery.parseHTML = function( data, context, keepScripts ) {
+jQuery.parsehtml = function( data, context, keepScripts ) {
 	if ( typeof data !== "string" ) {
 		return [];
 	}
@@ -9816,8 +9816,8 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 
 		//Stop scripts or inline event handlers from being executed immediately
 		//by using document.implementation
-		if ( support.createHTMLDocument ) {
-			context = document.implementation.createHTMLDocument( "" );
+		if ( support.createhtmlDocument ) {
+			context = document.implementation.createhtmlDocument( "" );
 
 			//Set the base href for the created document
 			//so any parsed elements with URLs
@@ -9893,7 +9893,7 @@ jQuery.fn.load = function( url, params, callback ) {
 
 				//If a selector was specified, locate the right elements in a dummy div
 				//Exclude scripts to avoid IE 'Permission Denied' errors
-				jQuery( "<div>" ).append( jQuery.parseHTML( responseText ) ).find( selector ) :
+				jQuery( "<div>" ).append( jQuery.parsehtml( responseText ) ).find( selector ) :
 
 				//Otherwise use the full result
 				responseText );

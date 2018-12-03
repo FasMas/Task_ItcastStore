@@ -1,61 +1,61 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+
 <html>
 <head>
-<meta http-equiv="Content-Language" content="zh-cn">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<style type="text/css">
-BODY {
-	MARGIN: 0;
-	BACKGROUND-COLOR: #ffffff
-}
-
-BODY {
-	FONT-SIZE: 12px;
-	COLOR: #000000
-}
-
-TD {
-	FONT-SIZE: 12px;
-	COLOR: #000000
-}
-
-TH {
-	FONT-SIZE: 12px;
-	COLOR: #000000
-}
-.height1{width:100%; height:74px; }
-.img_logo{
-	min-width:100%;
-	max-width:100%;
-	height:74px;
-}
-
-</style>
-<link href="${pageContext.request.contextPath}/admin/css/style.css"
-	rel="stylesheet" type="text/css">
-
-	<script>
-	function exitSys() {
-		var flag = window.confirm("确认退出系统吗?");
-		if (flag) {
-			window.top.open('', '_parent', '');
-			window.top.close();
+	<style type="text/css">
+		BODY {
+			MARGIN:0;
+			BACKGROUND-COLOR:#ffffff
 		}
-		//如果你使用的是firefox浏览器必须要做以下设置
-		//1、在地址栏输入about:config然后回车，警告确认
-		//2、在过滤器中输入”dom.allow_scripts_to_close_windows“，双击即可将此值设为true 即可完成了
 
-	}
-</script>
-</HEAD>
+		BODY {
+			FONT-SIZE:12px;
+			COLOR:#000000
+		}
+
+		td {
+			FONT-SIZE:12px;
+			COLOR:#000000
+		}
+
+		TH {
+			FONT-SIZE:12px;
+			COLOR:#000000
+		}
+
+		.height1 {
+			width:100%;
+			height:74px;
+		}
+
+		.img_logo {
+			min-width:100%;
+			max-width:100%;
+			height:74px;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/admin/css/style.css">
+	<script>
+        function exitSys() {
+            var flag = window.confirm("确认退出系统吗?");
+            if(flag) {
+                window.top.open('', '_parent', '');
+                window.top.close();
+            }
+            //如果你使用的是firefox浏览器必须要做以下设置
+            //1、在地址栏输入about:config然后回车，警告确认
+            //2、在过滤器中输入”dom.allow_scripts_to_close_windows“，双击即可将此值设为true 即可完成了
+        }
+	</script>
+</head>
+
 <body>
 	<div class="height1">
 		<img class="img_logo" src="${pageContext.request.contextPath}/admin/images/top_11.png">
 	</div>
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 		<tr>
-			<td height="26" valign="bottom"
-				background="${pageContext.request.contextPath}/admin/images/mis_01.jpg">
+			<td height="26" valign="bottom" background="${pageContext.request.contextPath}/admin/images/mis_01.jpg">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td width="85%" align="left">
@@ -82,7 +82,7 @@ TH {
 									myArray[5] = "星期五";
 									myArray[6] = "星期六";
 									weekday = tmpDate.getDay();
-									if (weekday == 0 | weekday == 6) {
+                                    if(weekday === 0 || weekday === 6) {
 										document.write(myArray[weekday])
 									} else {
 										document.write(myArray[weekday])
@@ -112,4 +112,4 @@ TH {
 		</tr>
 	</table>
 </body>
-</HTML>
+</html>

@@ -1,29 +1,29 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<jsp:useBean id="pageBean" scope="request" type="task_itcaststore.domain.PageBean"/>
 
 <html>
 <head>
-	<title>bookStore列表</title>
-	<%--导入css --%>
+	<title>商品列表</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}client//css/main.css" />
 </head>
 
 <body class="main">
 	<jsp:include page="head.jsp" />
 	<jsp:include page="menuSearch.jsp"/>
+
 	<div id="div-page-content">
 		<table width="100%" border="0" cellspacing="0">
 			<tr>
 				<td><div style="text-align:right; margin:5px 10px 5px 0">
-					<a href="index.jsp">首页</a>&emsp;&gt;&emsp;全部商品&emsp;&gt;&emsp;图书列表
+					<a href="${pageContext.request.contextPath}/index.jsp">首页</a>&emsp;&gt;&emsp;全部商品&emsp;&gt;&emsp;图书列表
 					</div>
 					<table cellspacing="0" class="list-content">
 						<tr>
 							<td>
 								<h1>商品目录</h1>
 								<hr />
-								<h1>全部商品</h1>&emsp;共${bean.totalCount}种商品
+								<h1>全部商品</h1>&emsp;共${pageBean.totalCount}种商品
 								<hr />
 								<div style="margin-top:20px; margin-bottom:5px">
 									<img src="${pageContext.request.contextPath}/client/css/main.css" width="100%" height="38" />
@@ -31,7 +31,7 @@
 
 								<table cellspacing="0" class="book-list">
 									<tr>
-										<c:forEach var="p" items="${bean.productList}" varStatus="vs">
+										<c:forEach var="product" items="${pageBean.productList}" varStatus="vs">
 											<td>
 												<div class="div-book-pic">
 													<p>
@@ -50,40 +50,37 @@
 										</c:forEach>
 									</tr>
 								</table>
-								<!-- <table cellspacing="0" class="booklist">
-									<tr>
-									</tr>
-								</table> -->
 
 								<div class="pagination">
 									<ul>
-										<c:if test="${bean.currentPage!=1}">
+										<c:if test="${pageBean.currentPage!=1}">
 											<li class="nextPage">
-												<a href="${pageContext.request.contextPath}/menuSearch?currentPage=${bean.currentPage-1}&textfield=${bean.searchField}">&lt;&lt;上一页</a>
+												<a href="${pageContext.request.contextPath}/menuSearch?currentPage=${pageBean.currentPage-1}&textfield=${pageBean.searchField}">&lt;&lt;上一页</a>
 											</li>
 										</c:if>
-										<c:if test="${bean.currentPage==1}">
+										<c:if test="${pageBean.currentPage==1}">
 											<li class="disablepage">&lt;&lt;上一页</li>
 										</c:if>
-										<c:forEach begin="1" end="${bean.totalPage}" var="pageNum">
+										<c:forEach begin="1" end="${pageBean.totalPage}" var="pageNum">
 
-											<c:if test="${pageNum==bean.currentPage}">
+											<c:if test="${pageNum==pageBean.currentPage}">
 												<li class="current-page">${pageNum }</li>
 											</c:if>
-											<c:if test="${pageNum!=bean.currentPage}">
-												<li><a href="${pageContext.request.contextPath}/menuSearch?currentPage=${pageNum}&textfield=${bean.searchField}">${pageNum}</a>
+											<c:if test="${pageNum!=pageBean.currentPage}">
+												<li>
+													<a href="${pageContext.request.contextPath}/menuSearch?currentPage=${pageNum}&textfield=${pageBean.searchField}">${pageNum}</a>
 												</li>
 											</c:if>
 
 										</c:forEach>
 
-										<c:if test="${bean.currentPage==bean.totalPage||bean.totalPage==0}">
+										<c:if test="${pageBean.currentPage==pageBean.totalPage||pageBean.totalPage==0}">
 											<li class="disablepage">下一页 &gt;&gt;</li>
 										</c:if>
 
-										<c:if test="${bean.currentPage!=bean.totalPage&&bean.totalPage!=0}">
+										<c:if test="${pageBean.currentPage!=pageBean.totalPage&&pageBean.totalPage!=0}">
 											<li class="next-page">
-												<a href="${pageContext.request.contextPath}/menuSearch?currentPage=${bean.currentPage+1}&textfield=${bean.searchField}">下一页&gt;&gt;</a>
+												<a href="${pageContext.request.contextPath}/menuSearch?currentPage=${pageBean.currentPage+1}&textfield=${pageBean.searchField}">下一页&gt;&gt;</a>
 											</li>
 										</c:if>
 									</ul>

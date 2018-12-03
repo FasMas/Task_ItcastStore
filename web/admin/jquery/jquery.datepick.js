@@ -656,7 +656,7 @@ $.extend(Datepick.prototype, {
 		var extras = this._getExtras(inst.dpDiv);
 		var dims = {width: inst.dpDiv.width() + extras[0],
 			height: inst.dpDiv.height() + extras[1]};
-		inst.dpDiv.empty().append(this._generateHTML(inst)).
+        inst.dpDiv.empty().append(this._generatehtml(inst)).
 			find('iframe.' + this._coverClass).
 			css({width: dims.width, height: dims.height});
 		var numMonths = this._getNumberOfMonths(inst);
@@ -1403,17 +1403,17 @@ $.extend(Datepick.prototype, {
 			return startDate;
 	},
 
-	/* Generate the HTML for the current state of the date picker.
-	   @param  inst  (object) the instance settings for this datepicker
-	   @return  (string) the new HTML for the datepicker */
-	_generateHTML: function(inst) {
+    /* Generate the html for the current state of the date picker.
+       @param  inst  (object) the instance settings for this datepicker
+       @return  (string) the new html for the datepicker */
+    _generatehtml: function(inst) {
 		var today = new Date();
 		today = this._daylightSavingAdjust(
 			new Date(today.getFullYear(), today.getMonth(), today.getDate())); //clear time
 		var showStatus = this._get(inst, 'showStatus');
 		var initStatus = this._get(inst, 'initStatus') || '&#xa0;';
 		var isRTL = this._get(inst, 'isRTL');
-		//build the date picker HTML
+        //build the date picker html
 		var clear = (this._get(inst, 'mandatory') ? '' :
 			'<div class="datepick-clear"><a onclick="jQuery.datepick._clearDate(\'#' + inst.id + '\');"' +
 			this._addStatus(showStatus, inst.id, this._get(inst, 'clearStatus'), initStatus) + '>' +
@@ -1612,7 +1612,7 @@ $.extend(Datepick.prototype, {
 	   @param  drawYear   (number) the current year
 	   @param  minDate    (Date) the minimum allowed date or null if none
 	   @param  maxDate    (Date) the maximum allowed date or null if none
-	   @return  (string) the HTML for the month and year */
+	   @return  (string) the html for the month and year */
 	_generateMonthYearHeader: function(inst, drawMonth, drawYear, minDate, maxDate,
 			selectedDate, secondary, showStatus, initStatus, monthNames) {
 		minDate = (inst.rangeStart && minDate && selectedDate < minDate ? selectedDate : minDate);

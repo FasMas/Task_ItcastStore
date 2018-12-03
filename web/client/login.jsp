@@ -5,7 +5,7 @@
 	<title>传智书城登录页面</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/client/css/main.css"/>
 	<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
-	<script src="js/checkForm.js"></script>
+	<script src="${pageContext.request.contextPath}/client/js/checkForm.js"></script>
 </head>
 
 <body class="main">

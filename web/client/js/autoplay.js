@@ -53,7 +53,7 @@ Autoplay.prototype = {
 		for (var i = 0; i < this.aImg.length; i++)
 		{
 			var oLi = document.createElement("li");
-			oLi.innerHTML = i + 1;
+            oLi.innerhtml = i + 1;
 			this.oFrag.appendChild(oLi);
 		}
 		this.oCount.appendChild(this.oFrag);

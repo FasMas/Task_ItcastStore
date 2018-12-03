@@ -8,16 +8,19 @@
 	<script src="${pageContext.request.contextPath}/client/js/checkForm.js"></script>
 
 	<script>
-	function changeImage() {
-		//改变验证码图片中的文字
-        $("#img").attr("src", "${pageContext.request.contextPath}/imageCode?time=" + new Date().getTime());
-    }
+        /**
+         * 改变验证码图片中的文字。
+         */
+        function changeImage() {
+            $("#img").attr("src", "${pageContext.request.contextPath}/imageCode?time=" + new Date().getTime());
+        }
 	</script>
 </head>
 
 <body class="main">
 <%@include file="head.jsp" %>
 <%@include file="menuSearch.jsp" %>
+
 	<div id="div-content">
 		<form action="${pageContext.request.contextPath}/register" method="post" onsubmit="return checkForm();">
 			<table style="width:850px;border-collapse:collapse">

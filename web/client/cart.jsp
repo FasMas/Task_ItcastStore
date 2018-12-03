@@ -6,7 +6,7 @@
 <head>
 	<title>我的购物车</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/client/css/main.css"/>
-	<script src="js/cart.js"></script>
+	<script src="${pageContext.request.contextPath}/client/js/cart.js"></script>
 
 </head>
 
@@ -89,14 +89,15 @@
 											<div style="text-align:right; margin-top:10px">
 											    <!--继续购物 -->
 												<a href="${pageContext.request.contextPath}/showProductsByPage">
-													<img src="images/gwc_jx.gif" style="border:0" title="继续购物"/>
+													<img src="${pageContext.request.contextPath}/client/images/gwc_jx.gif"
+														 style="border:0" title="继续购物"/>
 												</a>
 												&emsp;
                                                  <!--结账 -->
 												<a href="${pageContext.request.contextPath}/client/order.jsp"
 												   title="结账">
 													<img src="${pageContext.request.contextPath}/client/images/gwc_buy.gif"
-														 style="border:0"/>
+														 style="border:0" title="结账"/>
 												</a>
 											</div>
 										</td>

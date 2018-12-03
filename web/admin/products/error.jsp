@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+
 <html>
 	<head>
 		<meta http-equiv="Content-Language" content="zh-cn">
@@ -29,7 +30,7 @@
 						</tr>
 						<tr>
 							<td height="220" align="center" valign="middle">
-								<span style="font-family: 宋体; ">&emsp;&nbsp;&nbsp;&nbsp;</span>
+								<span style="font-family:'宋体',sans-serif; ">&emsp;&nbsp;&nbsp;&nbsp;</span>
 								<input class="button_ok" type="button" onclick="history.go(-1)" value="返回"/>
 							</td>
 						</tr>

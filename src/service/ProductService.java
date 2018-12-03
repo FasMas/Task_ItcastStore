@@ -103,7 +103,7 @@ public class ProductService {
 	/**
 	 * 修改商品信息。
 	 */
-	public void editProduct(Product p) {
+	public void updateProduct(Product p) {
 		try {
 			dao.updateProduct(p);
 		} catch(SQLException e) {

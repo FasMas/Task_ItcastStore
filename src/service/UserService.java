@@ -1,5 +1,6 @@
 package task_itcaststore.service;
 
+import org.jetbrains.annotations.NotNull;
 import task_itcaststore.dao.UserDao;
 import task_itcaststore.domain.User;
 import task_itcaststore.exception.ActiveUserException;
@@ -89,5 +90,13 @@ public class UserService {
 			e.printStackTrace();
 			throw new LoginException("警告：登录失败！");
 		}
+	}
+
+	/**
+	 * 编辑用户信息。
+	 */
+	public void editUser(@NotNull User user) {
+		//TODO
+
 	}
 }

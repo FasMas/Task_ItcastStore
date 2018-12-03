@@ -1,17 +1,22 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="p" uri="http://www.itcast.cn/tag" %>
+<jsp:useBean id="user" scope="request" type="task_itcaststore.domain.User"/>
+<jsp:useBean id="cart" scope="request" type="java.util.Map<task_itcaststore.domain.Product,java.lang.Integer>"/>
 
 <html>
 <head>
 	<title>电子书城</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/client/css/main.css" />
+	<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/client/js/checkOrder.js"></script>
 </head>
+
 <body class="main">
 	<p:user/>
 	<jsp:include page="head.jsp" />
 	<jsp:include page="menuSearch.jsp"/>
+
 	<div id="div-page-content">
 		<table width="100%" border="0" cellspacing="0">
 			<tr>
@@ -27,7 +32,8 @@
 								<td>
 								<table width="100%" border="0" cellspacing="0">
 										<tr>
-											<td><img src="images/buy2.gif" width="635" height="38" />
+											<td><img src="${pageContext.request.contextPath}/client/images/buy2.gif"
+													 width="635" height="38"/>
 												<p>你好，${user.userName}！欢迎您来到网上书城结算中心</p>
 											</td>
 										</tr>
@@ -48,8 +54,8 @@
 													<table width="100%" border="0" cellspacing="0">
 														<tr>
 															<td width="10%">${vs.count}</td>
-															<td width="40%">${entry.key.name }</td>
-															<td width="10%">${entry.key.price }</td>
+															<td width="40%">${entry.key.name}</td>
+															<td width="10%">${entry.key.price}</td>
 															<td width="10%">${entry.key.category}</td>
 															<td width="10%">
 															  <input name="text" type="text" value="${entry.value}" style="width:20px" readonly="readonly"/>
@@ -69,7 +75,9 @@
 													</tr>
 												</table>
 												<p>
-													收货地址：<input id="receiverAddress" name="receiverAddress" type="text" value=""style="width:350px" onkeyup="checkReceiverAddress();" />
+													收货地址：<input id="receiverAddress" name="receiverAddress" type="text"
+																value="" style="width:350px"
+																onkeyup="checkReceiverAddress();"/>
 													&emsp;
 													<span id="receiverAddressMsg"></span>
 													<br/>
@@ -85,7 +93,8 @@
 												</p>
 												<hr />
 												<p style="text-align:right">
-													<img src="images/gif53_029.gif" width="204" height="51" border="0" onclick="checkOnSubmit();"/>
+													<img src="${pageContext.request.contextPath}/client/images/gif53_029.gif"
+														 width="204" height="51" border="0" onclick="checkOrder();"/>
 												</p>
 											</td>
 										</tr>

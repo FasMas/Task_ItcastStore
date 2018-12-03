@@ -96,7 +96,7 @@ public class EditProductServlet extends HttpServlet {
 		//添加产品并重定向地址
 		ProductService service = new ProductService();
 		//调用service完成修改商品操作
-		service.editProduct(product);
+		service.updateProduct(product);
 
 		response.sendRedirect(request.getContextPath() + "/listProduct");
 	}

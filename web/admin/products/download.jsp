@@ -1,20 +1,19 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
-	<meta http-equiv="Content-Language" content="zh-cn">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet" type="text/css" />
-	<script language="javascript" src="${pageContext.request.contextPath}/admin/js/public.js"></script>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/admin/css/style.css"/>
+	<script src="${pageContext.request.contextPath}/admin/js/public.js"></script>
 </head>
+
 <body>
-<br/>
-	<form id="Form1" name="Form1" action="${pageContext.request.contextPath}/manager/download" method="post">
+<form id="form1" name="form1" action="${pageContext.request.contextPath}/manager/download" method="post">
 		<table cellSpacing="1" cellPadding="0" width="100%" align="center" bgColor="#f5fafe" border="0">
 			<tbody>
 				<tr>
 					<td class="ta_01" align="center" bgColor="#afd1f3">
-						<strong>查 询 条 件</strong>
+						<strong>查询条件</strong>
 					</td>
 				</tr>
 				<tr>
@@ -25,7 +24,7 @@
 									请输入年份
 								</td>
 								<td class="ta_01" bgColor="#ffffff">
-									<input type="text" name="year" size="15" value="" id="Form1_userName" class="bg" />
+									<input type="text" name="year" size="15" value="" id="form1_userName" class="bg"/>
 								</td>
 								<td height="22" align="center" bgColor="#f5fafe" class="ta_01">
 									请选择月份
@@ -52,7 +51,7 @@
 								<td width="100" height="22" align="center" bgColor="#f5fafe" class="ta_01">
 								</td>
 								<td class="ta_01" bgColor="#ffffff">
-									<span style="font-family: 宋体; color: red; "> &nbsp;</span>
+									<span style="font-family:'宋体',sans-serif; color: red; "> &nbsp;</span>
 								</td>
 								<td align="right" bgColor="#ffffff" class="ta_01">
 									<br/><br/>
