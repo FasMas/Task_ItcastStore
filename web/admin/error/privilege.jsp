@@ -18,9 +18,8 @@
 							<td style="width:98px">
 								<img src="../images/error.jpg" width="128" height="128" />
 							</td>
-							<td style="padding-top:30px"><span
-									style="font-weight:bold; color:#ff0000">权限不足,请登录后操作</span><br/>
-								<br/>
+							<td style="padding-top:30px">
+								<span style="font-weight:bold; color:#ff0000">权限不足,请登录后操作</span><br/>
 								<a href="${pageContext.request.contextPath}/index.jsp">
 									<span id="second">5</span>秒后自动为您转跳回首页
 								</a>

@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
  * 在线支付的Servlet
  * TODO 正确的对接
  */
-@WebServlet(name = "OnlinePayServlet",urlPatterns = {"/onlinePlay"})
+@WebServlet(name = "OnlinePayServlet", urlPatterns = {"/onlinePlay"})
 public class OnlinePayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -40,7 +40,8 @@ public class OnlinePayServlet extends HttpServlet {
 		//得到商户密钥
 		String keyValue = ResourceBundle.getBundle("merchantInfo").getString("keyValue");
 		//得到hmac（哈希信息验证码）
-		String hmac = PaymentUtils.buildHmac(p0_Cmd, p1_MerId, p2_Order, p3_Amt, p4_Cur, p5_PId, p6_PCat, p7_PDesc, p8_Url, p9_SAF, pa_MP, pd_FrpId, pr_NeedResponse, keyValue);
+		String hmac = PaymentUtils.buildHmac(p0_Cmd, p1_MerId, p2_Order, p3_Amt, p4_Cur, p5_PId, p6_PCat, p7_PDesc,
+				p8_Url, p9_SAF, pa_MP, pd_FrpId, pr_NeedResponse, keyValue);
 
 		//2.将数据提交到指定的路径
 		//response.sendRedirect("https://www.yeepay
