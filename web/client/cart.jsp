@@ -1,7 +1,7 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="p" uri="http://www.itcast.cn/tag"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
 <title>电子书城</title>
@@ -74,12 +74,12 @@
 											</table>
 											<!-- 循环输出商品信息 -->
 											<c:set var="total" value="0" />
-											<c:forEach items="${cart}" var="entry" varStatus="vs">
+											<c:forEach items="${sessionScope.cart}" var="entry" varStatus="vs">
 												<table width="100%" border="0" cellspacing="0">
 													<tr>
 														<td width="10%">${vs.count}</td>
-														<td width="30%">${entry.key.name }</td>
-														<td width="10%">${entry.key.price }</td>
+														<td width="30%">${entry.key.name}</td>
+														<td width="10%">${entry.key.price}</td>
 														<td width="20%">
 														    <!-- 减少商品数量 -->
 															<input type="button" value='-' style="width:20px"
@@ -105,13 +105,13 @@
 											<table cellspacing="1" class="cart-table">
 												<tr>
 													<td style="text-align:right; padding-right:40px;">
-														<font style="color:#FF6600; font-weight:bold">合计：&nbsp;&nbsp;${total}元</font>
+														<span style="color:#FF6600; font-weight:bold">合计：&nbsp;&nbsp;${total}元</span>
 													</td>
 												</tr>
 											</table>
 											<div style="text-align:right; margin-top:10px">
 											    <!--继续购物 -->
-												<a href="${pageContext.request.contextPath}/showProductByPage">
+												<a href="${pageContext.request.contextPath}/showProductsByPage">
 													<img src="images/gwc_jx.gif" border="0" />
 												</a>
 												&nbsp;&nbsp;&nbsp;&nbsp;

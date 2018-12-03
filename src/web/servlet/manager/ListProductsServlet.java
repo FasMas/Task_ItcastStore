@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * 后台查询所有商品信息的Servlet
  */
-@WebServlet(name = "ListProductsServlet",urlPatterns = {"/manager/listProduct"})
+@WebServlet(name = "ListProductsServlet",urlPatterns = {"/manager/listProducts"})
 public class ListProductsServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
@@ -22,12 +22,12 @@ public class ListProductsServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ProductService service = new ProductService();
 		try {
-			// 2.调用service层用于查询所有商品的方法
+			//2.调用service层用于查询所有商品的方法
 			List<Product> productList = service.findAllProducts();
 
-			// 3.将查询出的所有商品放进request域中
+			//3.将查询出的所有商品放进request域中
 			request.setAttribute("products", productList);
-			// 4.重定向到list.jsp页面
+			//4.重定向到list.jsp页面
 			request.getRequestDispatcher("/admin/products/list.jsp").forward(request, response);
 		} catch(ListProductException e) {
 			e.printStackTrace();

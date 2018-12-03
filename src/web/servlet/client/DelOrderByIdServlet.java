@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * 删除订单
  */
-@WebServlet(name = "DelOrderByIdServlet",urlPatterns = {"/delOrderById_Admin"})
+@WebServlet(name = "DelOrderByIdServlet",urlPatterns = {"/delOrderById"})
 public class DelOrderByIdServlet extends HttpServlet {
 	private static final long serialVersionUID = -742965707205621644L;
 
@@ -20,9 +20,9 @@ public class DelOrderByIdServlet extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 订单id
+		//订单id
 		String id = request.getParameter("id").trim();
-		// 已支付的订单带有type值为client的参数
+		//已支付的订单带有type值为client的参数
 		String type = request.getParameter("type").trim();
 
 		OrderService service = new OrderService();

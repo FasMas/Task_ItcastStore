@@ -23,9 +23,9 @@ public class FindProductByIdServlet extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 得到商品的id
+		//得到商品的id
 		String id = request.getParameter("id").trim();
-		// 获取得到用户类型
+		//获取得到用户类型
 		String type = request.getParameter("type").trim();
 
 		ProductService service = new ProductService();

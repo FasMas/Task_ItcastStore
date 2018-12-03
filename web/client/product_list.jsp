@@ -1,6 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
 	<title>bookStore列表</title>
@@ -21,7 +21,7 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;
 						图书列表
 					</div>
-					<table cellspacing="0" class="listcontent">
+					<table cellspacing="0" class="list-content">
 						<tr>
 							<td>
 								<h1>商品目录</h1>
@@ -32,19 +32,19 @@
 									<img src="${pageContext.request.contextPath }/client/images/productlist.gif" width="100%" height="38" />
 								</div>
 
-								<table cellspacing="0" class="booklist">
+								<table cellspacing="0" class="book-list">
 									<tr>
 										<c:forEach items="${bean.productList}" var="p" varStatus="vs">
 											<td>
-												<div class="divbookpic">
+												<div class="div-book-pic">
 													<p>
-														<a href="${pageContext.request.contextPath}/findProductById?id=${p.id}">
-															<img src="${pageContext.request.contextPath}${p.imgUrl}" width="115" height="129" border="0" />
+														<a href="${pageContext.request.contextPath}/findProductById?id=${product.id}">
+															<img src="${pageContext.request.contextPath}${product.imgUrl}" width="115" height="129" border="0" />
 														</a>
 													</p>
 												</div>
-												<div class="divlisttitle">
-													<a href="${pageContext.request.contextPath}/findProductById?id=${p.id}">书名： ${p.name}<br />售价：￥${p.price} </a>
+												<div class="div-list-title">
+													<a href="${pageContext.request.contextPath}/findProductById?id=${product.id}">书名： ${product.name}<br>售价：￥${product.price} </a>
 												</div>
 											</td>
 										</c:forEach>
@@ -53,29 +53,29 @@
 								<div class="pagination">
 									<ul>
 										<c:if test="${bean.currentPage!=1}">
-											<li class="disablepage_p">
-												<a class="disablepage_a" href="${pageContext.request.contextPath}/showProductByPage?currentPage=${bean.currentPage-1}&category=${bean.category}"></a>
+											<li class="disable-page_p">
+												<a class="disable-page_a" href="${pageContext.request.contextPath}/showProductsByPage?currentPage=${bean.currentPage-1}&category=${bean.category}"></a>
 											</li>
 										</c:if>
 										<c:if test="${bean.currentPage==1}">
-											<li class="disablepage_p2"></li>
+											<li class="disable-page_p2"></li>
 										</c:if>
 										<c:forEach begin="1" end="${bean.totalPage}" var="pageNum">
 											<c:if test="${pageNum==bean.currentPage}">
-												<li class="currentpage">${pageNum }</li>
+												<li class="current-page">${pageNum }</li>
 											</c:if>
 											<c:if test="${pageNum!=bean.currentPage}">
-												<li><a href="${pageContext.request.contextPath}/showProductByPage?currentPage=${pageNum}&category=${bean.category}">${pageNum}</a>
+												<li><a href="${pageContext.request.contextPath}/showProductsByPage?currentPage=${pageNum}&category=${bean.category}">${pageNum}</a>
 												</li>
 											</c:if>
 										</c:forEach>
 
 										<c:if test="${bean.currentPage==bean.totalPage||bean.totalPage==0}">
-											<li class="disablepage_n2"></li>
+											<li class="disable-page_n2"></li>
 										</c:if>
 										<c:if test="${bean.currentPage!=bean.totalPage&&bean.totalPage!=0}">
-											<li class="disablepage_n">
-												<a class="disablepage_a" href="${pageContext.request.contextPath}/showProductByPage?currentPage=${bean.currentPage+1}&category=${bean.category}"></a>
+											<li class="disable-page_n">
+												<a class="disable-page_a" href="${pageContext.request.contextPath}/showProductsByPage?currentPage=${bean.currentPage+1}&category=${bean.category}"></a>
 											</li>
 										</c:if>
 									</ul>

@@ -42,9 +42,9 @@ public class OnlinePayServlet extends HttpServlet {
 		//得到hmac（哈希信息验证码）
 		String hmac = PaymentUtils.buildHmac(p0_Cmd, p1_MerId, p2_Order, p3_Amt, p4_Cur, p5_PId, p6_PCat, p7_PDesc, p8_Url, p9_SAF, pa_MP, pd_FrpId, pr_NeedResponse, keyValue);
 
-		// 2.将数据提交到指定的路径
-		// response.sendRedirect("https://www.yeepay
-		// .com/app-merchant-proxy/node?p0_Cmd="+p0_Cmd+"&p1_MerId="+p1_MerId);
+		//2.将数据提交到指定的路径
+		//response.sendRedirect("https://www.yeepay
+		//.com/app-merchant-proxy/node?p0_Cmd="+p0_Cmd+"&p1_MerId="+p1_MerId);
 
 		//设置相关特性
 		request.setAttribute("pd_FrpId", pd_FrpId);

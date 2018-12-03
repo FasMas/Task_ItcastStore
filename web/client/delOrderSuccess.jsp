@@ -1,10 +1,10 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page import="java.util.*" pageEncoding="UTF-8"%>
+
 <html>
 <head>
 <title>电子书城</title>
 <link rel="stylesheet" href="css/main.css" type="text/css" />
-<script type="text/javascript" src="js/change_second.js">
+<script src="js/changeSecond.js">
 </script>
 </head>
 <body class="main">
@@ -17,10 +17,10 @@
 						border="0" cellspacing="0" style="margin-top:70px">
 						<tr>
 							<td style="width:98px"><img
-								src="images/IconTexto_WebDev_009.jpg" width="128" height="128" />
+									src="images/IconText_WebDev_009.jpg" width="128" height="128" />
 							</td>
-							<td style="padding-top:30px"><font
-								style="font-weight:bold; color:#FF0000">删除订单成功</font><br /> <br />
+							<td style="padding-top:30px"><span
+								style="font-weight:bold; color:#FF0000">删除订单成功</span><br> <br>
 								<a href="index.jsp"><span id="second">5</span>秒后自动为您转跳回首页</a>
 							</td>
 						</tr>

@@ -12,14 +12,14 @@ import java.util.List;
 /**
  * 多条件查询产品的Servlet
  */
-@WebServlet(name = "FindProductsByConditionServlet",urlPatterns = {"/manager/findProductsByCondition"})
-public class FindProductsByConditionServlet extends HttpServlet {
+@WebServlet(name = "FindProductsByConditionsServlet",urlPatterns = {"/manager/findProductsByConditions"})
+public class FindProductsByConditionsServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 2.创建ProductService对象
+		//2.创建ProductService对象
 		ProductService service = new ProductService();
 		//1.获取表单数据
 		String id = request.getParameter("id").trim();
@@ -28,13 +28,13 @@ public class FindProductsByConditionServlet extends HttpServlet {
 		String minPrice = request.getParameter("minPrice").trim();
 		String maxPrice = request.getParameter("maxPrice").trim();
 
-		// 3.调用service层用于条件查询的方法
-		List<Product> productList = service.findProductsByCondition(id, name,
+		//3.调用service层用于条件查询的方法
+		List<Product> productList = service.findProductsByConditions(id, name,
 				category, minPrice, maxPrice);
 
-		// 4.将条件查询的结果放进request域中
+		//4.将条件查询的结果放进request域中
 		request.setAttribute("products", productList);
-		// 5.请求重定向到商品管理首页list.jsp页面
+		//5.请求重定向到商品管理首页list.jsp页面
 		request.getRequestDispatcher("/admin/products/list.jsp").forward(request, response);
 	}
 }

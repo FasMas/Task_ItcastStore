@@ -1,6 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
 	<title>传智书城</title>
@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/client/css/main.css" type="text/css" />
 	<!-- 导入首页轮播图css和js脚本 -->
 	<link type="text/css" href="${pageContext.request.contextPath }/client/css/autoplay.css" rel="stylesheet" />
-	<script type="text/javascript" src="${pageContext.request.contextPath }/client/js/autoplay.js"></script>
+	<script src="${pageContext.request.contextPath }/client/js/autoPlay.js"></script>
 </head>
 
 <body class="main">
@@ -19,7 +19,7 @@
 	</div> --%>
 
 	<!-- 图书商场首页轮播图  start -->
-	<div id="box_autoplay">
+	<div id="box-autoplay">
     	<div class="list">
         	<ul>
             	<li><img src="${pageContext.request.contextPath }/client/ad/index_ad1.jpg" width="900" height="335" /></li>
@@ -59,7 +59,7 @@
 								</a>
 								<br/>
 								<a href="${pageContext.request.contextPath}/findProductById?id=${pArray[0]}">${pArray[1]}</a>
-								<%-- <br />作者:${pArray[2] } --%>
+								<%-- <br>作者:${pArray[2] } --%>
 							</td>
 						</c:forEach>
 						</tr>

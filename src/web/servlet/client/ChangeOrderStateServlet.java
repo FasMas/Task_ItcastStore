@@ -19,11 +19,11 @@ public class ChangeOrderStateServlet extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 获得订单号数据
+		//获得订单号数据
 		String orderId = request.getParameter("orderId").trim();
 
 		try {
-			// 根据订单号修改订单状态
+			//根据订单号修改订单状态
 			OrderService service = new OrderService();
 			service.updateOrderState(orderId);
 			request.setAttribute("INFO_paySuccess", "信息：恭喜，支付成功！");

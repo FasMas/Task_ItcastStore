@@ -1,7 +1,7 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="p" uri="http://www.itcast.cn/tag"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
 <title>在线支付</title>
@@ -14,8 +14,8 @@
 <body>
 	<p:user/>
 	<form action="${pageContext.request.contextPath}/pay" method="post">
-		订单号：<INPUT TYPE="text" NAME="orderId" value="${param.id}">
-		支付金额：<INPUT TYPE="text" NAME="money" value="${param.money}">元
+		订单号：<input TYPE="text" NAME="orderId" value="${param.id}">
+		支付金额：<input TYPE="text" NAME="money" value="${param.money}">元
 		<div class="divBank">
 			<div class="divText">选择网上银行</div>
 			<div style="margin-left: 20px;">
@@ -102,7 +102,7 @@
 				</div>
 			</div>
 			<div style="margin: 40px;">
-				<INPUT TYPE="submit" value="确定支付">
+				<input TYPE="submit" value="确定支付">
 			</div>
 		</div>
 	</form>

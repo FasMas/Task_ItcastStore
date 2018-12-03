@@ -18,13 +18,13 @@ public class ActiveUserServlet extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1.获取激活码
+		//1.获取激活码
 		String activeCode = request.getParameter("activeCode").trim();
 
 		try {
 			UserService service = new UserService();
 			service.activeUser(activeCode);
-			// 2.调用service中激活用户操作
+			//2.调用service中激活用户操作
 			response.sendRedirect(request.getContextPath() + "/client/active_success.jsp");
 		} catch(ActiveUserException e) {
 			e.printStackTrace();

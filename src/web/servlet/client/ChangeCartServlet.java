@@ -19,18 +19,18 @@ public class ChangeCartServlet extends HttpServlet {
 
 	@SuppressWarnings("unchecked")
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1.得到商品id
+		//1.得到商品id
 		String id = request.getParameter("id").trim();
-		// 2.得到要修改的数量
+		//2.得到要修改的数量
 		int count = Integer.parseInt(request.getParameter("count").trim());
 		HttpSession session = request.getSession();
-		// 3.从session中获取购物车
+		//3.从session中获取购物车
 		Map<Product, Integer> cart = (Map<Product, Integer>) session.getAttribute("cart");
 
 		try {
 			Product product = new Product();
 			product.setId(id);
-			// 更改商品数量
+			//更改商品数量
 			if(count > 0) {
 				cart.put(product, count);
 			} else {

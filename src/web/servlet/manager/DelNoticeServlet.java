@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  *	后台删除公告的Servlet
  */
-@WebServlet(name = "DelNoticeServlet",urlPatterns = {"/manager/delProduct"})
+@WebServlet(name = "DelNoticeServlet",urlPatterns = {"/manager/delNotice"})
 public class DelNoticeServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 

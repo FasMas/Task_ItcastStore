@@ -12,7 +12,7 @@ import java.util.List;
 /**
  *	后台查询所有公告的Servlet
  */
-@WebServlet(name = "ListNoticesServlet",urlPatterns = {"/manager/listNotice"})
+@WebServlet(name = "ListNoticesServlet",urlPatterns = {"/manager/listNotices"})
 public class ListNoticesServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 

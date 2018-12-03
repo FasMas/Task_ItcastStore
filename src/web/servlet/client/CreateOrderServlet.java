@@ -24,12 +24,12 @@ public class CreateOrderServlet extends HttpServlet {
 	@SuppressWarnings("unchecked")
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		// 1.得到当前用户
+		//1.得到当前用户
 		User user = (User) session.getAttribute("user");
-		// 2.从购物车中获取商品信息
+		//2.从购物车中获取商品信息
 		Map<Product, Integer> cart = (Map<Product, Integer>) session.getAttribute("cart");
 
-		// 3.将数据封装到订单对象中
+		//3.将数据封装到订单对象中
 		Order order = new Order();
 		try {
 			BeanUtils.populate(order, request.getParameterMap());
@@ -37,9 +37,9 @@ public class CreateOrderServlet extends HttpServlet {
 			e.printStackTrace();
 			response.getWriter().println("警告：订单创建失败！");
 		}
-		// 封装订单id
+		//封装订单id
 		order.setId(IdUtils.getUUID());
-		// 封装用户信息到订单
+		//封装用户信息到订单
 		order.setUser(user);
 		for(Product product : cart.keySet()) {
 			OrderItem item = new OrderItem();
@@ -51,7 +51,7 @@ public class CreateOrderServlet extends HttpServlet {
 		response.getWriter().println("信息：订单创建成功！");
 		response.getWriter().println("订单详情：<br/>"+order);
 
-		// 4.调用service中添加订单操作
+		//4.调用service中添加订单操作
 		OrderService service = new OrderService();
 		service.addOrder(order);
 		response.sendRedirect(request.getContextPath() + "/client/createOrderSuccess.jsp");

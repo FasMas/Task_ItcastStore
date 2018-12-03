@@ -47,13 +47,13 @@ public class ProductService {
 		bean.setCurrentPage(currentPage);
 		bean.setCategory(category);
 		try {
-			// 获取总条数
+			//获取总条数
 			int totalCount = dao.getTotalCount(category);
 			bean.setTotalCount(totalCount);
-			// 获取总页数
+			//获取总页数
 			int totalPage = (int) Math.ceil(totalCount * 1.0 / currentCount);
 			bean.setTotalPage(totalPage);
-			// 获取当前页数据
+			//获取当前页数据
 			List<Product> productList = dao.findProductsByPage(currentPage, currentCount, category);
 			bean.setProductList(productList);
 		} catch(SQLException e) {
@@ -90,10 +90,10 @@ public class ProductService {
 	/**
 	 * 多条件查询。
 	 */
-	public List<Product> findProductsByCondition(String id, String name, String category, String minPrice, String maxPrice) {
+	public List<Product> findProductsByConditions(String id, String name, String category, String minPrice, String maxPrice) {
 		List<Product> ps = null;
 		try {
-			ps = dao.findProductsByCondition(id, name, category, minPrice, maxPrice);
+			ps = dao.findProductsByConditions(id, name, category, minPrice, maxPrice);
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -132,10 +132,10 @@ public class ProductService {
 		bean.setCurrentPage(currentPage);
 		bean.setSearchField(searchField);
 		try {
-			// 获取总条数
+			//获取总条数
 			int totalCount = dao.findBooksByNameGetTotalCount(searchField);
 			bean.setTotalCount(totalCount);
-			// 获取总页数
+			//获取总页数
 			int totalPage = (int) Math.ceil(totalCount * 1.0 / currentCount);
 			bean.setTotalPage(totalPage);
 			//满足条件的图书

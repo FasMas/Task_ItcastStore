@@ -1,10 +1,10 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page pageEncoding="UTF-8"%>
 <html>
 	<head>
 		<meta http-equiv="Content-Language" content="zh-cn">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title></title>
-		<link href="${pageContext.request.contextPath}/admin/css/Style.css" rel="stylesheet" type="text/css">
+		<link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<p>
@@ -16,23 +16,21 @@
 					&nbsp;
 				</th>
 				<th width="53%" scope="col">
-					<table width="453" height="220" border="0" cellpadding="0"
-						cellspacing="0">
-
+					<table style="width: 453px;height: 220px;border: 0;border-collapse: collapse;border-spacing: 0">
 						<tr>
 							<td height="220" align="center" valign="middle"
-								background="${pageContext.request.contextPath}/admin/images/loginbg.gif">
+								background="${pageContext.request.contextPath}/admin/images/loginBg.gif">
 								<p class="style1">
-									<font color="red">上传附件错误</font>
+									<span style="color: red; ">上传附件错误</span>
 								</p>
-								<p>									
+								<p>
 								</p>
 							</td>
 						</tr>
 						<tr>
 							<td height="220" align="center" valign="middle">
-								<FONT face="宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT>
-								<INPUT class="button_ok" type="button" onclick="history.go(-1)" value="返回"/>
+								<span style="font-family: 宋体; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<input class="button_ok" type="button" onclick="history.go(-1)" value="返回"/>
 							</td>
 						</tr>
 					</table>

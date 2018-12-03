@@ -1,7 +1,9 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%--@elvariable id="orders" type="java.util.List<task_itcaststore.domain.Order>"--%>
+
+<%@ page import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="p" uri="http://www.itcast.cn/tag"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
 	<title>电子书城</title>
@@ -29,24 +31,24 @@
 				<td width="25%">
 					<table width="100%" border="0" cellspacing="0" style="margin-top:30px">
 						<tr>
-							<td class="listtitle">我的帐户</td>
+							<td class="list-title">我的帐户</td>
 						</tr>
 						<tr>
-							<td class="listtd">
+							<td class="list-td">
 								<img src="${pageContext.request.contextPath }/client/images/icon1.png" width="15" height="10" />
 								&nbsp;&nbsp;&nbsp;&nbsp;
 								<a href="${pageContext.request.contextPath }/client/modifyuserinfo.jsp">用户信息修改</a>
 							</td>
 						</tr>
 						<tr>
-							<td class="listtd">
+							<td class="list-td">
 								<img src="${pageContext.request.contextPath }/client/images/icon2.png" width="15" height="10" />
 								&nbsp;&nbsp;&nbsp;&nbsp;
 								<a href="${pageContext.request.contextPath}/findOrderByUser">订单查询</a>
 							</td>
 						</tr>
 						<tr>
-							<td class="listtd">
+							<td class="list-td">
 								<img src="${pageContext.request.contextPath }/client/images/icon3.png" width="15" height="10" />
 								&nbsp;&nbsp;&nbsp;&nbsp;
 								<a href="${pageContext.request.contextPath}/logout">用户退出</a>
@@ -64,25 +66,25 @@
 					</div>
 					<table cellspacing="0" class="info-content">
 						<tr>
-							<td style="padding:20px"><p><b>我的订单</b></p>
+							<td style="padding:20px"><p><strong>我的订单</strong></p>
 								<p>
-									共有<font style="color:#FF0000" >${orders.size()}</font>订单
+									共有<span style="color:#FF0000" >${orders.size()}</span>订单
 								</p>
-								<table width="100%" border="0" cellspacing="0" class="tableopen">
+								<table width="100%" border="0" cellspacing="0" class="table-open">
 									<tr>
-										<td bgcolor="#A3E6DF" class="tableopentd01">订单号</td>
-										<td bgcolor="#A3D7E6" class="tableopentd01">收件人</td>
-										<td bgcolor="#A3CCE6" class="tableopentd01">订单时间</td>
-										<td bgcolor="#A3B6E6" class="tableopentd01">状态</td>
-										<td bgcolor="#A3E2E6" class="tableopentd01">操作</td>
+										<td bgcolor="#A3E6DF" class="table-open-td01">订单号</td>
+										<td bgcolor="#A3D7E6" class="table-open-td01">收件人</td>
+										<td bgcolor="#A3CCE6" class="table-open-td01">订单时间</td>
+										<td bgcolor="#A3B6E6" class="table-open-td01">状态</td>
+										<td bgcolor="#A3E2E6" class="table-open-td01">操作</td>
 									</tr>
 									<c:forEach items="${orders}" var="order">
 										<tr>
-											<td class="tableopentd02">${order.id}</td>
-											<td class="tableopentd02">${order.receiverName }</td>
-											<td class="tableopentd02">${order.orderTime}</td>
-											<td class="tableopentd02">${order.payState==0?"未支付":"已支付"}</td>
-											<td class="tableopentd03">
+											<td class="table-open-td02">${order.id}</td>
+											<td class="table-open-td02">${order.receiverName }</td>
+											<td class="table-open-td02">${order.orderIime}</td>
+											<td class="table-open-td02">${order.payState==0?"未支付":"已支付"}</td>
+											<td class="table-open-td03">
 												<a href="${pageContext.request.contextPath}/findOrderById?id=${order.id}">查看</a>&nbsp;&nbsp;
 												<c:if test="${order.payState==0 }">
 													<a href="${pageContext.request.contextPath}/delOrderById?id=${order.id}"  onclick="return o_del()">刪除</a>

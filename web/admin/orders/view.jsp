@@ -1,11 +1,11 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <HTML>
 <HEAD>
 	<meta http-equiv="Content-Language" content="zh-cn">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<LINK href="${pageContext.request.contextPath}/admin/css/Style.css" type="text/css" rel="stylesheet">
-	<script language="javascript" src="${pageContext.request.contextPath}/js/public.js"></script>
+	<LINK href="${pageContext.request.contextPath}/admin/css/style.css" type="text/css" rel="stylesheet">
+	<script language="javascript" src="${pageContext.request.contextPath}/admin/js/public.js"></script>
 </HEAD>
 <body>
 	<table cellSpacing="1" cellPadding="5" width="100%" align="center"
@@ -43,7 +43,7 @@
 			<TD class="ta_01" align="center" bgColor="#f5fafe">商品信息</TD>
 			<TD class="ta_01" bgColor="#ffffff" colSpan="3">
 				<table cellspacing="0" cellpadding="1" rules="all" bordercolor="gray" border="1" id="DataGrid1"
-					style="BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; WIDTH: 100%; WORD-BREAK: break-all; BORDER-BOTTOM: gray 1px solid; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #f5fafe; WORD-WRAP: break-word">
+					style="WIDTH: 100%; WORD-BREAK: break-all; border: 1px solid gray;BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #f5fafe; WORD-WRAP: break-word">
 					<tr style="FONT-WEIGHT: bold; FONT-SIZE: 12pt; HEIGHT: 25px; BACKGROUND-COLOR: #afd1f3">
 						<td align="center" width="7%">序号</td>
 						<td width="8%" align="center">商品</td>
@@ -58,14 +58,14 @@
 						<tr style="FONT-WEIGHT: bold; FONT-SIZE: 12pt; HEIGHT: 25px; BACKGROUND-COLOR: #eeeeee">
 							<td align="center" width="7%">${vs.count }</td>
 							<td width="8%" align="center">
-								<img src="${pageContext.request.contextPath}${item.p.imgUrl}" width="50" height="50">
+								<img src="${pageContext.request.contextPath}${item.product.imgUrl}" width="50" height="50">
 							</td>
-							<td align="center" width="18%">${item.p.id }</td>
-							<td align="center" width="10%">${item.p.name }</td>
-							<td align="center" width="10%">${item.p.price }</td>
+							<td align="center" width="18%">${item.product.id }</td>
+							<td align="center" width="10%">${item.product.name }</td>
+							<td align="center" width="10%">${item.product.price }</td>
 							<td width="7%" align="center">${item.buyNum }</td>
-							<td width="7%" align="center">${item.p.category }</td>
-							<td width="31%" align="center">${item.p.description}</td>
+							<td width="7%" align="center">${item.product.category }</td>
+							<td width="31%" align="center">${item.product.description}</td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -78,8 +78,8 @@
 		</TR>
 		<TR>
 			<td class="ta_01" style="WIDTH: 100%" align="right" bgColor="#f5fafe" colSpan="4">
-				<FONT face="宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT>
-				<INPUT class="button_ok" type="button" onclick="history.go(-1)" value="返回" />
+				<span style="font-family: 宋体; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<input class="button_ok" type="button" onclick="history.go(-1)" value="返回" />
 				<span id="Label1"></span>
 			</td>
 		</TR>

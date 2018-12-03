@@ -1,5 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page import="java.util.*" pageEncoding="UTF-8"%>
+
 <html>
 <head>
 	<title>电子书城</title>
@@ -15,8 +15,8 @@
 				    <div style="text-align:right; margin:5px 10px 5px 0">
 						<a href="${pageContext.request.contextPath }/index.jsp">首页</a>
 						&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;
-						<a href="${pageContext.request.contextPath}/showProductByPage?category=${p.category}">&nbsp;${p.category}</a>
-						&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;${p.name}
+						<a href="${pageContext.request.contextPath}/showProductsByPage?category=${product.category}">&nbsp;${product.category}</a>
+						&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;${product.name}
 					</div>
 					<table cellspacing="0" class="info-content">
 						<tr>
@@ -24,26 +24,26 @@
 								<table width="100%%" border="0" cellspacing="0">
 									<tr>
 										<td width="30%">
-											<div class="divbookcover">
+											<div class="div-bookcover">
 												<p>
-													<img src="${pageContext.request.contextPath}${p.imgUrl}" width="213" height="269" border="0" />
+													<img src="${pageContext.request.contextPath}${product.imgUrl}" width="213" height="269" border="0" />
 												</p>
 											</div>
 											<div style="text-align:center; margin-top:10px">
-												<a href="${pageContext.request.contextPath}/addCart?id=${p.id}">
+												<a href="${pageContext.request.contextPath}/addCart?id=${product.id}">
 													<img src="${pageContext.request.contextPath }/client/images/buybutton.gif" border="0" width="100" height="25" />
 												</a>
 											</div>
 										</td>
 										<td style="padding:20px 5px 5px 5px">
 											<img src="${pageContext.request.contextPath }/client/images/miniicon3.gif" width="16" height="16" />
-											<font class="bookname">&nbsp;${p.name}</font>
-											<hr />售价：<font color="#FF0000">￥${p.price}</font>
-											<hr /> 类别：${p.category }
+											<span class="book-name">&nbsp;${product.name}</span>
+											<hr />售价：<span style="color: #FF0000; ">￥${product.price}</span>
+											<hr /> 类别：${product.category }
 											<hr />
 											<p>
 												<b>内容简介：</b>
-											</p> ${p.description}
+											</p> ${product.description}
 										</td>
 									</tr>
 								</table>

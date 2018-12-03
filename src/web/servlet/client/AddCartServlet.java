@@ -22,12 +22,12 @@ public class AddCartServlet extends HttpServlet {
 
 	@SuppressWarnings("unchecked")
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1.得到商品id
+		//1.得到商品id
 		String id = request.getParameter("id").trim();
 
 		try {
 			ProductService service = new ProductService();
-			// 2.调用service层方法，根据id查找商品
+			//2.调用service层方法，根据id查找商品
 			Product product = service.findProductById(id);
 			//3.将商品添加到购物车
 			//3.1获得session对象

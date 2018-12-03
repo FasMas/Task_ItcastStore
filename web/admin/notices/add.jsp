@@ -1,12 +1,12 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page pageEncoding="UTF-8"%>
 <HTML>
 <HEAD>
 	<meta http-equiv="Content-Language" content="zh-cn">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<LINK href="${pageContext.request.contextPath}/admin/css/Style.css" type="text/css" rel="stylesheet">
+<LINK href="${pageContext.request.contextPath}/admin/css/style.css" type="text/css" rel="stylesheet">
 </HEAD>
 <body>
-	<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/manager/AddNoticeServlet" method="post">
+	<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/manager/addNotice" method="post">
 		&nbsp;
 		<table cellSpacing="1" cellPadding="5" width="100%" align="center"
 			bgColor="#eeeeee" style="border: 1px solid #8ba7e3" border="0">
@@ -35,10 +35,10 @@
 
 			<tr>
 				<td class="ta_01" style="WIDTH: 100%" align="center" bgColor="#f5fafe" colSpan="4">
-					<input type="submit" class="button_ok" value="确定" />	
-					<font face="宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+					<input type="submit" class="button_ok" value="确定" />
+					<span style="font-family: 宋体; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 					<input type="reset" value="重置" class="button_cancel">
-					<font face="宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font> 
+					<span style="font-family: 宋体; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 					<input class="button_ok" type="button" onclick="history.go(-1)" value="返回" />
 					<span id="Label1"></span>
 				</td>

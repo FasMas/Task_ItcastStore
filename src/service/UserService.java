@@ -21,10 +21,10 @@ public class UserService {
 	 * TODO 提取常量
 	 */
 	public void register(User user) throws RegisterException {
-		// 调用dao完成注册操作
+		//调用dao完成注册操作
 		try {
 			dao.addUser(user);
-			// 发送激活邮件
+			//发送激活邮件
 			String href = "http://localhost:8080/bookstore/activeUser?activeCode=" + user.getActiveCode();
 			String emailFrom = "itcast_duhong@sohu.com";
 			String emailTo = user.getEmail();
@@ -47,20 +47,20 @@ public class UserService {
 	 */
 	public void activeUser(String activeCode) throws ActiveUserException {
 		try {
-			// 根据激活码查找用户
+			//根据激活码查找用户
 			User user = dao.findUserByActiveCode(activeCode);
 			if(user == null)
 				throw new ActiveUserException("警告：激活用户失败！");
 
-			// 判断激活码是否过期 24小时内激活有效.
-			// 1.得到注册时间
+			//判断激活码是否过期 24小时内激活有效.
+			//1.得到注册时间
 			Date registTime = user.getRegistTime();
-			// 2.判断是否超时
+			//2.判断是否超时
 			long time = System.currentTimeMillis() - registTime.getTime();
 			if(time / 1000 / 60 / 60 > 24)
 				throw new ActiveUserException("警告：激活码过期！");
 
-			// 激活用户，也就是修改用户的state状态
+			//激活用户，也就是修改用户的state状态
 			dao.activeUser(activeCode);
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -79,7 +79,7 @@ public class UserService {
 			if(user == null) {
 				throw new LoginException("警告：用户名或密码错误！");
 			} else {
-				// 只有是激活才能登录成功，否则提示“用户未激活”
+				//只有是激活才能登录成功，否则提示“用户未激活”
 				if(user.getState() == 1) {
 					return user;
 				}

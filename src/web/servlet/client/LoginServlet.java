@@ -24,15 +24,15 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1.获取登录页面输入的用户名与密码
+		//1.获取登录页面输入的用户名与密码
 		String username = request.getParameter("username").trim();
 		String password = request.getParameter("password").trim();
 
-		// 2.调用service完成登录操作。
+		//2.调用service完成登录操作。
 		UserService service = new UserService();
 		try {
 			User user = service.login(username, password);
-			// 3.登录成功，将用户存储到session中.
+			//3.登录成功，将用户存储到session中.
 			request.getSession().setAttribute("user", user);
 
 			if(StringExt.equalsE(user.getType(), EUserType.Admin)) {
@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect(request.getContextPath() + "/client/myAccount.jsp");
 			}
 		} catch(LoginException e) {
-			// 如果出现问题，将错误信息存储到request范围，并跳转回登录页面显示错误信息
+			//如果出现问题，将错误信息存储到request范围，并跳转回登录页面显示错误信息
 			e.printStackTrace();
 			request.setAttribute("register_message", "<b>登录失败！</b><br/>" + e.getMessage());
 			request.getRequestDispatcher("/client/login.jsp").forward(request, response);

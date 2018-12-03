@@ -13,7 +13,7 @@ public class DataSourceUtils {
 	/** 从数据库连接池中获取一个连接 */
 	private static DataSource dataSource = new ComboPooledDataSource();
 	/** 本地线程 */
-	private static ThreadLocal<Connection> tl = new ThreadLocal<Connection>();
+	private static ThreadLocal<Connection> tl = new ThreadLocal<>();
 
 
 	/**

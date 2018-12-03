@@ -18,7 +18,7 @@ public class OrderItemDao {
 	 * 添加订单项。
 	 */
 	public void addOrderItems(@NotNull Order order) throws SQLException {
-		// 1.生成sql语句
+		//1.生成sql语句
 		String sql = "insert into orderItems values(?,?,?)";
 
 		QueryRunner runner = new QueryRunner();

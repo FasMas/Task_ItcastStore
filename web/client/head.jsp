@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" pageEncoding="UTF-8"%>
 <%@ page import="task_itcaststore.domain.User"%>
 <script type="text/javascript">
 //退出确认框
@@ -11,8 +11,8 @@ function confirm_logout() {
     }
 }
 </script>
-<div id="divhead">
-	<table cellspacing="0" class="headtable">
+<div id="div-head">
+	<table cellspacing="0" class="head-table">
 		<tr>
 			<td>
 				<a href="${pageContext.request.contextPath }/index.jsp">

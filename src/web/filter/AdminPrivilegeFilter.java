@@ -19,10 +19,10 @@ public class AdminPrivilegeFilter implements Filter {
 	public void init(FilterConfig filterConfig) { }
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		// 强制转换
+		//强制转换
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-		// 判断是否具有权限
+		//判断是否具有权限
 		User user = (User) httpServletRequest.getSession().getAttribute("user");
 		//如果有权限，则放行
 		if(user != null && StringExt.equalsE(user.getType(), EUserType.Admin)) {

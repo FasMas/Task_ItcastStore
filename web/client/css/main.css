@@ -1,4 +1,3 @@
-/* CSS Document */
 .main {
 	margin: 0 0 30px 0;
 	padding: 0 0 0 0;
@@ -59,7 +58,7 @@ h1 {
 	display: inline;
 }
 
-.bookname {
+.book-name {
 	font-size: 16px;
 	color: #194105;
 	text-align: left;
@@ -67,60 +66,58 @@ h1 {
 	display: inline;
 }
 
-#divhead {
+#div-head {
 	width: 100%;
 }
 
-.headtable {
+.head-table {
 	width: 100%;
 }
 
-.headtable td {
+.head-table td {
 	padding: 10px 50px 25px 135px;
 }
 
-#divmenu {
+#div-menu {
 	width: 100%;
-	border-top-width: 4px;
-	border-top-style: solid;
-	border-top-color: #b4d76d;
+	border-top: 4px solid #b4d76d;
 	background-color: #000000;
 	text-align: center;
 	padding: 10px 0 10px 0;
 	font-size: 14px;
 }
 
-#divmenu a {
+#div-menu a {
 	font-size: 14px;
 	color: #FFFFFF; /*#1E33F7*/
 	font-weight: bold;
 	padding: 10px 10px 10px 10px;
 }
 
-#divmenu a:link {
+#div-menu a:link {
 	text-decoration: none;
 	font-weight: bold;
 }
 
-#divmenu a:visited {
+#div-menu a:visited {
 	text-decoration: none;
 	color: #FFFFFF;
 	font-weight: bold;
 }
 
-#divmenu a:hover {
+#div-menu a:hover {
 	text-decoration: none;
 	color: #999999; /*颜色变换*/
 	font-weight: bold;
 }
 
-#divmenu a:active {
+#div-menu a:active {
 	text-decoration: none;
 	color: #FFFFFF;
 	font-weight: bold;
 }
 
-#divsearch {
+#div_search {
 	width: 100%;
 	background-color: #f59f1d;
 	text-align: center;
@@ -129,7 +126,7 @@ h1 {
 	font-weight: bold;
 }
 
-#divad {
+#div_ad {
 	width: 900px;
 	MARGIN-RIGHT: auto;
 	MARGIN-LEFT: auto;
@@ -150,31 +147,27 @@ h1 {
 	MARGIN-LEFT: auto;
 }
 
-.listtitle {
+.list-title {
 	padding: 5px 0 5px 5px;
-	border-bottom-width: 2px;
-	border-bottom-style: solid;
-	border-bottom-color: #CCCCCC;
+	border-bottom: 2px solid #CCCCCC;
 	font-size: 14px;
 	font-weight: bold;
 	color: #1C3F09;
 }
 
-.listtd {
+.list-td {
 	padding: 5px 0 5px 30px;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	border-bottom-color: #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
 }
 
-.listcontent {
+.list-content {
 	background-color: #FCFDEF;
 	border: 1px solid #CCCCCC;
 	margin-left: 5px;
 	width: 99%;
 }
 
-.listcontent td {
+.list-content td {
 	padding: 20px;
 }
 
@@ -189,20 +182,20 @@ h1 {
 	padding: 5px;
 }
 
-.booklist {
+.book-list {
 	width: 100%;
 	margin: 0;
 	padding: 0;
 }
 
-.booklist td {
+.book-list td {
 	/* text-align: center; */
 	width: 25%;
 	margin: 0;
-	padding:10px 0 10px 40px;
+	padding: 10px 0 10px 40px;
 }
 
-.divbookpic {
+.div-book-pic {
 	width: 131px;
 	height: 145px;
 	border: 1px solid #CCCCCC;
@@ -215,13 +208,11 @@ h1 {
 	vertical-align: middle;
 }
 
-.divbookpic img {
-	position: static;
-	position: relative;
+.div-book-pic img {
 	top: 5%;
 }
 
-.divbookcover {
+.div-bookcover {
 	width: 300px;
 	height: 300px;
 	border: 3px solid #F3F2DE;
@@ -234,20 +225,19 @@ h1 {
 	vertical-align: middle;
 }
 
-.divbookcover img {
-	position: static;
+.div-bookcover img {
 	position: relative;
 	top: 5%;
 	padding-left: 20px;
 	padding-right: 20px;
 }
 
-.divlisttitle {
+.div-list-title {
 	line-height: 120%;
-	text-align:left;
+	text-align: left;
 }
 
-#divfoot {
+#div-foot {
 	width: 100%;
 	clear: both;
 	background-color: #efefef;
@@ -263,19 +253,19 @@ h1 {
 
 .ctl td {
 	text-align: left;
-/* 	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap; */
+	/* 	text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap; */
 	padding: 3px;
 }
 
-.inputtable {
+.input-table {
 	width: 130px;
 	height: 18px;
 	border: 1px solid #999999;
 }
 
-.inputbutton {
+.input-button {
 	color: #000000;
 	background-color: #FFFFFF;
 	padding: 1px;
@@ -291,7 +281,7 @@ h1 {
 }
 
 .pagination ul {
-	width:270px;
+	width: 270px;
 	margin: 5px auto;
 	padding: 5px;
 	font-size: 12px;
@@ -299,81 +289,91 @@ h1 {
 
 .pagination li {
 	list-style-type: none;
-	float:left;
+	float: left;
 	padding: 1px;
 	margin: 1px;
 }
 
-.pagination a,.pagination a:visited {
-	padding:5px;
+.pagination a, .pagination a:visited {
+	padding: 5px;
 	border: 1px solid #9aafe5;
 	text-decoration: none;
 	color: #2e6ab1;
 }
 
-
-
-.pagination li.currentpage {
+.pagination li.current-page {
 	font-weight: bold;
 	padding: 5px;
 	border: 1px solid navy;
 	background-color: #2e6ab1;
 	color: #FFF;
 }
-.disablepage_a{
-	display:block;
-	width:75px;
-	height:15px;
-	}
-.disablepage_a:link,.disablepage_a:visited{!important; padding:0; border:0;}
-.disablepage_a:hover{!important; padding:0; border:0; background:none; }
-.pagination li.disablepage_p {
+
+.disable-page_a {
+	display: block;
+	width: 75px;
+	height: 15px;
+}
+
+.disable-page_a:link, .disable-page_a:visited {
+!important;
+	padding: 0;
+	border: 0;
+}
+
+.disable-page_a:hover {
+!important;
+	padding: 0;
+	border: 0;
+	background: none;
+}
+
+.pagination li.disable-page_p {
 	width: 75px;
 	height: 15px;
 	padding: 5px;
 	color: #929292;
-	background:url(../images/previous_page.png) no-repeat center center;
+	background: url(../images/previous_page.png) no-repeat center center;
 }
 
-.pagination li.disablepage_p2 {
+.pagination li.disable-page_p2 {
 	width: 75px;
 	height: 15px;
 	padding: 5px;
 	color: #929292;
-	background:url(../images/previous_page2.png) no-repeat center center;
+	background: url(../images/previous_page2.png) no-repeat center center;
 }
 
-.pagination li.disablepage_n{
+.pagination li.disable-page_n {
 	width: 75px;
 	height: 15px;
 	padding: 5px;
 	color: #929292;
-	background:url(../images/next_page.png) no-repeat center center;
+	background: url(../images/next_page.png) no-repeat center center;
 }
 
-.pagination li.disablepage_n2{
+.pagination li.disable-page_n2 {
 	width: 75px;
 	height: 15px;
 	padding: 5px;
-	color: #929292;background:url(../images/next_page2.png) no-repeat center center;
+	color: #929292;
+	background: url(../images/next_page2.png) no-repeat center center;
 }
 
-.pagination li.nextpage {
+.pagination li.next-page {
 	font-weight: bold;
 	padding: 5px;
 }
 
 /*分页*/
 .upline {
-	border-bottom-width: 1px;
-	border-bottom-style: dashed;
-	border-bottom-color: #B0BEC7;
+	border-bottom: 1px dashed #B0BEC7;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	margin: 20px;
 }
 
-.textinput {
+.textInput {
 	margin-left: 10px;
 	font-size: 12px;
 	width: 150px;
@@ -389,11 +389,10 @@ h1 {
 	border: 1px solid #A4B5BD;
 }
 
-#logindiv {
-	background-image: url(../images/loginbg.gif);
+#login-div {
 	width: 305px;
 	height: 361px;
-	background-repeat: no-repeat;
+	background: url(../images/loginbg.gif) no-repeat;
 	margin: 20px;
 }
 
@@ -403,52 +402,33 @@ h1 {
 	background-color: #E1FFE1;
 }
 
-.tableopen {
+.table-open {
 	text-align: center;
 }
 
-.tableopentd01 {
+.table-open-td01 {
 	text-align: center;
-	border: 1px solid #FFFFFF;+
-	padding: 3px;
+	border: 1px solid #FFFFFF;
++ padding: 3 px;
 	color: #FFFFFF;
 }
 
-.tableopentd02 {
+.table-open-td02 {
 	text-align: center;
 	padding: 3px;
-	border-top-width: 1px;
-	border-right-width: 1px;
-	border-bottom-width: 1px;
-	border-left-width: 1px;
-	border-top-style: none;
+	border: 1px none #C5E0E2;
 	border-right-style: solid;
 	border-bottom-style: solid;
-	border-left-style: none;
-	border-top-color: #C5E0E2;
-	border-right-color: #C5E0E2;
-	border-bottom-color: #C5E0E2;
-	border-left-color: #C5E0E2;
 }
 
-.tableopentd03 {
+.table-open-td03 {
 	text-align: center;
 	padding: 3px;
-	border-top-width: 1px;
-	border-right-width: 1px;
-	border-bottom-width: 1px;
-	border-left-width: 1px;
-	border-top-style: none;
-	border-right-style: none;
+	border: 1px none #C5E0E2;
 	border-bottom-style: solid;
-	border-left-style: none;
-	border-top-color: #C5E0E2;
-	border-right-color: #C5E0E2;
-	border-bottom-color: #C5E0E2;
-	border-left-color: #C5E0E2;
 }
 
-.searchtable {
+.search-table {
 	width: 100%;
 	margin-top: 10px;
 	margin-bottom: 20px;

@@ -121,144 +121,122 @@ function CheckDate(strElem,strName)
 		return false
 	}
 }
-function CommCheckDate(strValue)
-{
-	var objRegExp = /^\d{4}(\-)\d{1,2}\1\d{1,2}$/;
-	if(!objRegExp.test(strValue))
-	{
-		return false;
-	}
-	//
-	var arrayDate = strValue.split(RegExp.$1);
-	var intDay = parseInt(arrayDate[2],10);
-	var intYear = parseInt(arrayDate[0],10);
-	var intMonth = parseInt(arrayDate[1],10);
-	switch(intMonth)
-	{
-		case 1:
-			if(intDay <= 31 && intDay >0)
-			{
-				return true;
-			}
-		case 3:
-			if(intDay <= 31 && intDay >0)
-			{
-				return true;
-			}
-		case 5:
-			if(intDay <= 31 && intDay >0)
-			{
-				return true;
-			}
-		case 7:
-			if(intDay <= 31 && intDay >0)
-			{
-				return true;
-			}
-		case 8:
-			if(intDay <= 31 && intDay >0)
-			{
-				return true;
-			}
-		case 10:
-			if(intDay <= 31 && intDay >0)
-			{
-				return true;
-			}
-		case 12:
-			if(intDay <= 31 && intDay >0)
-			{
-				return true;
-			}
-		case 4:
-			if(intDay <=30 && intDay >0)
-			{
-				return true;
-			}
-		case 6:
-			if(intDay <=30 && intDay >0)
-			{
-				return true;
-			}
-		case 9:
-			if(intDay <=30 && intDay >0)
-			{
-				return true;
-			}
-		case 11:
-			if(intDay <=30 && intDay >0)
-			{
-				return true;
-			}
-		case 2:
-			var booLeapYear = (intYear % 4 == 0 && (intYear % 100 != 0 || intYear % 400 == 0));
-			if( ((booLeapYear && intDay <= 29) || (!booLeapYear && intDay <=28)) && intDay >0)
-			{
-				return true;
-			}
-		default:
-			return false;
-	}
-	return false;
+
+/**
+ * @return {boolean}
+ */
+function CommCheckDate(strValue) {
+    var objRegExp = /^\d{4}(-)\d{1,2}\1\d{1,2}$/;
+    if (!objRegExp.test(strValue)) {
+        return false;
+    }
+    //
+    var arrayDate = strValue.split(RegExp.$1);
+    var intDay = parseInt(arrayDate[2], 10);
+    var intYear = parseInt(arrayDate[0], 10);
+    var intMonth = parseInt(arrayDate[1], 10);
+    switch (intMonth) {
+        case 1:
+            if (intDay <= 31 && intDay > 0) {
+                return true;
+            }
+        case 3:
+            if (intDay <= 31 && intDay > 0) {
+                return true;
+            }
+        case 5:
+            if (intDay <= 31 && intDay > 0) {
+                return true;
+            }
+        case 7:
+            if (intDay <= 31 && intDay > 0) {
+                return true;
+            }
+        case 8:
+            if (intDay <= 31 && intDay > 0) {
+                return true;
+            }
+        case 10:
+            if (intDay <= 31 && intDay > 0) {
+                return true;
+            }
+        case 12:
+            if (intDay <= 31 && intDay > 0) {
+                return true;
+            }
+        case 4:
+            if (intDay <= 30 && intDay > 0) {
+                return true;
+            }
+        case 6:
+            if (intDay <= 30 && intDay > 0) {
+                return true;
+            }
+        case 9:
+            if (intDay <= 30 && intDay > 0) {
+                return true;
+            }
+        case 11:
+            if (intDay <= 30 && intDay > 0) {
+                return true;
+            }
+        case 2:
+            var booLeapYear = (intYear % 4 == 0 && (intYear % 100 != 0 || intYear % 400 == 0));
+            if (((booLeapYear && intDay <= 29) || (!booLeapYear && intDay <= 28)) && intDay > 0) {
+                return true;
+            }
+        default:
+            return false;
+    }
 }
 
-function CompareDate(SmallDate,BigDate)
-{
-	var intSmallYearLen = SmallDate.indexOf('-');
-	var intBigYearLen = BigDate.indexOf('-');
+/**
+ * @return {boolean}
+ */
+function CompareDate(SmallDate,BigDate) {
+    var intSmallYearLen = SmallDate.indexOf('-');
+    var intBigYearLen = BigDate.indexOf('-');
 
-	if(intSmallYearLen==-1 || intBigYearLen==-1)
-	{
-		return true;
-	}
+    if (intSmallYearLen == -1 || intBigYearLen == -1) {
+        return true;
+    }
 
-	var strSmallYear = parseInt(SmallDate.substring(0,intSmallYearLen));
-	var strBigYear = parseInt(BigDate.substring(0,intBigYearLen));
-	if(strSmallYear > strBigYear)
-	{
-		return false;
-	}
-	else if(strSmallYear < strBigYear)
-	{
-		return true;
-	}
-	else if(strSmallYear == strBigYear)
-	{
-		var intSmallMonthLen = SmallDate.indexOf('-',5);
-		var intBigMonthLen = BigDate.indexOf('-',5);
-		var strSmallMonth = parseInt(SmallDate.substring(intSmallYearLen+1,intSmallMonthLen));
-		var strBigMonth = parseInt(BigDate.substring(intBigYearLen+1,intBigMonthLen));
-		if(strSmallMonth > strBigMonth)
-		{
-			return false;
-		}
-		else if(strSmallMonth < strBigMonth)
-		{
-			return true;
-		}
-		else if(strSmallMonth == strBigMonth)
-		{
-			if(SmallDate.indexOf(':')>0)
-			{
-				SmallDate = SmallDate.substring(0,SmallDate.length-8);
-			}
-			if(BigDate.indexOf(':')>0)
-			{
-				BigDate = BigDate.substring(0,BigDate.length-8);
-			}
-			var intSmallDay = SmallDate.lastIndexOf('-')+1;
-			var intBigDay = BigDate.lastIndexOf('-')+1;
-			var strSmallDay = parseInt(SmallDate.substring(intSmallDay,SmallDate.length));
-			var strBigDay = parseInt(BigDate.substring(intBigDay,BigDate.length));
-			if(strSmallDay > strBigDay || strSmallDay == strBigDay)
-			{
-				return false;
-			}
-			else
-			{
-				return true;
-			}
-		}
-	}
-
+    var strSmallYear = parseInt(SmallDate.substring(0, intSmallYearLen));
+    var strBigYear = parseInt(BigDate.substring(0, intBigYearLen));
+    if (strSmallYear > strBigYear) {
+        return false;
+    }
+    else if (strSmallYear < strBigYear) {
+        return true;
+    }
+    else if (strSmallYear == strBigYear) {
+        var intSmallMonthLen = SmallDate.indexOf('-', 5);
+        var intBigMonthLen = BigDate.indexOf('-', 5);
+        var strSmallMonth = parseInt(SmallDate.substring(intSmallYearLen + 1, intSmallMonthLen));
+        var strBigMonth = parseInt(BigDate.substring(intBigYearLen + 1, intBigMonthLen));
+        if (strSmallMonth > strBigMonth) {
+            return false;
+        }
+        else if (strSmallMonth < strBigMonth) {
+            return true;
+        }
+        else if (strSmallMonth == strBigMonth) {
+            if (SmallDate.indexOf(':') > 0) {
+                SmallDate = SmallDate.substring(0, SmallDate.length - 8);
+            }
+            if (BigDate.indexOf(':') > 0) {
+                BigDate = BigDate.substring(0, BigDate.length - 8);
+            }
+            var intSmallDay = SmallDate.lastIndexOf('-') + 1;
+            var intBigDay = BigDate.lastIndexOf('-') + 1;
+            var strSmallDay = parseInt(SmallDate.substring(intSmallDay, SmallDate.length));
+            var strBigDay = parseInt(BigDate.substring(intBigDay, BigDate.length));
+            if (strSmallDay > strBigDay || strSmallDay == strBigDay) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
 }

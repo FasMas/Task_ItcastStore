@@ -1,6 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib prefix="p" uri="http://www.itcast.cn/tag"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
 <title>电子书城</title>
@@ -17,22 +17,22 @@
 					<table width="100%" border="0" cellspacing="0"
 						style="margin-top:30px">
 						<tr>
-							<td class="listtitle">我的帐户</td>
+							<td class="list-title">我的帐户</td>
 						</tr>
 						<tr>
-							<td class="listtd">
+							<td class="list-td">
 								<img src="${pageContext.request.contextPath }/client/images/icon1.png" width="15" height="10" />&nbsp;&nbsp;&nbsp;&nbsp;
 								<a href="${pageContext.request.contextPath }/client/modifyuserinfo.jsp">用户信息修改</a>
 							</td>
 						</tr>
 						<tr>
-							<td class="listtd">
+							<td class="list-td">
 								<img src="${pageContext.request.contextPath }/client/images/icon2.png" width="15" height="10" />&nbsp;&nbsp;&nbsp;&nbsp;
 								<a href="${pageContext.request.contextPath}/findOrderByUser">订单查询</a>
 							</td>
 						</tr>
 						<tr>
-							<td class="listtd">
+							<td class="list-td">
 								<img src="${pageContext.request.contextPath }/client/images/icon3.png" width="15" height="10" />&nbsp;&nbsp;&nbsp;&nbsp;
 								<a href="${pageContext.request.contextPath}/logout">用戶退出</a>
 							</td>
@@ -62,12 +62,12 @@
 									</tr>
 									<tr>
 										<td style="text-align:right">修改密码：</td>
-										<td><input type="password" class="textinput" /></td>
-										<td><font color="#999999">密码设置至少6位，请区分大小写</font></td>
+										<td><input type="password" class="textInput" /></td>
+										<td><span style="color: #999999; ">密码设置至少6位，请区分大小写</span></td>
 									</tr>
 									<tr>
 										<td style="text-align:right">重复密码：</td>
-										<td><input type="password" class="textinput" /></td>
+										<td><input type="password" class="textInput" /></td>
 										<td>&nbsp;</td>
 									</tr>
 									<tr>
@@ -81,7 +81,7 @@
 									<tr>
 										<td style="text-align:right">联系方式：</td>
 										<td colspan="2">
-											<input name="text2" type="text" value="${user.telephone}" class="textinput" />
+											<input name="text2" type="text" value="${user.telephone}" class="textInput" />
 										</td>
 									</tr>
 									<tr>
@@ -91,8 +91,8 @@
 									</tr>
 								</table>
 								<p style="text-align:center">
-									<a href="success.html">
-										<img src="${pageContext.request.contextPath }/client/images/botton_gif_025.gif" border="0" width="140" height="35"/>
+									<a href="${pageContext.request.contextPath}/client/myAccount.jsp">
+										<img src="${pageContext.request.contextPath }/client/images/button_gif_025.gif" border="0" width="140" height="35"/>
 									</a>
 								</p>
 								<p style="text-align:center">&nbsp;</p>

@@ -23,7 +23,7 @@ public class CallbackServlet extends HttpServlet {
 
 	@SuppressWarnings("unchecked")
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 获得所有的回调数据
+		//获得所有的回调数据
 		String p1_MerId = request.getParameter("p1_MerId");
 		String r0_Cmd = request.getParameter("r0_Cmd");
 		String r1_Code = request.getParameter("r1_Code");
@@ -41,20 +41,20 @@ public class CallbackServlet extends HttpServlet {
 		String rq_CardNo = request.getParameter("rq_CardNo");
 		String ru_TrxTime = request.getParameter("ru_TrxTime");
 
-		// 身份校验，判断是不是支付公司通知你
+		//身份校验，判断是不是支付公司通知你
 		//哈希信息验证码
 		String hmac = request.getParameter("hmac");
 		//商户密钥
 		String keyValue = ResourceBundle.getBundle("merchantInfo").getString("keyValue");
 
-		// 自己对上面数据进行加密，比较支付公司发过来hmac
+		//自己对上面数据进行加密，比较支付公司发过来hmac
 		boolean isValid = PaymentUtils.verifyHmac(hmac, p1_MerId, r0_Cmd, r1_Code, r2_TrxId, r3_Amt, r4_Cur, r5_Pid, r6_Order, r7_Uid, r8_MP, r9_BType, keyValue);
 		if(isValid) {
-			if(StringExt.equals(r9_BType,"1") || StringExt.equals(r9_BType,"2")) { // 判断正确支付.
-				// 响应数据有效，完成修改订单状态操作
+			if(StringExt.equals(r9_BType,"1") || StringExt.equals(r9_BType,"2")) { //判断正确支付.
+				//响应数据有效，完成修改订单状态操作
 				OrderService service = new OrderService();
 				try {
-					// 根据订单号修改订单状态
+					//根据订单号修改订单状态
 					service.updateOrderState(r6_Order);
 					response.getWriter().println("信息：修改订单状态成功！");
 				} catch(Exception e) {

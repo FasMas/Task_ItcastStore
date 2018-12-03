@@ -1,15 +1,15 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page import="java.util.*" pageEncoding="UTF-8"%>
+
 <html>
 <head>
 
 <title>传智书城注册页面</title>
 <%--导入css和js --%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/client/css/main.css" type="text/css"/>
-<script type="text/javascript" src="${pageContext.request.contextPath}/client/js/form.js"></script>
+<script src="${pageContext.request.contextPath}/client/js/checkForm.js"></script>
 <script type="text/javascript">
 	function changeImage() {
-		// 改变验证码图片中的文字
+		//改变验证码图片中的文字
 		document.getElementById("img").src = "${pageContext.request.contextPath}/imageCode?time="
 				+ new Date().getTime();
 	}
@@ -33,25 +33,26 @@
 							<tr>
 								<td style="text-align: right; width: 20%">邮箱：</td>
 								<td style="width: 40%">
-								<input type="text" class="textinput"  id="email" name="email" onkeyup="checkEmail();"/>
+								<input type="text" class="textInput" id="email" name="email" onkeyup="checkEmail();"/>
 								</td>
-								<td colspan="2"><span id="emailMsg"></span><font color="#999999">请输入有效的邮箱地址</font></td>
+								<td colspan="2"><span id="emailMsg"></span><span
+										style="color: #999999; ">请输入有效的邮箱地址</span></td>
 							</tr>
 							<tr>
 								<td style="text-align: right">用户名：</td>
-								<td><input type="text" class="textinput"  id="userName" name="userName" onkeyup="checkUsername();"/>
+								<td><input type="text" class="textInput" id="userName" name="userName" onkeyup="checkUsername();"/>
 								</td>
-								<td colspan="2"><span id="usernameMsg"></span><font color="#999999">字母数字下划线1到10位, 不能是数字开头</font></td>
+								<td colspan="2"><span id="usernameMsg"></span><span style="color: #999999; ">字母数字下划线1到10位, 不能是数字开头</span></td>
 							</tr>
 							<tr>
 								<td style="text-align: right">密码：</td>
-								<td><input type="password" class="textinput"  id="password" name="password" onkeyup="checkPassword();"/></td>
-								<td><span id="passwordMsg"></span><font color="#999999">密码请设置6-16位字符</font></td>
+								<td><input type="password" class="textInput" id="password" name="password" onkeyup="checkPassword();"/></td>
+								<td><span id="passwordMsg"></span><span style="color: #999999; ">密码请设置6-16位字符</span></td>
 							</tr>
 							<tr>
 								<td style="text-align: right">重复密码：</td>
 								<td>
-								<input type="password" class="textinput"  id="repassword" name="repassword" onkeyup="checkConfirm();"/>
+								<input type="password" class="textInput" id="repassword" name="repassword" onkeyup="checkConfirm();"/>
 								</td>
 								<td><span id="confirmMsg"></span>&nbsp;</td>
 							</tr>
@@ -67,7 +68,7 @@
 							<tr>
 								<td style="text-align: right">联系电话：</td>
 								<td colspan="2">
-								<input type="text" class="textinput"
+								<input type="text" class="textInput"
 									style="width: 350px" name="telephone" />
 								</td>
 								<td>&nbsp;</td>
@@ -87,15 +88,15 @@
 							<tr>
 								<td style="text-align: right; width: 20%">输入验证码：</td>
 								<td style="width: 50%">
-								<input type="text" class="textinput" />
+								<input type="text" class="textInput" />
 								</td>
 								<td>&nbsp;</td>
 							</tr>
 							<tr>
 								<td style="text-align: right; width: 20%;">&nbsp;</td>
 								<td rowspan="2" style="width: 50%">
-								<img src="${pageContext.request.contextPath}/imageCode" width="180"
-									height="30" class="textinput" style="height: 30px;" id="img" />&nbsp;&nbsp;
+								<img src="${pageContext.request.contextPath}/checkImage" width="180"
+									 height="30" class="textInput" style="height: 30px;" id="img" />&nbsp;&nbsp;
 									<a href="javascript:void(0);" onclick="changeImage()">看不清换一张</a>
 								</td>
 							</tr>

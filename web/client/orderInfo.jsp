@@ -1,7 +1,7 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="p" uri="http://www.itcast.cn/tag"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
 <title>电子书城</title>
@@ -47,23 +47,23 @@
 												<table width="100%" border="0" cellspacing="0">
 													<tr>
 														<td width="10%">${vs.count }</td>
-														<td width="40%">${item.p.name}</td>
-														<td width="10%">${item.p.price }</td>
+														<td width="40%">${item.product.name}</td>
+														<td width="10%">${item.product.price }</td>
 														<td width="10%">${item.buyNum }</td>
-														<td width="10%">${item.buyNum*item.p.price }</td>
+														<td width="10%">${item.buyNum*item.product.price }</td>
 													</tr>
 												</table>
 											</c:forEach>
 											<table cellspacing="1" class="cart-table">
 												<tr>
-													<td style="text-align:right; padding-right:40px;"><font
-														style="color:#FF0000">合计：&nbsp;&nbsp;${order.money}</font>
+													<td style="text-align:right; padding-right:40px;"><span
+														style="color:#FF0000">合计：&nbsp;&nbsp;${order.money}</span>
 													</td>
 												</tr>
 											</table>
 											<p>
-												收货地址：${order.receiverAddress }&nbsp;&nbsp;&nbsp;&nbsp;<br />
-												收货人：&nbsp;&nbsp;&nbsp;&nbsp;${order.receiverName }&nbsp;&nbsp;&nbsp;&nbsp;<br />
+												收货地址：${order.receiverAddress }&nbsp;&nbsp;&nbsp;&nbsp;<br>
+												收货人：&nbsp;&nbsp;&nbsp;&nbsp;${order.receiverName }&nbsp;&nbsp;&nbsp;&nbsp;<br>
 												联系方式：${order.receiverPhone }&nbsp;&nbsp;&nbsp;&nbsp;
 											</p>
 											<hr>

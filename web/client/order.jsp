@@ -1,12 +1,12 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="p" uri="http://www.itcast.cn/tag"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
 	<title>电子书城</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/client/css/main.css" type="text/css" />
-	<script type="text/javascript" src="${pageContext.request.contextPath}/client/js/order.js"></script>
+	<script src="${pageContext.request.contextPath}/client/js/checkOrder.js"></script>
 </head>
 <body class="main">
 	<p:user/>
@@ -62,8 +62,8 @@
 
 												<table cellspacing="1" class="cart-table">
 													<tr>
-														<td style="text-align:right; padding-right:40px;"><font
-															style="color:#FF0000">合计：&nbsp;&nbsp;${totalPrice}元</font>
+														<td style="text-align:right; padding-right:40px;"><span
+															style="color:#FF0000">合计：&nbsp;&nbsp;${totalPrice}元</span>
 															<input type="hidden" name="money" value="${totalPrice}">
 														</td>
 													</tr>

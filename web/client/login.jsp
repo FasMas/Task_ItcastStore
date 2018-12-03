@@ -1,5 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page import="java.util.*" pageEncoding="UTF-8"%>
+
 <html>
 <head>
 <title>电子书城</title>
@@ -13,12 +13,12 @@
 			<table width="900px" border="0" cellspacing="0">
 				<tr>
 					<td style="padding:30px"><div style="height:470px">
-							<b>&nbsp;&nbsp;首页&nbsp;&raquo;&nbsp;个人用户登录</b>
+							<strong>&nbsp;&nbsp;首页&nbsp;&raquo;&nbsp;个人用户登录</strong>
 							<div>
 								<table width="85%" border="0" cellspacing="0">
 									<tr>
 										<td>
-											<div id="logindiv">
+											<div id="login-div">
 												<table width="100%" border="0" cellspacing="0">
 													<tr>
 														<td style="text-align:center; padding-top:20px">
@@ -26,8 +26,8 @@
 														</td>
 													</tr>
 													<tr>
-														<td style="text-align:center;padding-top:20px;"><font
-															color="#ff0000">${requestScope.register_message}</font>
+														<td style="text-align:center;padding-top:20px;"><span
+																style="color: #ff0000; ">${requestScope.register_message}</span>
 														</td>
 													</tr>
 													<tr>
@@ -38,13 +38,13 @@
 																	<td
 																		style="text-align:right; padding-top:5px; width:25%">用户名：</td>
 																	<td style="text-align:left"><input name="userName"
-																		type="text" class="textinput" />
+																		type="text" class="textInput" />
 																	</td>
 																</tr>
 																<tr>
 																	<td style="text-align:right; padding-top:5px">密&nbsp;&nbsp;&nbsp;&nbsp;码：</td>
 																	<td style="text-align:left"><input name="password"
-																		type="password" class="textinput" />
+																		type="password" class="textInput" />
 																	</td>
 																</tr>
 																<tr>

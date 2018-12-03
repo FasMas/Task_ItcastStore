@@ -29,47 +29,47 @@ public class EditProductServlet extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 创建产品对象
+		//创建产品对象
 		Product product = new Product();
-		// 封装需要的参数
+		//封装需要的参数
 		Map<String, String> map = new HashMap<>();
 
 		DiskFileItemFactory dfif = new DiskFileItemFactory();
-		// 设置临时文件存储位置
+		//设置临时文件存储位置
 		dfif.setRepository(new File(this.getServletContext().getRealPath("/temp")));
-		// 设置上传文件的缓存大小为10m
+		//设置上传文件的缓存大小为10m
 		dfif.setSizeThreshold(1024 * 1024 * 10);
-		// 创建上传组件
+		//创建上传组件
 		ServletFileUpload upload = new ServletFileUpload(dfif);
-		// 处理上传文件中文乱码
+		//处理上传文件中文乱码
 		upload.setHeaderEncoding("utf-8");
 
 		//复制缓存到本地
 		try {
-			// 解析request得到所有的FileItem
+			//解析request得到所有的FileItem
 			List<FileItem> items = upload.parseRequest(request);
-			// 遍历所有FileItem
+			//遍历所有FileItem
 			for(FileItem item : items) {
 				if(item.isFormField()) {
-					// 如果不是上传组件
-					// 获取组件名称
+					//如果不是上传组件
+					//获取组件名称
 					String fieldName = item.getFieldName();
-					// 解决乱码问题
+					//解决乱码问题
 					String value = item.getString("utf-8");
 					map.put(fieldName, value);
 				} else {
-					// 如果是上传组件
-					// 得到上传文件真实名称
+					//如果是上传组件
+					//得到上传文件真实名称
 					String fileName = FileUploadUtils.getFileName(item.getName());
-					// 得到随机名称
+					//得到随机名称
 					String randomName = FileUploadUtils.generateRandomFileName(fileName);
-					// 得到随机目录
+					//得到随机目录
 					String randomDir = FileUploadUtils.generateRandomDir(randomName);
-					// 得到相对的图片存储父目录
+					//得到相对的图片存储父目录
 					String imgUrl_parent = "/productImg" + randomDir;
-					// 得到绝对的存储父目录对应的文件对象
+					//得到绝对的存储父目录对应的文件对象
 					File parentDir = new File(this.getServletContext().getRealPath(imgUrl_parent));
-					// 验证目录是否存在，如果不存在，创建出来
+					//验证目录是否存在，如果不存在，创建出来
 					if(!parentDir.exists())
 						parentDir.mkdirs();
 
@@ -85,7 +85,7 @@ public class EditProductServlet extends HttpServlet {
 			response.getWriter().println("警告：编辑商品信息！");
 		}
 
-		// 将数据封装到产品对象中
+		//将数据封装到产品对象中
 		try {
 			BeanUtils.populate(product, map);
 		} catch(IllegalAccessException | InvocationTargetException e) {
@@ -95,7 +95,7 @@ public class EditProductServlet extends HttpServlet {
 
 		//添加产品并重定向地址
 		ProductService service = new ProductService();
-		// 调用service完成修改商品操作
+		//调用service完成修改商品操作
 		service.editProduct(product);
 
 		response.sendRedirect(request.getContextPath() + "/listProduct");

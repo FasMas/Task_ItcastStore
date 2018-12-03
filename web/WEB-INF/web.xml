@@ -180,12 +180,12 @@
 	<!--</servlet-mapping>-->
 
 	<!--<servlet>-->
-		<!--<servlet-name>FindProductsByConditionServlet</servlet-name>-->
-		<!--<servlet-class>task_itcaststore.web.servlet.manager.FindProductsByConditionServlet</servlet-class>-->
+		<!--<servlet-name>FindProductsByConditionsServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.FindProductsByConditionsServlet</servlet-class>-->
 	<!--</servlet>-->
 	<!--<servlet-mapping>-->
-		<!--<servlet-name>FindProductsByConditionServlet</servlet-name>-->
-		<!--<url-pattern>/findProductsByCondition</url-pattern>-->
+		<!--<servlet-name>FindProductsByConditionsServlet</servlet-name>-->
+		<!--<url-pattern>/findProductsByConditions</url-pattern>-->
 	<!--</servlet-mapping>-->
 
 	<!--<servlet>-->
@@ -207,12 +207,12 @@
 	<!--</servlet-mapping>-->
 
 	<!--<servlet>-->
-		<!--<servlet-name>FindOrdersByConditionServlet</servlet-name>-->
-		<!--<servlet-class>task_itcaststore.web.servlet.manager.FindOrdersByManyConditionServlet</servlet-class>-->
+		<!--<servlet-name>FindOrdersByConditionsServlet</servlet-name>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.manager.FindOrdersByConditionsServlet</servlet-class>-->
 	<!--</servlet>-->
 	<!--<servlet-mapping>-->
-		<!--<servlet-name>FindOrdersByConditionServlet</servlet-name>-->
-		<!--<url-pattern>/findOrdersByCondition</url-pattern>-->
+		<!--<servlet-name>FindOrdersByConditionsServlet</servlet-name>-->
+		<!--<url-pattern>/findOrdersByConditions</url-pattern>-->
 	<!--</servlet-mapping>-->
 
 	<!--<servlet>-->
@@ -226,7 +226,7 @@
 
 	<!--<servlet>-->
 		<!--<servlet-name>CheckImageServlet</servlet-name>-->
-		<!--<servlet-class>task_itcaststore.utils.CheckImageServlet</servlet-class>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.view.CheckImageServlet</servlet-class>-->
 	<!--</servlet>-->
 	<!--<servlet-mapping>-->
 		<!--<servlet-name>CheckImageServlet</servlet-name>-->
@@ -320,7 +320,7 @@
 
 	<!--<servlet>-->
 		<!--<servlet-name>MenuSearchServlet</servlet-name>-->
-		<!--<servlet-class>task_itcaststore.web.servlet.client.MenuSearchServlet</servlet-class>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.view.MenuSearchServlet</servlet-class>-->
 	<!--</servlet>-->
 	<!--<servlet-mapping>-->
 		<!--<servlet-name>MenuSearchServlet</servlet-name>-->
@@ -329,7 +329,7 @@
 
 	<!--<servlet>-->
 		<!--<servlet-name>ShowIndexServlet</servlet-name>-->
-		<!--<servlet-class>task_itcaststore.web.servlet.client.ShowIndexServlet</servlet-class>-->
+		<!--<servlet-class>task_itcaststore.web.servlet.view.ShowIndexServlet</servlet-class>-->
 	<!--</servlet>-->
 	<!--<servlet-mapping>-->
 		<!--<servlet-name>ShowIndexServlet</servlet-name>-->

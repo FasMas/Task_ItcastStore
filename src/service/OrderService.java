@@ -20,25 +20,25 @@ public class OrderService {
 	 */
 	public void addOrder(Order order) {
 		try {
-			// 1.开启事务
+			//1.开启事务
 			DataSourceUtils.startTransaction();
-			// 2.完成操作
-			// 2.1向orders表中添加数据
+			//2.完成操作
+			//2.1向orders表中添加数据
 			orderDao.addProduct(order);
-			// 2.2向orderItem表中添加数据
+			//2.2向orderItem表中添加数据
 			orderItemDao.addOrderItems(order);
-			// 2.3修改商品表中数据
+			//2.3修改商品表中数据
 			productDao.updateProductNumWhenAdd(order);
 		} catch(SQLException e) {
 			e.printStackTrace();
 			try {
-				DataSourceUtils.rollback(); // 事务回滚
+				DataSourceUtils.rollback(); //事务回滚
 			} catch(SQLException e1) {
 				e1.printStackTrace();
 			}
 		} finally {
 			try {
-				// 关闭，释放以及提交事务
+				//关闭，释放以及提交事务
 				DataSourceUtils.releaseAndCloseConnection();
 			} catch(SQLException e) {
 				e.printStackTrace();
@@ -106,10 +106,10 @@ public class OrderService {
 	/**
 	 * 多条件查询订单信息。
 	 */
-	public List<Order> findOrdersByCondition(String id, String receiverName) {
+	public List<Order> findOrdersByConditions(String id, String receiverName) {
 		List<Order> orderList = null;
 		try {
-			orderList = orderDao.findOrdersByCondition(id, receiverName);
+			orderList = orderDao.findOrdersByConditions(id, receiverName);
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}

@@ -77,9 +77,9 @@ public class Product implements Serializable {
 		return imgUrl;
 	}
 
-	// a.jpg a_s.jpg
+	//a.jpg a_s.jpg
 	public String getImgUrl_s() {
-		int index = imgUrl.lastIndexOf("."); // 得到最的.的索引
+		int index = imgUrl.lastIndexOf("."); //得到最的.的索引
 		String first = imgUrl.substring(0, index);
 		String last = imgUrl.substring(index);
 		return first + "_s" + last;

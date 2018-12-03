@@ -19,14 +19,14 @@ public class LogoutServlet extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// flag标识
+		//flag标识
 		String flag = request.getParameter("flag").trim();
-		// 获取session对象.
+		//获取session对象.
 		HttpSession session = request.getSession();
 
-		// 销毁session
+		//销毁session
 		session.invalidate();
-		// 如果标识不为空，则重定向到首页
+		//如果标识不为空，则重定向到首页
 		if(!StringExt.isEmpty(flag)) {
 			response.sendRedirect(request.getContextPath() + "/index.jsp");
 		}

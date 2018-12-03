@@ -12,8 +12,8 @@ import java.util.List;
 /**
  * 多条件查询订单的Servlet
  */
-@WebServlet(name = "FindOrdersByConditionServlet",urlPatterns = {"/manager/findOrdersByCondition"})
-public class FindOrdersByConditionServlet extends HttpServlet {
+@WebServlet(name = "FindOrdersByConditionsServlet",urlPatterns = {"/manager/findOrdersByConditions"})
+public class FindOrdersByConditionsServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
@@ -25,8 +25,8 @@ public class FindOrdersByConditionServlet extends HttpServlet {
 		String id = request.getParameter("id").trim();
 		String receiverName = request.getParameter("receiverName").trim();
 
-		//调用Service层OrderService类的findOrderByManyCondition()方法查询数据
-		List<Order> orderList = service.findOrdersByCondition(id, receiverName);
+		//调用Service层OrderService类的findOrder()方法查询数据
+		List<Order> orderList = service.findOrdersByConditions(id, receiverName);
 
 		//将查询结果添加到request作用域中
 		request.setAttribute("orders", orderList);

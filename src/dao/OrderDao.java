@@ -22,11 +22,11 @@ public class OrderDao {
 	 * 生成订单。
 	 */
 	public void addProduct(@NotNull Order order) throws SQLException {
-		// 1.生成Sql语句
+		//1.生成Sql语句
 		String sql = "insert into orders values(?,?,?,?,?,0,null,?)";
-		// 2.生成执行sql语句的QueryRunner,不传递参数
+		//2.生成执行sql语句的QueryRunner,不传递参数
 		QueryRunner runner = new QueryRunner();
-		// 3.执行update()方法插入数据
+		//3.执行update()方法插入数据
 		runner.update(DataSourceUtils.getConnection(), sql, order.getId(), order.getMoney(), order.getReceiverAddress(), order.getReceiverName(), order.getReceiverPhone(), order.getUser().getId());
 	}
 
@@ -91,7 +91,7 @@ public class OrderDao {
 	/**
 	 * 多条件查询。
 	 */
-	public List<Order> findOrdersByCondition(@Nullable String id, @Nullable String receiverName) throws SQLException {
+	public List<Order> findOrdersByConditions(@Nullable String id, @Nullable String receiverName) throws SQLException {
 		//1.创建集合对象，用于存储参数
 		List<Object> paramList = new ArrayList<>();
 		//2.定义查询sql

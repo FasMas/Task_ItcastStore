@@ -19,9 +19,9 @@ public class DelProductServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ProductService service = new ProductService();
-		// 获取请求参数，产品id
+		//获取请求参数，产品id
 		String id = request.getParameter("id").trim();
-		// 调用service完成添加商品操作
+		//调用service完成添加商品操作
 		service.deleteProduct(id);
 		response.sendRedirect(request.getContextPath() + "/listProduct");
 	}

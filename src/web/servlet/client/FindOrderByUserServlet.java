@@ -19,10 +19,10 @@ public class FindOrderByUserServlet extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 获取名为“user”的session
+		//获取名为“user”的session
 		User user = (User) request.getSession().getAttribute("user");
 
-		// 调用service中的方法,根据用户信息查找订单
+		//调用service中的方法,根据用户信息查找订单
 		OrderService service = new OrderService();
 		List<Order> orders = service.findOrdersByUser(user);
 		request.setAttribute("orders", orders);

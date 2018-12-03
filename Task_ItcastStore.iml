@@ -33,5 +33,6 @@
     <orderEntry type="library" name="org.apache.taglibs:taglibs-standard-compat:1.2.5" level="application" />
     <orderEntry type="library" name="tomcat" level="application" />
     <orderEntry type="library" name="org.jetbrains:annotations:16.0.2" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
   </component>
 </module>

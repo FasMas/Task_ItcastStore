@@ -1,5 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page import="java.util.*" pageEncoding="UTF-8"%>
+
 <html>
 <head>
 	<title>电子书城</title>
@@ -25,24 +25,24 @@
 				<td width="25%">
 					<table width="100%" border="0" cellspacing="0" style="margin-top:30px">
 						<tr>
-							<td class="listtitle">我的帐户</td>
+							<td class="list-title">我的帐户</td>
 						</tr>
 						<tr>
-							<td class="listtd">
+							<td class="list-td">
 								<img src="${pageContext.request.contextPath }/client/images/icon1.png" width="15" height="10" />
 								&nbsp;&nbsp;&nbsp;&nbsp;
 								<a href="${pageContext.request.contextPath }/client/modifyuserinfo.jsp">用户信息修改</a>
 							</td>
 						</tr>
 						<tr>
-							<td class="listtd">
+							<td class="list-td">
 								<img src="${pageContext.request.contextPath }/client/images/icon2.png" width="15" height="10" />
 								&nbsp;&nbsp;&nbsp;&nbsp;
 								<a href="${pageContext.request.contextPath}/findOrderByUser">订单查询</a>
 							</td>
 						</tr>
 						<tr>
-							<td class="listtd">
+							<td class="list-td">
 								<img src="${pageContext.request.contextPath }/client/images/icon3.png" width="15" height="10" />
 								&nbsp;&nbsp;&nbsp;&nbsp;
 								<a href="${pageContext.request.contextPath}/logout" onclick="return confirm_logout()">用户退出</a>

@@ -1,4 +1,4 @@
-package task_itcaststore.web.servlet.client;
+package task_itcaststore.web.servlet.view;
 
 
 import task_itcaststore.domain.PageBean;
@@ -22,28 +22,28 @@ public class MenuSearchServlet extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1.定义当前页码，默认为1
+		//1.定义当前页码，默认为1
 		int currentPage;
 		try {
 			currentPage = Integer.parseInt(request.getParameter("currentPage").trim());
 		} catch(NumberFormatException e) {
 			currentPage = 1;
 		}
-		// 2.定义每页显示条数,默认为4
+		//2.定义每页显示条数,默认为4
 		int currentCount = 4;
 		//获取前台页面搜索框输入的值
 		String searchField = request.getParameter("textField");
 
 		//如果搜索框中没有输入值，则表单传递的为默认值，此时默认查询全部商品目录
 		if(StringExt.equals(searchField,"请输入...")) {
-			request.getRequestDispatcher("/showProductByPage").forward(request, response);
+			request.getRequestDispatcher("/showProductsByPage").forward(request, response);
 			return;
 		}
 
 		//调用service层的方法，通过书名模糊查询，查找相应的图书
 		ProductService service = new ProductService();
 		PageBean page = service.findBooksByName(currentPage, currentCount, searchField);
-		// 将数据存储到request范围，跳转到product_search_list.jsp页面展示
+		//将数据存储到request范围，跳转到product_search_list.jsp页面展示
 		request.setAttribute("page", page);
 		request.getRequestDispatcher("/client/product_search_list.jsp").forward(request, response);
 	}

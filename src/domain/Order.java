@@ -25,7 +25,7 @@ public class Order {
 	/** 订单所属用户 */
 	private User user;
 
-	private List<OrderItem> orderItems = new ArrayList<OrderItem>();
+	private List<OrderItem> orderItems = new ArrayList<>();
 
 
 	public String getId() {

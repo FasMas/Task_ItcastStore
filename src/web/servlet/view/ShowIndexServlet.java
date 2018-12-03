@@ -1,4 +1,4 @@
-package task_itcaststore.web.servlet.client;
+package task_itcaststore.web.servlet.view;
 
 import task_itcaststore.domain.Notice;
 import task_itcaststore.service.NoticeService;

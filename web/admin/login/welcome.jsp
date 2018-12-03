@@ -1,9 +1,9 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page pageEncoding="UTF-8"%>
 <html>
 <head>
 	<meta http-equiv="Content-Language" content="zh-cn">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="${pageContext.request.contextPath}/admin/css/Style.css" type="text/css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/admin/css/style.css" type="text/css" rel="stylesheet" />
 <style type="text/css">
 </style>
 <style>
@@ -18,11 +18,11 @@ BODY {SCROLLBAR-FACE-COLOR: #cccccc; SCROLLBAR-HIGHLIGHT-COLOR: #ffffFF; SCROLLB
 		</tr>
 		<tr>
 			<td width="65%" height="84" align="center" valign="top" >
-				<br />
+				<br>
 				<span class="size:48;">登录成功！</span>
 			</td>
 		</tr>
-		<tr><td height=2></td></tr>	
+		<tr><td height=2></td></tr>
 	</table>
 	</form>
 </body>

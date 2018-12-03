@@ -9,7 +9,7 @@ import java.io.IOException;
  * 注册的Servlet
  * TODO 完整的登录注册系统
  */
-@WebServlet(name = "registerServlet",urlPatterns = "register")
+@WebServlet(name = "registerServlet",urlPatterns = {"/register"})
 public class RegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

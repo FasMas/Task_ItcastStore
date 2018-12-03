@@ -21,10 +21,10 @@ public class ProductDao {
 	/**
 	 * 添加商品。
 	 */
-	public void addProduct(@NotNull Product p) throws SQLException {
+	public void addProduct(@NotNull Product product) throws SQLException {
 		String sql = "insert into products values(?,?,?,?,?,?,?)";
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-		runner.update(sql, p.getId(), p.getName(), p.getPrice(), p.getCategory(), p.getPnum(), p.getImgUrl(), p.getDescription());
+		runner.update(sql, product.getId(), product.getName(), product.getPrice(), product.getCategory(), product.getPnum(), product.getImgUrl(), product.getDescription());
 	}
 
 	/**
@@ -56,11 +56,11 @@ public class ProductDao {
 	 * 获取当前页数据。
 	 */
 	public List<Product> findProductsByPage(int currentPage, int currentCount, @NotNull String category) throws SQLException {
-		// 要执行的sql语句
+		//要执行的sql语句
 		String sql;
-		// 参数
+		//参数
 		Object[] obj;
-		// 如果category不为null,代表是按分类查找
+		//如果category不为null,代表是按分类查找
 		if(!"全部商品".equals(category)) {
 			sql = "select * from products where category=? limit ?,?";
 			obj = new Object[]{category, (currentPage - 1) * currentCount, currentCount,};
@@ -101,7 +101,7 @@ public class ProductDao {
 	/**
 	 * 多条件查询。
 	 */
-	public List<Product> findProductsByCondition(@Nullable String id, @Nullable String name, @Nullable String category, @Nullable String minPrice, @Nullable String maxPrice) throws SQLException {
+	public List<Product> findProductsByConditions(@Nullable String id, @Nullable String name, @Nullable String category, @Nullable String minPrice, @Nullable String maxPrice) throws SQLException {
 		String sql = "select * from products where 1=1 ";
 
 		List<Object> paramList = new ArrayList<>();
